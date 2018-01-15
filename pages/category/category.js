@@ -37,7 +37,7 @@ Page({
   },
   getCategoryInfo: function () {
     let that = this;
-    util.request(api.GoodsCategory, { id: this.data.id })
+    util.request(api.CategoryList, { id: this.data.id })
       .then(function (res) {
 
         if (res.errno == 0) {
@@ -81,7 +81,7 @@ Page({
   getGoodsList: function () {
     var that = this;
 
-    util.request(api.GoodsList, {categoryId: that.data.id, page: that.data.page, size: that.data.size})
+    util.request(api.GoodsList, {id: that.data.id, page: that.data.page, size: that.data.size})
       .then(function (res) {
         that.setData({
           goodsList: res.data.goodsList,

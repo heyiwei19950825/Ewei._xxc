@@ -1,4 +1,6 @@
-var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
+// var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
+var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
+
 
 module.exports = {
     IndexUrl: NewApiRootUrl + 'index/index', //首页数据接口
@@ -8,8 +10,8 @@ module.exports = {
     AuthLoginByWeixin: NewApiRootUrl + 'auth/loginByWeixin', //微信登录
 
     GoodsCount: NewApiRootUrl + 'goods/count',  //统计商品总数
-    GoodsList: NewApiRootUrl + 'goods/list',  //获得商品列表
-    GoodsCategory: NewApiRootUrl + 'goods/category',  //获得分类数据
+    GoodsList: NewApiRootUrl + 'goods/by_category/paginate',//获得商品列表
+    CategoryList: NewApiRootUrl + 'category/list',  //获得分类数据
     GoodsDetail: NewApiRootUrl + 'goods/detail',  //获得商品的详情
     GoodsNew: NewApiRootUrl + 'goods/new',  //新品
     GoodsHot: NewApiRootUrl + 'goods/hot',  //热门
