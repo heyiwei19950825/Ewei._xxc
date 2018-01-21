@@ -28,13 +28,13 @@ Page({
     });
   },
   addressAddOrUpdate (event) {
-    console.log(event)
+    //console.log(event)
     wx.navigateTo({
       url: '/pages/ucenter/addressAdd/addressAdd?id=' + event.currentTarget.dataset.addressId
     })
   },
   deleteAddress(event){
-    console.log(event.target)
+    //console.log(event.target)
     let that = this;
     wx.showModal({
       title: '',
@@ -47,7 +47,7 @@ Page({
               that.getAddressList();
             }
           });
-          console.log('用户点击确定')
+          //console.log('用户点击确定')
         }
       }
     })

@@ -17,9 +17,9 @@ Page({
   getCatalog: function () {
     //CatalogList
     let that = this;
-    wx.showLoading({
-      title: '加载中...',
-    });
+    // wx.showLoading({
+    //   title: '加载中...',
+    // });
     util.request(api.CatalogList).then(function (res) {
         that.setData({
           navList: res.data.categoryList,
@@ -36,7 +36,7 @@ Page({
   },
   getCurrentCategory: function (id) {
     let that = this;
-    util.request(api.CatalogCurrent, { id: id })
+    util.request(api.CatalogList, { id: id })
       .then(function (res) {
         that.setData({
           currentCategory: res.data.currentCategory

@@ -84,20 +84,20 @@ Page({
 
     util.request(api.SearchClearHistory, {}, 'POST')
       .then(function (res) {
-        console.log('清除成功');
+        //console.log('清除成功');
       });
   },
   getGoodsList: function () {
     let that = this;
-    util.request(api.GoodsList, { keyword: that.data.keyword, page: that.data.page, size: that.data.size, sort: that.data.currentSortType, order: that.data.currentSortOrder, categoryId: that.data.categoryId }).then(function (res) {
+    util.request(api.GoodsList, { keyword: that.data.keyword, page: that.data.page, size: that.data.size, sort: that.data.currentSortType, order: that.data.currentSortOrder, id: that.data.categoryId }).then(function (res) {
       if (res.errno === 0) {
         that.setData({
           searchStatus: true,
           categoryFilter: false,
-          goodsList: res.data.data,
+          goodsList: res.data.goodsList,
           filterCategory: res.data.filterCategory,
           page: res.data.currentPage,
-          size: res.data.numsPerPage
+          size: res.data.pagesize
         });
       }
 
@@ -111,45 +111,54 @@ Page({
 
   },
   getSearchResult(keyword) {
-    this.setData({
+    let that = this;
+
+    that.setData({
       keyword: keyword,
       page: 1,
       categoryId: 0,
-      goodsList: []
+      goodsList: [],
+      size: that.data.size
     });
 
     this.getGoodsList();
   },
   openSortFilter: function (event) {
     let currentId = event.currentTarget.id;
+    let that = this;
+
+    that.setData({
+          'size': that.data.size,
+        });
+     console.log(this.data.size);
     switch (currentId) {
       case 'categoryFilter':
-        this.setData({
-          'categoryFilter': !this.data.categoryFilter,
+        that.setData({
+          'categoryFilter': !that.data.categoryFilter,
           'currentSortOrder': 'asc'
         });
         break;
       case 'priceSort':
         let tmpSortOrder = 'asc';
-        if (this.data.currentSortOrder == 'asc') {
+        if (that.data.currentSortOrder == 'asc') {
           tmpSortOrder = 'desc';
         }
-        this.setData({
-          'currentSortType': 'price',
+        that.setData({
+          'currentSortType': 'sp_price',
           'currentSortOrder': tmpSortOrder,
           'categoryFilter': false
         });
 
-        this.getGoodsList();
+        that.getGoodsList();
         break;
       default:
         //综合排序
-        this.setData({
-          'currentSortType': 'default',
+        that.setData({
+          'currentSortType': 'id',
           'currentSortOrder': 'desc',
           'categoryFilter': false
         });
-        this.getGoodsList();
+        that.getGoodsList();
     }
   },
   selectCategory: function (event) {
@@ -169,7 +178,8 @@ Page({
       'categoryFilter': false,
       categoryId: currentCategory.id,
       page: 1,
-      goodsList: []
+      goodsList: [],
+      size: this.data.size
     });
     this.getGoodsList();
   },

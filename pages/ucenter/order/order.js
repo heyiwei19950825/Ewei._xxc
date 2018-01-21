@@ -14,7 +14,7 @@ Page({
     let that = this;
     util.request(api.OrderList).then(function (res) {
       if (res.errno === 0) {
-        console.log(res.data);
+        //console.log(res.data);
         that.setData({
           orderList: res.data.data
         });

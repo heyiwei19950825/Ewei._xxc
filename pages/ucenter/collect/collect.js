@@ -12,7 +12,7 @@ Page({
     let that = this;
     util.request(api.CollectList, { typeId: that.data.typeId}).then(function (res) {
       if (res.errno === 0) {
-        console.log(res.data);
+        //console.log(res.data);
         that.setData({
           collectList: res.data.data
         });
@@ -42,7 +42,7 @@ Page({
 
     //触摸时间距离页面打开的毫秒数  
     var touchTime = that.data.touch_end - that.data.touch_start;
-    console.log(touchTime);
+    //console.log(touchTime);
     //如果按下时间大于350为长按  
     if (touchTime > 350) {
       wx.showModal({
@@ -53,7 +53,7 @@ Page({
             
             util.request(api.CollectAddOrDelete, { typeId: that.data.typeId, valueId: goodsId}, 'POST').then(function (res) {
               if (res.errno === 0) {
-                console.log(res.data);
+                //console.log(res.data);
                 wx.showToast({
                   title: '删除成功',
                   icon: 'success',
@@ -78,7 +78,7 @@ Page({
     that.setData({
       touch_start: e.timeStamp
     })
-    console.log(e.timeStamp + '- touch-start')
+    //console.log(e.timeStamp + '- touch-start')
   },
   //按下事件结束  
   touchEnd: function (e) {
@@ -86,6 +86,6 @@ Page({
     that.setData({
       touch_end: e.timeStamp
     })
-    console.log(e.timeStamp + '- touch-end')
+    //console.log(e.timeStamp + '- touch-end')
   }, 
 })

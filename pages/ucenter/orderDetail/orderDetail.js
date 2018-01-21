@@ -21,7 +21,7 @@ Page({
       orderId: that.data.orderId
     }).then(function (res) {
       if (res.errno === 0) {
-        console.log(res.data);
+        // //console.log(res.data);
         that.setData({
           orderInfo: res.data.orderInfo,
           orderGoods: res.data.orderGoods,
@@ -36,7 +36,7 @@ Page({
     let orderInfo = that.data.orderInfo;
 
     setInterval(() => {
-      console.log(orderInfo);
+      // //console.log(orderInfo);
       orderInfo.add_time -= 1;
       that.setData({
         orderInfo: orderInfo,
@@ -57,10 +57,10 @@ Page({
           'signType': payParam.signType,
           'paySign': payParam.paySign,
           'success': function (res) {
-            console.log(res)
+            //console.log(res)
           },
           'fail': function (res) {
-            console.log(res)
+            // //console.log(res)
           }
         });
       }

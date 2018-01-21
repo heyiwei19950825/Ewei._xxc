@@ -16,9 +16,9 @@
           <view class="info">
             <view class="user">
               <image class="avatar" src="{{item.user_info.avatar}}"></image>
-              <text class="nickname">{{item.user_info.nickname}}</text>
+              <text class="nickname">{{item.author}}</text>
             </view>
-            <view class="time">{{item.add_time}}</view>
+            <view class="time">{{item.publish_time}}</view>
           </view>
           <view class="comment">
             {{item.content}}
@@ -42,7 +42,7 @@
     </view>
     <view class="b">
       <navigator class="item" wx:for="{{topicList}}" url="../topicDetail/topicDetail?id={{item.id}}">
-        <image class="img" src="{{item.scene_pic_url}}"></image>
+        <image class="img" src="{{item.thumb}}"></image>
         <text class="title">{{item.title}}</text>
       </navigator>
     </view>

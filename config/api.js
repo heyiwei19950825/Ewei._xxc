@@ -6,12 +6,12 @@ var NewApiRootUrl1 = 'http://127.0.0.1:8360/api/';
 
 module.exports = {
     IndexUrl: NewApiRootUrl + 'index/index', //首页数据接口
-    CatalogList: NewApiRootUrl1 + 'catalog/index',  //分类目录全部分类数据接口
-    CatalogCurrent: NewApiRootUrl1 + 'catalog/current',  //分类目录当前分类数据接口
+    CatalogList: NewApiRootUrl + 'Category/all',  //分类目录全部分类数据接口
+    // CatalogCurrent: NewApiRootUrl1 + 'catalog/current',  //分类目录当前分类数据接口
 
     AuthLoginByWeixin: NewApiRootUrl + 'auth/loginByWeixin', //微信登录
 
-    GoodsCount: NewApiRootUrl + 'goods/count',  //统计商品总数
+    GoodsCount: NewApiRootUrl1 + 'goods/count',  //统计商品总数
     GoodsList: NewApiRootUrl + 'goods/by_category/paginate',//获得商品列表
     CategoryList: NewApiRootUrl + 'category/list',  //获得分类数据
     GoodsDetail: NewApiRootUrl + 'goods/detail',  //获得商品的详情
@@ -40,11 +40,11 @@ module.exports = {
     CommentCount: NewApiRootUrl1 + 'comment/count',  //评论总数
     CommentPost: NewApiRootUrl1 + 'comment/post',   //发表评论
 
-    TopicList: NewApiRootUrl1 + 'topic/list',  //专题列表
-    TopicDetail: NewApiRootUrl1 + 'topic/detail',  //专题详情
-    TopicRelated: NewApiRootUrl1 + 'topic/related',  //相关专题
+    TopicList: NewApiRootUrl + 'Article/list',  //专题列表
+    TopicDetail: NewApiRootUrl + 'Article/detail',  //专题详情
+    TopicRelated: NewApiRootUrl + 'Article/related',  //相关专题
 
-    SearchIndex: NewApiRootUrl1 + 'search/index',  //搜索页面数据
+    SearchIndex: NewApiRootUrl + 'search/index',  //搜索页面数据
     SearchResult: NewApiRootUrl1 + 'search/result',  //搜索数据
     SearchHelper: NewApiRootUrl1 + 'search/helper',  //搜索帮助
     SearchClearHistory: NewApiRootUrl1 + 'search/clearhistory',  //搜索帮助

@@ -88,7 +88,7 @@ Page({
     this.getCommentList();
   },
   onReachBottom: function(){
-    console.log('onPullDownRefresh');
+    // //console.log('onPullDownRefresh');
     if ( this.data.showType == 0) {
 
       if (this.data.allCount / this.data.size < this.data.allPage) {

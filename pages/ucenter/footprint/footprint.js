@@ -13,7 +13,7 @@ Page({
     let that = this;
     util.request(api.FootprintList).then(function (res) {
       if (res.errno === 0) {
-        console.log(res.data);
+        //console.log(res.data);
         that.setData({
           footprintList: res.data.data
         });
@@ -24,7 +24,7 @@ Page({
     let that = this;
     let footprint = event.currentTarget.dataset.footprint;
     var touchTime = that.data.touch_end - that.data.touch_start;
-    console.log(touchTime);
+    //console.log(touchTime);
     //如果按下时间大于350为长按  
     if (touchTime > 350) {
       wx.showModal({
@@ -42,7 +42,7 @@ Page({
                 that.getFootprintList();
               }
             });
-            console.log('用户点击确定')
+            //console.log('用户点击确定')
           }
         }
       });
@@ -75,7 +75,7 @@ Page({
     that.setData({
       touch_start: e.timeStamp
     })
-    console.log(e.timeStamp + '- touch-start')
+    // //console.log(e.timeStamp + '- touch-start')
   },
   //按下事件结束  
   touchEnd: function (e) {
@@ -83,6 +83,6 @@ Page({
     that.setData({
       touch_end: e.timeStamp
     })
-    console.log(e.timeStamp + '- touch-end')
+    // //console.log(e.timeStamp + '- touch-end')
   }, 
 })
