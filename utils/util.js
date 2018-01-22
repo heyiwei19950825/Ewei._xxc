@@ -29,7 +29,7 @@ function request(url, data = {}, method = "GET") {
       method: method,
       header: {
         'Content-Type': 'application/json',
-        'X-Nideshop-Token': wx.getStorageSync('token')
+        'Ewei-Token': wx.getStorageSync('token')
       },
       success: function (res) {
         // //console.log("success");

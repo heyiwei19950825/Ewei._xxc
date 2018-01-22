@@ -1,6 +1,6 @@
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
-
+var user = require('../../services/user.js');
 var app = getApp();
 
 Page({
@@ -18,8 +18,6 @@ Page({
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-
-
   },
   onReady: function () {
     // 页面渲染完成
@@ -27,6 +25,7 @@ Page({
   },
   onShow: function () {
     // 页面显示
+    this.goLogin();
     this.getCartList();
   },
   onHide: function () {
@@ -36,6 +35,18 @@ Page({
   onUnload: function () {
     // 页面关闭
 
+  },
+  goLogin() {
+    user.loginByWeixin().then(res => {
+      this.setData({
+        userInfo: res.data.userInfo
+      });
+      app.globalData.userInfo = res.data.userInfo;
+      app.globalData.token = res.data.token;
+      this.onShow();
+    }).catch((err) => {
+      // //console.log(err)
+    });
   },
   getCartList: function () {
     let that = this;

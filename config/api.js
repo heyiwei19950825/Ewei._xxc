@@ -1,5 +1,7 @@
-// var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
-var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
+var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
+// var NewApiRootUrl1 = 'https://small.redkylin.com/api/v1/';
+
+// var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
 var NewApiRootUrl1 = 'http://127.0.0.1:8360/api/';
 
 
@@ -9,7 +11,9 @@ module.exports = {
     CatalogList: NewApiRootUrl + 'Category/all',  //分类目录全部分类数据接口
     // CatalogCurrent: NewApiRootUrl1 + 'catalog/current',  //分类目录当前分类数据接口
 
-    AuthLoginByWeixin: NewApiRootUrl + 'auth/loginByWeixin', //微信登录
+    // AuthLoginByWeixin: NewApiRootUrl + 'auth/loginByWeixin', //微信登录
+    AuthLoginByWeixin: NewApiRootUrl + 'token/user', //微信登录
+    
 
     GoodsCount: NewApiRootUrl1 + 'goods/count',  //统计商品总数
     GoodsList: NewApiRootUrl + 'goods/by_category/paginate',//获得商品列表
@@ -22,12 +26,12 @@ module.exports = {
     BrandList: NewApiRootUrl1 + 'brand/list',  //品牌列表
     BrandDetail: NewApiRootUrl1 + 'brand/detail',  //品牌详情
 
-    CartList: NewApiRootUrl1 + 'cart/index', //获取购物车的数据
-    CartAdd: NewApiRootUrl1 + 'cart/add', // 添加商品到购物车
+    CartList: NewApiRootUrl + 'cart/index', //获取购物车的数据
+    CartAdd: NewApiRootUrl + 'cart/add', // 添加商品到购物车
     CartUpdate: NewApiRootUrl1 + 'cart/update', // 更新购物车的商品
     CartDelete: NewApiRootUrl1 + 'cart/delete', // 删除购物车的商品
     CartChecked: NewApiRootUrl1 + 'cart/checked', // 选择或取消选择商品
-    CartGoodsCount: NewApiRootUrl1 + 'cart/goodscount', // 获取购物车商品件数
+    CartGoodsCount: NewApiRootUrl + 'cart/goodscount', // 获取购物车商品件数
     CartCheckout: NewApiRootUrl1 + 'cart/checkout', // 下单前信息确认
 
     OrderSubmit: NewApiRootUrl1 + 'order/submit', // 提交订单
@@ -46,7 +50,7 @@ module.exports = {
 
     SearchIndex: NewApiRootUrl + 'search/index',  //搜索页面数据
     SearchResult: NewApiRootUrl1 + 'search/result',  //搜索数据
-    SearchHelper: NewApiRootUrl1 + 'search/helper',  //搜索帮助
+    SearchHelper: NewApiRootUrl + 'search/helper',  //搜索帮助
     SearchClearHistory: NewApiRootUrl1 + 'search/clearhistory',  //搜索帮助
 
     AddressList: NewApiRootUrl1 + 'address/list',  //收货地址列表

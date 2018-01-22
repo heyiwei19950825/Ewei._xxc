@@ -26,7 +26,7 @@
     </view>
   </view>
   <view class="shelper-list" wx:if="{{keyword}}">
-    <view class="item" hover-class="navigator-hover" wx:for="{{helpKeyword}}" bindtap="onKeywordTap" data-keyword="{{item}}">{{item}}</view>
+    <view class="item" hover-class="navigator-hover" wx:for="{{helpKeyword}}" bindtap="onKeywordTap" data-keyword="{{item.name}}">{{item.name}}</view>
   </view>
   </view>
 
