@@ -14,7 +14,7 @@ Page({
       if (res.errno === 0) {
         //console.log(res.data);
         that.setData({
-          collectList: res.data.data
+          collectList: res.data
         });
       }
     });
@@ -38,7 +38,7 @@ Page({
   openGoods(event) {
     
     let that = this;
-    let goodsId = this.data.collectList[event.currentTarget.dataset.index].value_id;
+    let goodsId = this.data.collectList[event.currentTarget.dataset.index].id;
 
     //触摸时间距离页面打开的毫秒数  
     var touchTime = that.data.touch_end - that.data.touch_start;

@@ -13,9 +13,9 @@ Page({
     let that = this;
     util.request(api.FootprintList).then(function (res) {
       if (res.errno === 0) {
-        //console.log(res.data);
+        console.log(res.data);
         that.setData({
-          footprintList: res.data.data
+          footprintList: res.data
         });
       }
     });

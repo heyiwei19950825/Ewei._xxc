@@ -7,27 +7,21 @@ var app = getApp();
 
 Page({
   data: {
-    couponList:[],
-    scrollLeft: 0,
-    scrollTop: 0,
-    scrollHeight: 0
+
   },
   onLoad: function (options) {
-    this.getCouponList();
   },
+  selectCopon(event) {
+    try {
+      wx.setStorageSync('addressId', event.currentTarget.dataset.coponId);
+    } catch (e) {
 
-  getCouponList() {
-    let that = this;
-    util.request(api.CouponList).then(function (res) {
-      if (res.errno === 0) {
-        console.log(res.data);
-        that.setData({
-          couponList: res.data
-        });
-      }
-    });
+    }
+    //选择该优惠券
+    wx.redirectTo({
+      url: '/pages/shopping/checkout/checkout'
+    })
   },
-
 
   onReady: function () {
 

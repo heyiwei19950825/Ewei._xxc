@@ -1,7 +1,7 @@
-var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
+// var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
 // var NewApiRootUrl1 = 'https://small.redkylin.com/api/v1/';
 
-// var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
+var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
 var NewApiRootUrl1 = 'http://127.0.0.1:8360/api/';
 
 
@@ -28,17 +28,17 @@ module.exports = {
 
     CartList: NewApiRootUrl + 'cart/index', //获取购物车的数据
     CartAdd: NewApiRootUrl + 'cart/add', // 添加商品到购物车
-    CartUpdate: NewApiRootUrl1 + 'cart/update', // 更新购物车的商品
-    CartDelete: NewApiRootUrl1 + 'cart/delete', // 删除购物车的商品
-    CartChecked: NewApiRootUrl1 + 'cart/checked', // 选择或取消选择商品
+    CartUpdate: NewApiRootUrl + 'cart/update', // 更新购物车的商品
+    CartDelete: NewApiRootUrl + 'cart/delete', // 删除购物车的商品
+    CartChecked: NewApiRootUrl + 'cart/checked', // 选择或取消选择商品
     CartGoodsCount: NewApiRootUrl + 'cart/goodscount', // 获取购物车商品件数
-    CartCheckout: NewApiRootUrl1 + 'cart/checkout', // 下单前信息确认
+    CartCheckout: NewApiRootUrl + 'cart/checkout', // 下单前信息确认
 
     OrderSubmit: NewApiRootUrl1 + 'order/submit', // 提交订单
     PayPrepayId: NewApiRootUrl1 + 'pay/prepay', //获取微信统一下单prepay_id
 
-    CollectList: NewApiRootUrl1 + 'collect/list',  //收藏列表
-    CollectAddOrDelete: NewApiRootUrl1 + 'collect/addordelete',  //添加或取消收藏
+    CollectList: NewApiRootUrl + 'collect/list',  //收藏列表
+    CollectAddOrDelete: NewApiRootUrl + 'collect/addordelete',  //添加或取消收藏
 
     CommentList: NewApiRootUrl1 + 'comment/list',  //评论列表
     CommentCount: NewApiRootUrl1 + 'comment/count',  //评论总数
@@ -53,17 +53,18 @@ module.exports = {
     SearchHelper: NewApiRootUrl + 'search/helper',  //搜索帮助
     SearchClearHistory: NewApiRootUrl1 + 'search/clearhistory',  //搜索帮助
 
-    AddressList: NewApiRootUrl1 + 'address/list',  //收货地址列表
-    AddressDetail: NewApiRootUrl1 + 'address/detail',  //收货地址详情
-    AddressSave: NewApiRootUrl1 + 'address/save',  //保存收货地址
-    AddressDelete: NewApiRootUrl1 + 'address/delete',  //保存收货地址
+    AddressList: NewApiRootUrl + 'address/list',  //收货地址列表
+    AddressDetail: NewApiRootUrl + 'address/detail',  //收货地址详情
+    AddressSave: NewApiRootUrl + 'address/save',  //保存收货地址
+    AddressDelete: NewApiRootUrl + 'address/delete',  //删除收货地址
 
-    RegionList: NewApiRootUrl1 + 'region/list',  //获取区域列表
+    RegionList: NewApiRootUrl + 'region/list',  //获取区域列表
 
     OrderList: NewApiRootUrl1 + 'order/list',  //订单列表
     OrderDetail: NewApiRootUrl1 + 'order/detail',  //订单详情
     OrderCancel: NewApiRootUrl1 + 'order/cancel',  //取消订单
 
-    FootprintList: NewApiRootUrl1 + 'footprint/list',  //足迹列表
+    FootprintList: NewApiRootUrl + 'footprint/list',  //足迹列表
     FootprintDelete: NewApiRootUrl1 + 'footprint/delete',  //删除足迹
+    CouponList: NewApiRootUrl + 'coupon/userList',  //优惠券列表
 };

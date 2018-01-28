@@ -9,11 +9,11 @@ Page({
     checkedGoodsList: [],
     checkedAddress: {},
     checkedCoupon: [],
-    couponList: [],
+    couponNumber: 0,
     goodsTotalPrice: 0.00, //商品总价
     freightPrice: 0.00,    //快递费
     couponPrice: 0.00,     //优惠券的价格
-    orderTotalPrice: 0.00,  //订单总价
+    // orderTotalPrice: 0.00,  //订单总价
     actualPrice: 0.00,     //实际需要支付的总价
     addressId: 0,
     couponId: 0
@@ -52,11 +52,13 @@ Page({
           checkedAddress: res.data.checkedAddress,
           actualPrice: res.data.actualPrice,
           checkedCoupon: res.data.checkedCoupon,
-          couponList: res.data.couponList,
+          couponNumber: res.data.couponNumber,
           couponPrice: res.data.couponPrice,
           freightPrice: res.data.freightPrice,
           goodsTotalPrice: res.data.goodsTotalPrice,
-          orderTotalPrice: res.data.orderTotalPrice
+          // orderTotalPrice: res.data.orderTotalPrice,
+          rankDiscount: res.data.rankDiscount
+          
         });
       }
       wx.hideLoading();
@@ -70,6 +72,11 @@ Page({
   addAddress() {
     wx.navigateTo({
       url: '/pages/shopping/addressAdd/addressAdd',
+    })
+  },
+  selectCoupon(){
+    wx.navigateTo({
+      url: '/pages/shopping/copon/copon',
     })
   },
   onReady: function () {

@@ -18,6 +18,7 @@ Page({
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
+    this.goLogin();
   },
   onReady: function () {
     // 页面渲染完成
@@ -25,7 +26,6 @@ Page({
   },
   onShow: function () {
     // 页面显示
-    this.goLogin();
     this.getCartList();
   },
   onHide: function () {
@@ -77,9 +77,8 @@ Page({
   checkedItem: function (event) {
     let itemIndex = event.target.dataset.itemIndex;
     let that = this;
-
     if (!this.data.isEditCart) {
-      util.request(api.CartChecked, { productIds: that.data.cartGoods[itemIndex].product_id, isChecked: that.data.cartGoods[itemIndex].checked ? 0 : 1 }, 'POST').then(function (res) {
+      util.request(api.CartChecked, { productIds: that.data.cartGoods[itemIndex].id, isChecked: that.data.cartGoods[itemIndex].checked ? 0 : 1 }, 'POST').then(function (res) {
         if (res.errno === 0) {
           // //console.log(res.data);
           that.setData({
@@ -101,7 +100,7 @@ Page({
         
         return element;
       });
-
+      console.log(tmpCartData);
       that.setData({
         cartGoods: tmpCartData,
         checkedAllStatus: that.isCheckedAll(),
@@ -113,7 +112,7 @@ Page({
     let checkedGoodsCount = 0;
     this.data.cartGoods.forEach(function (v) {
       if (v.checked === true) {
-        checkedGoodsCount += v.number;
+        checkedGoodsCount += v.num;
       }
     });
     // //console.log(checkedGoodsCount);
@@ -124,8 +123,9 @@ Page({
 
     if (!this.data.isEditCart) {
       var productIds = this.data.cartGoods.map(function (v) {
-        return v.product_id;
+        return v.id;
       });
+      console.log(productIds);
       util.request(api.CartChecked, { productIds: productIds.join(','), isChecked: that.isCheckedAll() ? 0 : 1 }, 'POST').then(function (res) {
         if (res.errno === 0) {
           // //console.log(res.data);
@@ -202,11 +202,11 @@ Page({
 
   },
   cutNumber: function (event) {
-
     let itemIndex = event.target.dataset.itemIndex;
     let cartItem = this.data.cartGoods[itemIndex];
-    let number = (cartItem.number - 1 > 1) ? cartItem.number - 1 : 1;
-    cartItem.number = number;
+    console.log(cartItem);
+    let number = (cartItem.num - 1 > 1) ? cartItem.num - 1 : 1;
+    cartItem.num = number;
     this.setData({
       cartGoods: this.data.cartGoods
     });
@@ -215,8 +215,8 @@ Page({
   addNumber: function (event) {
     let itemIndex = event.target.dataset.itemIndex;
     let cartItem = this.data.cartGoods[itemIndex];
-    let number = cartItem.number + 1;
-    cartItem.number = number;
+    let number = cartItem.num + 1;
+    cartItem.num = number;
     this.setData({
       cartGoods: this.data.cartGoods
     });
@@ -262,7 +262,7 @@ Page({
 
     productIds = productIds.map(function (element, index, array) {
       if (element.checked == true) {
-        return element.product_id;
+        return element.id;
       }
     });
 
