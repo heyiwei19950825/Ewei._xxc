@@ -166,6 +166,16 @@
   font-size: 30rpx;
   color: #b4282d;
 }
+.a-new .b .name {
+  text-align: center;
+  display: block;
+  width: 302rpx;
+  height: 35rpx;
+  margin-bottom: 14rpx;
+  overflow: hidden;
+  font-size: 30rpx;
+  color: #333;
+}
 
 .a-popular {
   width: 750rpx;

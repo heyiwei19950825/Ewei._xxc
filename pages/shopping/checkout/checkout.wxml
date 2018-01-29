@@ -24,7 +24,7 @@
     </view>
 
     <view class="coupon-box">
-        <view class="coupon-item" bindtap="selectCoupon">
+        <view class="coupon-item" bindtap="selectCoupon" wx:if='{{checkedCoupon.length == []}}'>
             <view class="l">
                 <text class="name">请选择优惠券</text>
                 <text class="txt">{{couponNumber}}张</text>
@@ -33,6 +33,15 @@
                 <image src="/static/images/address_right.png"></image>
             </view>
         </view>
+        <view class="coupon-item" bindtap="selectCoupon" wx:if='{{checkedCoupon.id > 0}}'>
+            <view class="l">
+                <text class="name">{{checkedCoupon.coupon_name}}</text>
+                <text class="txt">￥{{checkedCoupon.money}}</text>
+            </view>
+            <view class="r">
+                <image src="/static/images/address_right.png"></image>
+            </view>
+        </view> 
     </view>
 
     <view class="order-box">
@@ -52,20 +61,21 @@
                 <text class="txt">￥-{{rankDiscount}}</text>
             </view>
         </view>
-        <view class="order-item">
-            <view class="l">
-                <text class="name">运费</text>
-            </view>
-            <view class="r">
-                <text class="txt">￥{{freightPrice}}</text>
-            </view>
-        </view>
-        <view class="order-item no-border" wx:if="{{couponPrice > 0 }}">
+
+        <view class="order-item" wx:if="{{couponPrice > 0 }}">
             <view class="l">
                 <text class="name">优惠券</text>
             </view>
             <view class="r">
                 <text class="txt">-￥{{couponPrice}}</text>
+            </view>
+        </view>
+        <view class="order-item no-border">
+            <view class="l">
+                <text class="name">运费</text>
+            </view>
+            <view class="r">
+                <text class="txt">￥{{freightPrice}}</text>
             </view>
         </view>
     </view>

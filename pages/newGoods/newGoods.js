@@ -12,26 +12,26 @@ Page({
     filterCategory: [],
     goodsList: [],
     categoryId: 0,
-    currentSortType: 'default',
+    currentSortType: 'id',
     currentSortOrder: 'desc',
     page: 1,
     size: 1000
   },
-  getData: function () {
-    let that = this;
-    util.request(api.GoodsHot).then(function (res) {
-      if (res.errno === 0) {
-        that.setData({
-          bannerInfo: res.data.bannerInfo,
-        });
+  getGoodsList: function () {
+    // let that = this;
+    // util.request(api.GoodsHot).then(function (res) {
+    //   if (res.errno === 0) {
+    //     that.setData({
+    //       bannerInfo: res.data.bannerInfo,
+    //     });
         that.getGoodsList();
-      }
-    });
+      // }
+    // });
   },
   getGoodsList() {
     var that = this;
 
-    util.request(api.GoodsList, { isNew: 1, page: that.data.page, size: that.data.size, order: that.data.currentSortOrder, sort: that.data.currentSortType, categoryId: that.data.categoryId })
+    util.request(api.GoodsList, { id: that.data.categoryId, page: that.data.page, size: that.data.size, order: that.data.currentSortOrder, sort: that.data.currentSortType, categoryId: that.data.categoryId ,types:'integral'})
       .then(function (res) {
         if (res.errno === 0) {
           that.setData({
@@ -43,7 +43,7 @@ Page({
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-    this.getData();
+    this.getGoodsList();
   },
   onReady: function () {
     // 页面渲染完成
@@ -76,21 +76,21 @@ Page({
           tmpSortOrder = 'desc';
         }
         this.setData({
-          'currentSortType': 'price',
+          'currentSortType': 'sp_integral',
           'currentSortOrder': tmpSortOrder,
           'categoryFilter': false
         });
 
-        this.getData();
+        this.getGoodsList();
         break;
       default:
         //综合排序
         this.setData({
-          'currentSortType': 'default',
+          'currentSortType': 'id',
           'currentSortOrder': 'desc',
           'categoryFilter': false
         });
-        this.getData();
+        this.getGoodsList();
     }
   },
   selectCategory: function (event) {
@@ -99,7 +99,7 @@ Page({
       'categoryFilter': false,
       'categoryId': this.data.filterCategory[currentIndex].id
     });
-    this.getData();
+    this.getGoodsList();
 
   }
 })

@@ -38,7 +38,20 @@ Page({
       }
     });
   },
+  goLogin() {
+    user.loginByWeixin().then(res => {
+      this.setData({
+        userInfo: res.data.userInfo
+      });
+      app.globalData.userInfo = res.data.userInfo;
+      app.globalData.token = res.data.token;
+      this.onShow();
+    }).catch((err) => {
+      // //console.log(err)
+    });
+  },
   onLoad: function (options) {
+    this.goLogin()
     this.getIndexData();
   },
   onReady: function () {

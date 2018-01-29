@@ -10,7 +10,6 @@ module.exports = {
     IndexUrl: NewApiRootUrl + 'index/index', //首页数据接口
     CatalogList: NewApiRootUrl + 'Category/all',  //分类目录全部分类数据接口
     // CatalogCurrent: NewApiRootUrl1 + 'catalog/current',  //分类目录当前分类数据接口
-
     // AuthLoginByWeixin: NewApiRootUrl + 'auth/loginByWeixin', //微信登录
     AuthLoginByWeixin: NewApiRootUrl + 'token/user', //微信登录
     
@@ -22,6 +21,7 @@ module.exports = {
     GoodsNew: NewApiRootUrl + 'goods/new',  //新品
     GoodsHot: NewApiRootUrl + 'goods/hot',  //热门
     GoodsRelated: NewApiRootUrl1 + 'goods/related',  //商品详情页的关联商品（大家都在看）
+    GoodsIntegral: NewApiRootUrl +'goods/integral', // 积分兑换商品
 
     BrandList: NewApiRootUrl1 + 'brand/list',  //品牌列表
     BrandDetail: NewApiRootUrl1 + 'brand/detail',  //品牌详情
@@ -66,5 +66,7 @@ module.exports = {
 
     FootprintList: NewApiRootUrl + 'footprint/list',  //足迹列表
     FootprintDelete: NewApiRootUrl1 + 'footprint/delete',  //删除足迹
-    CouponList: NewApiRootUrl + 'coupon/userList',  //优惠券列表
+    CouponList: NewApiRootUrl + 'coupon/userCouponList',  //优惠券列表
+    UseCouponList: NewApiRootUrl + 'coupon/useCouponList',  //优惠券列表
+    
 };

@@ -1,13 +1,13 @@
 <view class="container">
  <view class="cate-nav">
         <scroll-view scroll-x="true" class="cate-nav-body" style="width: 750rpx;" scroll-left="{{scrollLeft}}">
-            <view data-type="0" bindtap="switchCate" class="item active">
+            <view data-types="0" bindtap="switchCoupon" class="cate-item {{ types == 0 ? 'active' : ''}}">
                 <view class="name">未使用</view>
             </view>
-            <view data-type="1" bindtap="switchCate" class="item">
+            <view data-types="1" bindtap="switchCoupon" class="cate-item {{ types == 1 ? 'active' : ''}}">
                 <view class="name">已使用</view>
             </view>
-            <view data-type="2" bindtap="switchCate" class="item">
+            <view data-types="2" bindtap="switchCoupon" class="cate-item {{ types == 2 ? 'active' : ''}}">
                 <view class="name">已失效</view>
             </view>
         </scroll-view>
@@ -20,10 +20,11 @@
     </view>
     <button class="add-btn disabled">兑换</button>
   </view> -->
-  <view class="help">使用说明</view>
+  <!-- <view class="help">使用说明</view> -->
+  <view class="help"></view>
   <view class="coupon-list">
   <view wx:for="{{couponList}}" wx:key="{{item.coupon_type_id}}">
-    <view class="item">
+    <view class="{{ types == 0 ? 'item' : 'item-lose'}}">
       <!-- <view class="tag" wx:if='{{item.tag != ""}}'>{{item.tag}}</view> -->
       <view class="content">
         <view class="left">

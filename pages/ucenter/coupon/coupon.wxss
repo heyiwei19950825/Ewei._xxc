@@ -93,6 +93,15 @@ page{
   padding-top: 52rpx;
 }
 
+.item-lose{
+  position: relative;
+  height: 290rpx;
+  width: 100%;
+   background: linear-gradient(to right,#333,#eee); 
+  margin-bottom: 30rpx;
+  padding-top: 52rpx;
+}
+
 .tag{
   height: 32rpx;
   background: #A48143;
@@ -191,14 +200,14 @@ page{
     overflow: hidden;
 }
 
-.cate-nav .item{
+.cate-nav .cate-item{
     display: inline-block;
     height: 84rpx;
     min-width: 130rpx;
     padding: 0 15rpx;
 }
 
-.cate-nav .item .name{
+.cate-nav .cate-item .name{
     display: block;
     height: 84rpx;
     padding: 0 20rpx;
@@ -208,7 +217,7 @@ page{
     width: auto;
 }
 
-.cate-nav .item.active .name{
+.cate-nav .cate-item.active .name{
     color: #ab2b2b;
     border-bottom: 2px solid #ab2b2b;
 }

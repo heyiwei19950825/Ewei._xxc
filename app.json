@@ -32,7 +32,8 @@
     "pages/shopping/addressAdd/addressAdd",
     "pages/goods/goods",
     "pages/topicDetail/topicDetail",
-    "pages/shopping/copon/copon"
+    "pages/shopping/copon/copon",
+    "pages/IntegralGoods/goods"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -83,5 +84,5 @@
     "request": 10000,
     "downloadFile": 10000
   },
-  "debug": false
+  "debug": true
 }

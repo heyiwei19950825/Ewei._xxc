@@ -10,7 +10,8 @@ Page({
     couponList:[],
     scrollLeft: 0,
     scrollTop: 0,
-    scrollHeight: 0
+    scrollHeight: 0,
+    types:0
   },
   onLoad: function (options) {
     this.getCouponList();
@@ -18,14 +19,24 @@ Page({
 
   getCouponList() {
     let that = this;
-    util.request(api.CouponList).then(function (res) {
+    util.request(api.CouponList,{types:that.data.types}).then(function (res) {
       if (res.errno === 0) {
-        console.log(res.data);
         that.setData({
-          couponList: res.data
+          couponList: res.data.data,
+          types: res.data.types
         });
       }
     });
+  },
+  switchCoupon: function (event) {
+    if (this.data.types == event.currentTarget.dataset.types) {
+      return false;
+    }
+    this.setData({
+      types: event.currentTarget.dataset.types
+    });
+
+    this.getCouponList();
   },
 
 

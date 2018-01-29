@@ -96,6 +96,7 @@ page{
     height: auto;
     overflow: hidden;
     background: #fff;
+    
 }
 
 .coupon-box .coupon-item{
