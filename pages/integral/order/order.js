@@ -6,17 +6,13 @@ var app = getApp();
 
 Page({
   data: {
-    checkedGoodsList: [],
+    product: [],
     checkedAddress: {},
-    checkedCoupon: [],
-    couponNumber: 0,
-    goodsTotalPrice: 0.00, //商品总价
     freightPrice: 0.00,    //快递费
-    couponPrice: 0.00,     //优惠券的价格
-    // orderTotalPrice: 0.00,  //订单总价
     actualPrice: 0.00,     //实际需要支付的总价
     addressId: 0,
-    couponId: 0
+    goodsId: 0,
+    num:0
   },
   onLoad: function (options) {
 
@@ -30,10 +26,17 @@ Page({
         });
       }
 
-      var couponId = wx.getStorageSync('couponId');
-      if (couponId) {
+      var goodsId = options.goodsId;
+      if (goodsId) {
         this.setData({
-          'couponId': couponId
+          'goodsId': goodsId
+        });
+      }
+
+      var num = options.num;
+      if (num) {
+        this.setData({
+          'num': num
         });
       }
     } catch (e) {
@@ -44,21 +47,21 @@ Page({
   },
   getCheckoutInfo: function () {
     let that = this;
-    util.request(api.CartCheckout, { addressId: that.data.addressId, couponId: that.data.couponId }).then(function (res) {
+    util.request(api.IntegralPay, { addressId: that.data.addressId, goodsId: that.data.goodsId, num: that.data.num },'POST').then(function (res) {
       if (res.errno === 0) {
-        //console.log(res.data);
+        console.log(res.data);
         that.setData({
-          checkedGoodsList: res.data.checkedGoodsList,
+        //   checkedGoodsList: res.data.checkedGoodsList,
           checkedAddress: res.data.checkedAddress,
           actualPrice: res.data.actualPrice,
-          checkedCoupon: res.data.checkedCoupon,
-          couponNumber: res.data.couponNumber,
-          couponPrice: res.data.couponPrice,
-          freightPrice: res.data.freightPrice,
-          goodsTotalPrice: res.data.goodsTotalPrice,
-          // orderTotalPrice: res.data.orderTotalPrice,
-          rankDiscount: res.data.rankDiscount
-          
+          product: res.data.product
+        //   couponNumber: res.data.couponNumber,
+        //   couponPrice: res.data.couponPrice,
+        //   freightPrice: res.data.freightPrice,
+        //   goodsTotalPrice: res.data.goodsTotalPrice,
+        //   // orderTotalPrice: res.data.orderTotalPrice,
+        //   rankDiscount: res.data.rankDiscount
+
         });
       }
       wx.hideLoading();
@@ -74,13 +77,14 @@ Page({
       url: '/pages/shopping/addressAdd/addressAdd',
     })
   },
-  selectCoupon(){
+  selectCoupon() {
     wx.navigateTo({
       url: '/pages/shopping/copon/copon',
     })
   },
   onReady: function () {
     // 页面渲染完成
+
   },
   onShow: function () {
     // 页面显示

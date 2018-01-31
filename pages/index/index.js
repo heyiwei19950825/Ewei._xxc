@@ -13,7 +13,8 @@ Page({
     floorGoods: [],
     banner: [],
     channel: [],
-    couponList:[]
+    couponList:[],
+    collectiveList:[]
   },
   onShareAppMessage: function () {
     return {
@@ -35,10 +36,10 @@ Page({
           floorGoods: res.data.categoryList,
           banner: res.data.banner,
           channel: res.data.channel,
-          couponList:[1,2,3]
+          couponList: res.data.couponList,
+          collectiveList: res.data.collectiveList
+          
         });
-        console.log(that.couponList);
-        
       }
     });
   },
@@ -53,6 +54,19 @@ Page({
     }).catch((err) => {
       // //console.log(err)
     });
+  },
+  //用户领取优惠券
+  userGetCoupon(event){
+    let that = this; 
+    util.request(api.UserGetCoupon, { cid:event.currentTarget.dataset.id}, 'POST').then(res => {
+        if( res.errno == 0 ){
+          wx.showToast({
+            title: res.errmsg,
+          })
+        }else{
+          util.showErrorToast(res.errmsg);
+        }
+    })
   },
   onLoad: function (options) {
     this.goLogin()

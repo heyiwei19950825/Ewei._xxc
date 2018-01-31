@@ -1,8 +1,8 @@
-// var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
-// var NewApiRootUrl1 = 'https://small.redkylin.com/api/v1/';
+var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
+var NewApiRootUrl1 = 'https://small.redkylin.com/api/v1/';
 
-var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
-var NewApiRootUrl1 = 'http://127.0.0.1:8360/api/';
+// var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
+// var NewApiRootUrl1 = 'http://127.0.0.1:8360/api/';
 
 
 
@@ -67,6 +67,10 @@ module.exports = {
     FootprintList: NewApiRootUrl + 'footprint/list',  //足迹列表
     FootprintDelete: NewApiRootUrl1 + 'footprint/delete',  //删除足迹
     CouponList: NewApiRootUrl + 'coupon/userCouponList',  //优惠券列表
-    UseCouponList: NewApiRootUrl + 'coupon/useCouponList',  //优惠券列表
-    
+    UseCouponList: NewApiRootUrl + 'coupon/useCouponList',  //用户优惠券列表
+    UserGetCoupon: NewApiRootUrl + 'coupon/userGetCoupon',  //用户领取优惠券
+
+    IntegralPay: NewApiRootUrl + 'integral/integralCart',   //积分购买商品
+
+    GoodsCollective: NewApiRootUrl + 'collective/getList'
 };

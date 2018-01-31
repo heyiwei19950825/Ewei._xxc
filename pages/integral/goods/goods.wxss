@@ -76,6 +76,13 @@
     line-height: 35rpx;
     color: #b4282d;
 }
+.goods-info .price_decoration{
+    height: 25rpx;
+    font-size: 25rpx;
+    color: #999;
+    text-decoration:line-through;
+  
+}
 
 .goods-info .brand{
     margin-top: 23rpx;
@@ -587,10 +594,11 @@
     height: 100rpx;
     line-height: 96rpx;
     flex: 1;
+    width:200rpx;
     text-align: center;
     color: #fff;
 }
-@import "../../lib/wxParse/wxParse.wxss";
+@import "../../../lib/wxParse/wxParse.wxss";
 
 .attr-pop{
     width: 100%;

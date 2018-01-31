@@ -302,7 +302,7 @@
   color: #b4282d;
   line-height: 50rpx;
   text-decoration:line-through;
-  font-size: 20rpx;
+  font-size: 30rpx;
 }
 
 .a-collective .b .collective-name {
@@ -310,14 +310,14 @@
   /*display: block;*/
   color: #333;
   line-height: 50rpx;
-  font-size: 15rpx;
+  font-size: 25rpx;
 }
 .a-collective .b .collective-price {
   width: 456rpx;
   /*display: block;*/
   color: #b4282d;
   line-height: 50rpx;
-  font-size: 20rpx;
+  font-size: 30rpx;
 }
 
 .a-topic .b {
@@ -402,6 +402,32 @@
   margin: 15rpx;
   position: absolute;
   background: #cfa568;
+}
+.a-coupon .b .coupon-item text{
+  margin-top:5rpx;
+  color:  #fff;
+  display: block;
+  margin-left:12rpx
+}
+.a-coupon .b .price{
+  font-size: 30rpx;
+  line-height:40rpx;
+  
+}
+.a-coupon .b .name{
+  font-size: 25rpx;
+  line-height:40rpx;
+
+}
+.a-coupon .b .date{
+  font-size: 18rpx;
+  line-height:30rpx;
+
+}
+.a-coupon .b .note{
+  font-size: 18rpx;
+  line-height:30rpx;
+  
 }
 
 .good-grid {

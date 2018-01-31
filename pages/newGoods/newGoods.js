@@ -5,8 +5,8 @@ var app = getApp();
 Page({
   data: {
     bannerInfo: {
-      'img_url': '',
-      'name': ''
+      'img_url': 'https://small.redkylin.com/uploads/common/1516629219.png',
+      'name': '积分商城'
     },
     categoryFilter: false,
     filterCategory: [],

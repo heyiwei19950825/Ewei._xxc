@@ -33,7 +33,8 @@
     "pages/goods/goods",
     "pages/topicDetail/topicDetail",
     "pages/shopping/copon/copon",
-    "pages/IntegralGoods/goods"
+    "pages/integral/goods/goods",
+    "pages/integral/order/order"
   ],
   "window": {
     "backgroundTextStyle": "dark",

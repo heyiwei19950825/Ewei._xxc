@@ -1,0 +1,63 @@
+<view class="container">
+    <view class="address-box">
+        <view class="address-item" bindtap="selectAddress" wx:if="{{checkedAddress.id > 0}}">
+            <view class="l">
+                <text class="name">{{checkedAddress.name}}</text>
+                <text class="default" wx:if="{{checkedAddress.is_default === 1}}">默认</text>
+            </view>
+            <view class="m">
+                <text class="mobile">{{checkedAddress.mobile}}</text>
+                <text class="address">{{checkedAddress.full_region + checkedAddress.address}}</text>
+            </view>
+            <view class="r">
+                <image src="/static/images/address_right.png"></image>
+            </view>
+        </view>
+        <view class="address-item address-empty" bindtap="addAddress" wx:if="{{checkedAddress.id <= 0}}">
+            <view class="m">
+               还没有收货地址，去添加
+            </view>
+            <view class="r">
+                <image src="/static/images/address_right.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="order-box">
+        <view class="order-item">
+            <view class="l">
+                <text class="name">商品合计</text>
+            </view>
+            <view class="r">
+                <text class="txt">{{actualPrice}} 积分</text>
+            </view>
+        </view>
+        <view class="order-item no-border">
+            <view class="l">
+                <text class="name">运费</text>
+            </view>
+            <view class="r">
+                <text class="txt">￥{{freightPrice}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="goods-items">
+        <view class="item">
+            <view class="img">
+                <image src="{{product.thumb}}"></image>
+            </view>
+            <view class="info">
+                <view class="t">
+                    <text class="name">{{product.name}}</text>
+                    <text class="number">x{{num}}</text>
+                </view>
+                <view class="b">{{product.sp_integral}} 积分</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="order-total">
+        <view class="l">实付：{{actualPrice}} 积分</view>
+        <view class="r" bindtap="submitOrder">去付款</view>
+    </view>
+</view>

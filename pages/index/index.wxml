@@ -20,15 +20,15 @@
   <view class="a-section a-coupon" wx:if="couponList.length > 0">
     <view class="b">
       <scroll-view scroll-x="true" class="list">
-        <view class="item" wx:for="{{couponList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-          <navigator bindtap='getCoupon'>
+        <view class="item" wx:for="{{couponList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.coupon_type_id}}" >
+          <view bindtap='userGetCoupon' data-id='{{item.coupon_type_id}}'>
             <view class="coupon-item" background-size="cover">
-            <text class='price'>￥123</text>
-            <text class='name'>测试</text>
-            <text class='date'>123-123</text>
-            <text class='note'>123123</text>
+            <text class='price'>￥ {{item.money}}</text>
+            <text class='name'>{{item.coupon_name}}</text>
+            <text class='date'>{{item.start_time}}-{{item.end_time}}</text>
+            <text class='note'>{{item.range_type}} 购物{{item.at_least}}元可用</text>
             </view>
-          </navigator>
+          </view>
         </view>
       </scroll-view>
     </view>
@@ -56,13 +56,13 @@
   <view class="a-section a-collective" wx:if="{{hotGoods.length > 0}}">
     <view class="h">
       <view>
-        <navigator url="../hotGoods/hotGoods">
+        <navigator url="/pages/brand/brand">
           <text class="txt">更多团购商品</text>
         </navigator>
       </view>
     </view>
     <view class="b">
-      <view class="item" wx:for="{{hotGoods}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+      <view class="item" wx:for="{{collectiveList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
         <navigator url="/pages/goods/goods?id={{item.id}}">
           <image class="img" src="{{item.thumb}}" background-size="cover"></image>
           <view class="right">
@@ -70,7 +70,7 @@
               <text class="name">{{item.name}}</text>
               <text class="desc">{{item.prefix_title}}</text>
               <text class="collective-name"> 单购 价格 <text class="price">￥{{item.sp_price}}</text></text>
-              <text class="collective-name"> 3人团 价格 <text class="collective-price">￥{{item.sp_price}}</text></text>
+              <text class="collective-name"> {{item.user_number}}人团 价格 <text class="collective-price">￥{{item.goods_price}}</text></text>
               
             </view>
           </view>
