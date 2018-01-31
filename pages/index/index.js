@@ -12,7 +12,8 @@ Page({
     brands: [],
     floorGoods: [],
     banner: [],
-    channel: []
+    channel: [],
+    couponList:[]
   },
   onShareAppMessage: function () {
     return {
@@ -33,8 +34,11 @@ Page({
           nav: res.data.navList,
           floorGoods: res.data.categoryList,
           banner: res.data.banner,
-          channel: res.data.channel
+          channel: res.data.channel,
+          couponList:[1,2,3]
         });
+        console.log(that.couponList);
+        
       }
     });
   },

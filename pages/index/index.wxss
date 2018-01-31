@@ -240,22 +240,102 @@
   font-size: 33rpx;
 }
 
+/*团购样式*/
+.a-collective {
+  width: 750rpx;
+  height: auto;
+  overflow: hidden;
+}
+
+.a-collective .b .item {
+  border-top: 1px solid #d9d9d9;
+  margin: 0 20rpx;
+  height: 264rpx;
+  width: 710rpx;
+}
+
+.a-collective .b .img {
+  margin-top: 12rpx;
+  margin-right: 12rpx;
+  float: left;
+  width: 240rpx;
+  height: 240rpx;
+}
+
+.a-collective .b .right {
+  float: left;
+  height: 264rpx;
+  width: 456rpx;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.a-collective .b .text {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  height: 264rpx;
+  width: 456rpx;
+}
+
+.a-collective .b .name {
+  width: 456rpx;
+  display: block;
+  color: #333;
+  line-height: 50rpx;
+  font-size: 30rpx;
+}
+
+.a-collective .b .desc {
+  width: 456rpx;
+  display: block;
+  color: #999;
+  line-height: 50rpx;
+  font-size: 25rpx;
+}
+
+.a-collective .b .price {
+  width: 456rpx;
+  /*display: block;*/
+  color: #b4282d;
+  line-height: 50rpx;
+  text-decoration:line-through;
+  font-size: 20rpx;
+}
+
+.a-collective .b .collective-name {
+  width: 456rpx;
+  /*display: block;*/
+  color: #333;
+  line-height: 50rpx;
+  font-size: 15rpx;
+}
+.a-collective .b .collective-price {
+  width: 456rpx;
+  /*display: block;*/
+  color: #b4282d;
+  line-height: 50rpx;
+  font-size: 20rpx;
+}
+
 .a-topic .b {
   height: 533rpx;
-  width: 750rpx;
+  width: 700rpx;
   padding: 0 0 48rpx 0;
 }
 
 .a-topic .b .list {
   height: 533rpx;
-  width: 750rpx;
+  width: 700rpx;
   white-space: nowrap;
 }
 
 .a-topic .b .item {
   display: inline-block;
   height: 533rpx;
-  width: 680.5rpx;
+  width: 700rpx;
   margin-left: 30rpx;
   overflow: hidden;
 }
@@ -266,7 +346,7 @@
 
 .a-topic .b .img {
   height: 387.5rpx;
-  width: 680.5rpx;
+  width: 700rpx;
   margin-bottom: 30rpx;
 }
 
@@ -290,6 +370,38 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis;
+}
+
+.a-coupon .b {
+  height: 200rpx;
+  width: 330rpx;
+  padding: 0 0 48rpx 0;
+}
+
+.a-coupon .b .list {
+  height: 200rpx;
+  width: 750rpx;
+  white-space: nowrap;
+}
+
+.a-coupon .b .item {
+  display: inline-block;
+  height: 200rpx;
+  width: 330rpx;
+  margin-left: 25rpx; 
+  overflow: hidden;
+}
+
+.a-coupon .b .item:last-child {
+  margin-right: 30rpx;
+}
+
+.a-coupon .b .coupon-item {
+  height: 170.5rpx;
+  width: 330.5rpx;
+  margin: 15rpx;
+  position: absolute;
+  background: #cfa568;
 }
 
 .good-grid {
