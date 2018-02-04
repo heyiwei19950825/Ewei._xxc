@@ -151,6 +151,22 @@ function showErrorToast(msg) {
     image: '/static/images/icon_error.png'
   })
 }
+function loginWx() {
+  wx.getSetting({
+    success(res) {
+      if (!res.authSetting['scope.userInfo']) {
+        wx.authorize({
+          scope: 'scope.userInfo',
+          success(errMsg) {
+            console.log(errMsg);
+            // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+            // wx.startRecord()
+          }
+        })
+      }
+    }
+  })
+}
 
 module.exports = {
   formatTime,
@@ -160,6 +176,7 @@ module.exports = {
   checkSession,
   login,
   getUserInfo,
+  loginWx
 }
 
 

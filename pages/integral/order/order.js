@@ -63,18 +63,26 @@ Page({
         //   rankDiscount: res.data.rankDiscount
 
         });
+
+        //有默认收货地址
+        if (that.data.addressId == 0 && that.data.checkedAddress != 0) {
+          that.setData({
+            addressId: res.data.checkedAddress.id
+          })
+        }
+        
       }
       wx.hideLoading();
     });
   },
   selectAddress() {
     wx.navigateTo({
-      url: '/pages/shopping/address/address',
+      url: '/pages/shopping/address/address?type=integral&goodsId='+this.data.goodsId+'&num='+this.data.num,
     })
   },
   addAddress() {
     wx.navigateTo({
-      url: '/pages/shopping/addressAdd/addressAdd',
+      url: '/pages/shopping/addressAdd/addressAdd?type=integral'+this.data.goodsId+'&num='+this.data.num,
     })
   },
   selectCoupon() {
@@ -107,20 +115,31 @@ Page({
       util.showErrorToast('请选择收货地址');
       return false;
     }
-    util.request(api.OrderSubmit, { addressId: this.data.addressId, couponId: this.data.couponId }, 'POST').then(res => {
+    util.request(api.OrderSubmit, { goodsId: this.data.goodsId, num: this.data.num, addressId: this.data.addressId, type: 'integral' }, 'POST').then(res => {
       if (res.errno === 0) {
         const orderId = res.data.orderInfo.id;
-        pay.payOrder(parseInt(orderId)).then(res => {
+        const goodsPrice = res.data.orderInfo.goods_price;
+        if (goodsPrice != 0) {
+          pay.payOrder(parseInt(orderId)).then(res => {
+            wx.redirectTo({
+              url: '/pages/payResult/payResult?status=1&orderId=' + orderId
+            });
+          }).catch(res => {
+            wx.redirectTo({
+              url: '/pages/payResult/payResult?status=0&orderId=' + orderId
+            });
+          });
+        }else{
           wx.redirectTo({
             url: '/pages/payResult/payResult?status=1&orderId=' + orderId
           });
-        }).catch(res => {
-          wx.redirectTo({
-            url: '/pages/payResult/payResult?status=0&orderId=' + orderId
-          });
-        });
+        }
       } else {
-        util.showErrorToast('下单失败');
+        if (res.errmsg === ''){
+          util.showErrorToast('下单失败');
+        }else{
+          util.showErrorToast(res.errmsg);
+        }
       }
     });
   }

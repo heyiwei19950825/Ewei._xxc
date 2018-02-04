@@ -22,7 +22,7 @@
         </view> -->
       </view>
       <view class="condition">
-        <text class="txt">{{ item.is_ok == true ? item.goods_name: '为满足使用条件'}}</text>
+        <text class="txt">{{ item.is_ok == true ? item.goods_name: '未满足使用条件'}}</text>
         <!-- <image src="https://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/couponArrow-71315b4145.png" class="icon"></image> -->
       </view>
     </view>

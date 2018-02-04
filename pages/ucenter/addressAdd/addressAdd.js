@@ -28,6 +28,8 @@ Page({
   bindinputMobile(event) {
     let address = this.data.address;
     address.mobile = event.detail.value;
+    console.log(address.mobile);
+    
     this.setData({
       address: address
     });
@@ -55,13 +57,16 @@ Page({
   },
   getAddressDetail() {
     let that = this;
-    util.request(api.AddressDetail, { id: that.data.addressId }).then(function (res) {
-      if (res.errno === 0) {
-        that.setData({
-          address: res.data
-        });
-      }
-    });
+    if (that.data.addressId != 0){
+      util.request(api.AddressDetail, { id: that.data.addressId }).then(function (res) {
+        if (res.errno === 0) {
+          that.setData({
+            address: res.data
+          });
+        }
+      });
+    }
+  
   },
   setRegionDoneStatus() {
     let that = this;

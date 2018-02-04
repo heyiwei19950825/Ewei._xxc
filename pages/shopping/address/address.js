@@ -5,9 +5,21 @@ var app = getApp();
 Page({
   data: {
     addressList: [],
+    url:''
   },
   onLoad: function (options) {
+    let that = this.data;
     // 页面初始化 options为页面跳转所带来的参数
+    if (options.type == 'integral') {
+      that.url = '/pages/integral/order/order?goodsId='+options.goodsId+'&num='+options.num;
+    }
+    if (options.type == 'collective') {
+      that.url = '/pages/collectiveOrder/collectiveOrder?goodsId='+options.goodsId+'&num='+options.num;
+    }
+    if (options.type == 'default'){
+      that.url = '/pages/shopping/checkout/checkout';
+    } 
+
     this.getAddressList();
   },
   onReady: function () {
@@ -35,16 +47,16 @@ Page({
   },
   selectAddress(event){
     //console.log(event.currentTarget.dataset.addressId);
-
+    let that = this.data
     try {
       wx.setStorageSync('addressId', event.currentTarget.dataset.addressId);
     } catch (e) {
 
     }
-
+    console.log(that.url);
     //选择该收货地址
-    wx.redirectTo({
-      url: '/pages/shopping/checkout/checkout'
+    wx.navigateTo({
+      url: that.url
     })
   },
   onHide: function () {

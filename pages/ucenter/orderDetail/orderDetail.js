@@ -18,7 +18,7 @@ Page({
   getOrderDetail() {
     let that = this;
     util.request(api.OrderDetail, {
-      orderId: that.data.orderId
+      id: that.data.orderId
     }).then(function (res) {
       if (res.errno === 0) {
         // //console.log(res.data);

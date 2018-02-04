@@ -140,17 +140,18 @@
     </view>
   </view>
   <view class="bottom-btn">
-    <view class="l l-collect {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect">
+      <view class="l l-collect" bindtap='openHomePage'>
+        <image class="icon" src="/static/images/ic_menu_choice_nor.png"></image>
+      </view>
+    <!-- <view class="l l-collect">
+       <contact-button type="default-light" session-from="weapp" class='kefu'></contact-button>
+       <image class="icon" src="/static/images/detail_kefu.png" style=' display: inline-block;'></image> 
+    </view> -->
+    <view class="l l-collect {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect" >
       <image class="icon" src="{{ collectBackImage }}"></image>
     </view>
-    <view class="l l-cart">
-      <view class="box">
-        <text class="cart-count">{{cartGoodsCount}}</text>
-        <image bindtap="openCartPage" class="icon" src="/static/images/ic_menu_shoping_nor.png"></image>
-
-      </view>
-    </view>
-    <!-- <view class="c">立即购买</view> -->
-    <view class="r" bindtap="addToCart">加入购物车</view>
+    <view class="c"> </view>
+    
+    <view class="r" bindtap="addToCart" data-goods-id='{{goods.id}}'>一键拼</view>
   </view>
 </scroll-view>

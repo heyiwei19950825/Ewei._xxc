@@ -34,7 +34,9 @@
     "pages/topicDetail/topicDetail",
     "pages/shopping/copon/copon",
     "pages/integral/goods/goods",
-    "pages/integral/order/order"
+    "pages/integral/order/order",
+    "pages/collective/collective",
+    "pages/collectiveOrder/collectiveOrder"
   ],
   "window": {
     "backgroundTextStyle": "dark",

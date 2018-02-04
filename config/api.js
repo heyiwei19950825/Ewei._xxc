@@ -14,7 +14,7 @@ module.exports = {
     AuthLoginByWeixin: NewApiRootUrl + 'token/user', //微信登录
     
 
-    GoodsCount: NewApiRootUrl1 + 'goods/count',  //统计商品总数
+    GoodsCount: NewApiRootUrl + 'goods/count',  //统计商品总数
     GoodsList: NewApiRootUrl + 'goods/by_category/paginate',//获得商品列表
     CategoryList: NewApiRootUrl + 'category/list',  //获得分类数据
     GoodsDetail: NewApiRootUrl + 'goods/detail',  //获得商品的详情
@@ -34,8 +34,8 @@ module.exports = {
     CartGoodsCount: NewApiRootUrl + 'cart/goodscount', // 获取购物车商品件数
     CartCheckout: NewApiRootUrl + 'cart/checkout', // 下单前信息确认
 
-    OrderSubmit: NewApiRootUrl1 + 'order/submit', // 提交订单
-    PayPrepayId: NewApiRootUrl1 + 'pay/prepay', //获取微信统一下单prepay_id
+    OrderSubmit: NewApiRootUrl + 'order', // 提交订单
+    PayPrepayId: NewApiRootUrl + 'pay/pre_order', //获取微信统一下单prepay_id
 
     CollectList: NewApiRootUrl + 'collect/list',  //收藏列表
     CollectAddOrDelete: NewApiRootUrl + 'collect/addordelete',  //添加或取消收藏
@@ -60,8 +60,8 @@ module.exports = {
 
     RegionList: NewApiRootUrl + 'region/list',  //获取区域列表
 
-    OrderList: NewApiRootUrl1 + 'order/list',  //订单列表
-    OrderDetail: NewApiRootUrl1 + 'order/detail',  //订单详情
+    OrderList: NewApiRootUrl + 'order/list',  //订单列表
+    OrderDetail: NewApiRootUrl + 'order/detail',  //订单详情
     OrderCancel: NewApiRootUrl1 + 'order/cancel',  //取消订单
 
     FootprintList: NewApiRootUrl + 'footprint/list',  //足迹列表
@@ -72,5 +72,8 @@ module.exports = {
 
     IntegralPay: NewApiRootUrl + 'integral/integralCart',   //积分购买商品
 
-    GoodsCollective: NewApiRootUrl + 'collective/getList'
+    GoodsCollective: NewApiRootUrl + 'collective/getList',//团购商品列表
+    CollectivePay: NewApiRootUrl + 'collective/cart',   //团购订单
+    CollectiveDetail: NewApiRootUrl + 'collective/detail',   //团购商品详情
+    
 };

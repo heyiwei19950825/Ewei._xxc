@@ -16,7 +16,7 @@ Page({
       if (res.errno === 0) {
         //console.log(res.data);
         that.setData({
-          orderList: res.data.data
+          orderList: res.data
         });
       }
     });

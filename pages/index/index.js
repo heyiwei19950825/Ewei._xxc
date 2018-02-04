@@ -45,6 +45,8 @@ Page({
   },
   goLogin() {
     user.loginByWeixin().then(res => {
+      // wx.removeStorageSync('token');
+      // wx.removeStorageSync('userInfo');
       this.setData({
         userInfo: res.data.userInfo
       });
@@ -69,9 +71,15 @@ Page({
     })
   },
   onLoad: function (options) {
+    // wx.openSetting({
+    //   success: function (res) {
+    //     //尝试再次登录
+    //   }
+    // })
     this.goLogin()
     this.getIndexData();
   },
+  
   onReady: function () {
     // 页面渲染完成
   },

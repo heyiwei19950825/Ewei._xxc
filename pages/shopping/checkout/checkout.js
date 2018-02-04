@@ -60,18 +60,25 @@ Page({
           rankDiscount: res.data.rankDiscount
           
         });
+
+        //有默认收货地址
+        if (that.data.addressId == 0 && that.data.checkedAddress != 0) {
+          that.setData({
+            addressId: res.data.checkedAddress.id
+          })
+        }
       }
       wx.hideLoading();
     });
   },
   selectAddress() {
     wx.navigateTo({
-      url: '/pages/shopping/address/address',
+      url: '/pages/shopping/address/address?type=default',
     })
   },
   addAddress() {
     wx.navigateTo({
-      url: '/pages/shopping/addressAdd/addressAdd',
+      url: '/pages/shopping/addressAdd/addressAdd?type=default',
     })
   },
   selectCoupon(){
@@ -106,6 +113,7 @@ Page({
     util.request(api.OrderSubmit, { addressId: this.data.addressId, couponId: this.data.couponId }, 'POST').then(res => {
       if (res.errno === 0) {
         const orderId = res.data.orderInfo.id;
+        
         pay.payOrder(parseInt(orderId)).then(res => {
           wx.redirectTo({
             url: '/pages/payResult/payResult?status=1&orderId=' + orderId
