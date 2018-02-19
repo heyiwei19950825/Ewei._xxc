@@ -266,7 +266,6 @@ Page({
       });
     } else {
       let goodsId = event.currentTarget.dataset.goodsId;
-      console.log(event);
       wx.navigateTo({
         url: '../collectiveOrder/collectiveOrder?goodsId=' + goodsId + '&num=' + this.data.number
       })

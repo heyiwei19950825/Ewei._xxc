@@ -49,6 +49,33 @@ page{
     color: #7f7f7f;
     font-size: 30rpx;
 }
+.profile-info .rank{
+    position:absolute;
+    right:-30rpx;
+    color:#7f7f7f;
+    background:rgba(255,255,255,0.8);
+    width:250rpx;
+    height:66rpx;
+    line-height:66rpx;
+    border-radius:200px;
+    text-align:center;
+    padding-right:30rpx;
+}
+.profile-info .rank image{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 10rpx;
+  margin-left: 25rpx;
+  float: left;
+  display:inline; 
+}
+.profile-info .rank .rank-text{
+    display:inline; 
+    color:#7f7f7f;
+    height:66rpx;
+    line-height:66rpx;
+
+}
 
 .user-menu{
     width: 100%;

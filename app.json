@@ -41,9 +41,9 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "九宴食材",
+    "navigationBarTitleText": "蔬菜配送",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": "true"
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "backgroundColor": "#fafafa",

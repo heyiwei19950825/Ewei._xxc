@@ -3,8 +3,17 @@
     <image class="avatar" src="{{userInfo.portrait}}"></image>
     <view class="info">
       <text class="name">{{userInfo.nickname}}</text>
-         <text class="level">{{userInfo.username}}</text>   
+      <text class="level">{{userInfo.username}}</text>  
+      <view class="rank">
+        <image src='/static/images/vip.png'></image>
+        <view class="rank-text">
+        白金会员
+        </view>
+        <!-- <image></image> -->
+        <!-- <text>Vip 白金会员</text> -->
+      </view>   
     </view>
+    <view></view>
   </view>
 
   <view class="user-menu">

@@ -22,7 +22,9 @@ Page({
     openAttr: false,
     noCollectImage: "/static/images/icon_collect.png",
     hasCollectImage: "/static/images/icon_collect_checked.png",
-    collectBackImage: "/static/images/icon_collect.png"
+    collectBackImage: "/static/images/icon_collect.png",
+    clickType:false,
+    clickNote:'立即购买'
   },
   getGoodsInfo: function () {
     let that = this;
@@ -337,5 +339,95 @@ Page({
     this.setData({
       number: this.data.number + 1
     });
+  },
+  // 弹窗
+  setModalStatus: function (e) {
+    if (e.currentTarget.dataset.type == 'addToCart'){
+      this.setData({
+        clickNote : '加入购物车',
+        clickType : true
+      })
+    }else{
+      this.setData({
+        clickNote: '立即购买',
+        clickType:false
+      })
+    }
+
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: "linear",
+      delay: 0
+    })
+
+    this.animation = animation
+    animation.translateY(300).step();
+
+    this.setData({
+      animationData: animation.export()
+    })
+
+    if (e.currentTarget.dataset.status == 1) {
+
+      this.setData(
+        {
+          showModalStatus: true
+        }
+      );
+    }
+    setTimeout(function () {
+      animation.translateY(0).step()
+      this.setData({
+        animationData: animation
+      })
+      if (e.currentTarget.dataset.status == 0) {
+        this.setData(
+          {
+            showModalStatus: false
+          }
+        );
+      }
+    }.bind(this), 200)
+  },
+  //添加到购物车
+  addShopCart: function (e){
+    var that = this;
+    if(this.data.clickType == true){
+      util.request(api.CartAdd, { goodsId: this.data.goods.id, number: this.data.number }, "POST")
+        .then(function (res) {
+          let _res = res;
+          if (_res.errno == 0) {
+            wx.showToast({
+              title: '添加成功'
+            });
+            that.setData({
+              cartGoodsCount: _res.data.cartTotal.goodsCount
+            });
+
+            if (that.data.userHasCollect == 1) {
+              that.setData({
+                'collectBackImage': that.data.hasCollectImage
+              });
+            } else {
+              that.setData({
+                'collectBackImage': that.data.noCollectImage
+              });
+            }
+          } else {
+            wx.showToast({
+              image: '/static/images/icon_error.png',
+              title: _res.errmsg,
+              mask: true
+            });
+          }
+
+        });
+    }else{
+      let goodsId = e.currentTarget.dataset.goodsId;
+      wx.navigateTo({
+        url: '../shopping/checkout/checkout?goodsId=' + goodsId + '&num=' + that.data.number
+      })
+    }
+    
   }
 })

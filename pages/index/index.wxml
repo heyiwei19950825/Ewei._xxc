@@ -166,4 +166,9 @@
       </view>
     </view>
   </view>
+  <!-- 通告弹窗 -->
+  <!-- <view class="pop-alert-box">
+    <image src="../../static/img/icon_alert.png" class="icon_alert"/>
+    <i class="iconfont icon-close"/>
+  </view> -->
 </view>

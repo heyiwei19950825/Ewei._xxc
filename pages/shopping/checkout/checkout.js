@@ -16,10 +16,13 @@ Page({
     // orderTotalPrice: 0.00,  //订单总价
     actualPrice: 0.00,     //实际需要支付的总价
     addressId: 0,
-    couponId: 0
+    couponId: 0,
+    goodsId: 0,
+    num: 0,
   },
   onLoad: function (options) {
 
+    // 页面初始化 options为页面跳转所带来的参数
     // 页面初始化 options为页面跳转所带来的参数
 
     try {
@@ -30,21 +33,34 @@ Page({
         });
       }
 
+      var goodsId = options.goodsId;
+      if (goodsId) {
+        this.setData({
+          'goodsId': goodsId
+        });
+      }
+
+      var num = options.num;
+      if (num) {
+        this.setData({
+          'num': num
+        });
+      }
+
       var couponId = wx.getStorageSync('couponId');
       if (couponId) {
         this.setData({
           'couponId': couponId
         });
       }
+
     } catch (e) {
       // Do something when catch error
     }
-
-
   },
   getCheckoutInfo: function () {
     let that = this;
-    util.request(api.CartCheckout, { addressId: that.data.addressId, couponId: that.data.couponId }).then(function (res) {
+    util.request(api.CartCheckout, { goodsId: that.data.goodsId, num: that.data.num,addressId: that.data.addressId, couponId: that.data.couponId }).then(function (res) {
       if (res.errno === 0) {
         //console.log(res.data);
         that.setData({
@@ -110,7 +126,7 @@ Page({
       util.showErrorToast('请选择收货地址');
       return false;
     }
-    util.request(api.OrderSubmit, { addressId: this.data.addressId, couponId: this.data.couponId }, 'POST').then(res => {
+    util.request(api.OrderSubmit, { goodsId: this.data.goodsId, name: this.data.name,addressId: this.data.addressId, couponId: this.data.couponId }, 'POST').then(res => {
       if (res.errno === 0) {
         const orderId = res.data.orderInfo.id;
         

@@ -111,3 +111,33 @@ page{
     color: #fff;
     background: #b4282d;
 }
+
+.cate-nav-body{
+    height: 84rpx;
+    white-space: nowrap;   
+    background: #fff;
+    border-top: 1px solid rgba(0,0,0,.15);
+    overflow: hidden;
+}
+
+.cate-nav .cate-item{
+    display: inline-block;
+    height: 84rpx;
+    min-width: 130rpx;
+    padding: 0 15rpx;
+}
+
+.cate-nav .cate-item .name{
+    display: block;
+    height: 84rpx;
+    padding: 0 20rpx;
+    line-height: 84rpx;
+    color: #333;
+    font-size: 30rpx;
+    width: auto;
+}
+
+.cate-nav .cate-item.active .name{
+    color: #ab2b2b;
+    border-bottom: 2px solid #ab2b2b;
+}
