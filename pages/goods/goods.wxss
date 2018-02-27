@@ -503,64 +503,6 @@
   color: #b4282d;
 }
 
-.bottom-btn{
-    position: fixed;
-    left:0;
-    bottom:0;
-    z-index: 10;
-    width: 750rpx;
-    height: 100rpx;
-    display: flex;
-    background: #fff;
-}
-
-.bottom-btn .l{
-    float: left;
-    height: 100rpx;
-    width: 102rpx;
-    border: 1px solid #f4f4f4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-.bottom-btn .l.l-collect{
-    border-right: none;
-    border-left: none;
-    text-align: center;
-}
-
-
-.bottom-btn .l.l-cart .box{
-    position: relative;
-    height: 60rpx;
-    width: 60rpx;
-}
-
-.bottom-btn .l.l-cart .cart-count{
-    height: 28rpx;
-    width: 28rpx;
-    z-index: 10;
-    position: absolute;
-    top: 0;
-    right:0;
-    background: #b4282d;
-    text-align: center;
-    font-size: 18rpx;
-    color: #fff;
-    line-height: 28rpx;
-    border-radius: 50%;
-
-}
-
-.bottom-btn .l.l-cart .icon{
-  
-    position: absolute;
-    top: 10rpx;
-    left:0;
-    
-}
 
 
 .bottom-btn .l .icon{
@@ -608,13 +550,7 @@ color:snow;
 text-align: center
 
 }
-/*客服*/
-.pos{
-  position: absolute;
-  top: 10px;
-  left: 23px;
-  opacity: 0;
-}
+
 /*弹窗*/
 .drawer_screen {
   width: 100%;

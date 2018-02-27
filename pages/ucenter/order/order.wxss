@@ -5,6 +5,7 @@ page{
 }
 
 .orders{
+    margin-top: 80rpx;
     height: auto;
     width: 100%;
     overflow: hidden;
@@ -111,7 +112,10 @@ page{
     color: #fff;
     background: #b4282d;
 }
-
+.cate-nav{
+  position: fixed;
+  top:0
+}
 .cate-nav-body{
     height: 84rpx;
     white-space: nowrap;   

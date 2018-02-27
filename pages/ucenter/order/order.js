@@ -4,7 +4,7 @@ var api = require('../../../config/api.js');
 Page({
   data:{
     orderList: [],
-    types:0
+    types: 9999
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -13,14 +13,22 @@ Page({
   },
   getOrderList(){
     let that = this;
-    util.request(api.OrderList).then(function (res) {
-      if (res.errno === 0) {
-        //console.log(res.data);
+    util.request(api.OrderList,{types: that.data.types }).then(function (res) {
         that.setData({
-          orderList: res.data
+          orderList: res.data.list,
+          types: res.data.types
         });
-      }
     });
+  },
+  switchOrder: function (event) {
+    if (this.data.types == event.currentTarget.dataset.types) {
+      return false;
+    }
+    this.setData({
+      types: event.currentTarget.dataset.types
+    });
+
+    this.getOrderList();
   },
   payOrder(){
     wx.redirectTo({

@@ -1,21 +1,24 @@
 <view class="container">
   <view class="cate-nav">
           <scroll-view scroll-x="true" class="cate-nav-body" style="width: 750rpx;" scroll-left="{{scrollLeft}}">
-              <view data-types="0" bindtap="switchCoupon" class="cate-item {{ types == 0 ? 'active' : ''}}">
+              <view data-types="9999" bindtap="switchOrder" class="cate-item {{ types == 9999 ? 'active' : ''}}">
                   <view class="name">全部</view>
               </view>
-              <view data-types="1" bindtap="switchCoupon" class="cate-item {{ types == 1 ? 'active' : ''}}">
+              <view data-types="0" bindtap="switchOrder" class="cate-item {{ types == 0 ? 'active' : ''}}">
                   <view class="name">待付款</view>
               </view>
-              <view data-types="2" bindtap="switchCoupon" class="cate-item {{ types == 2 ? 'active' : ''}}">
+              <view data-types="1" bindtap="switchOrder" class="cate-item {{ types == 1 ? 'active' : ''}}">
                   <view class="name">待发货</view>
               </view>
-              <view data-types="2" bindtap="switchCoupon" class="cate-item {{ types == 2 ? 'active' : ''}}">
+              <view data-types="2" bindtap="switchOrder" class="cate-item {{ types == 2 ? 'active' : ''}}">
                   <view class="name">已发货</view>
               </view>
-              <!-- <view data-types="2" bindtap="switchCoupon" class="cate-item {{ types == 2 ? 'active' : ''}}">
-                  <view class="name">待发货</view>
-              </view> -->
+              <view data-types="3" bindtap="switchOrder" class="cate-item {{ types == 3 ? 'active' : ''}}">
+                  <view class="name">已完成</view>
+              </view> 
+              <view data-types="4" bindtap="switchOrder" class="cate-item {{ types == 4 ? 'active' : ''}}">
+                  <view class="name">退换货</view>
+              </view> 
           </scroll-view>
     </view>
     <view class="orders">

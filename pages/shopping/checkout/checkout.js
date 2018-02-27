@@ -89,12 +89,12 @@ Page({
   },
   selectAddress() {
     wx.navigateTo({
-      url: '/pages/shopping/address/address?type=default',
+      url: '/pages/shopping/address/address?type=default&goodsId=' + this.data.goodsId + '&num=' + this.data.num,
     })
   },
   addAddress() {
     wx.navigateTo({
-      url: '/pages/shopping/addressAdd/addressAdd?type=default',
+      url: '/pages/shopping/addressAdd/addressAdd?type=default&goodsId=' + this.data.goodsId + '&num=' + this.data.num,
     })
   },
   selectCoupon(){

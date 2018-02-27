@@ -1,0 +1,157 @@
+/* pages/ucenter/member/member.wxss */
+
+.g-row {
+	width: 20rem
+    margin-right: auto;
+    margin-left: auto;
+}
+.g-header{
+	background: #fff;
+    padding: 1.4rem 0.6rem 0;
+}
+.m-content{
+	height: 8.93333rem;
+    background-image: linear-gradient(-134deg,#959595 0,#C7C7C7 100%);
+    box-shadow: 0 0 .4rem 0 rgba(0,0,0,.15);
+    border-radius: .10667rem;
+    position: relative;
+    overflow: hidden;
+}
+.m-info{
+	    padding-top: 1.53333rem;
+    padding-left: 1.53333rem;
+    overflow: hidden;
+}
+.u-avatarUrl{
+	float: left;
+}
+.u-avatarUrl image{
+	width: 3.86667rem;
+    height: 3.86667rem;
+    border: .02667rem solid #FFF;
+    border-radius: 1.86667rem;
+}
+.m-right{
+	margin-left: 4.86667rem;
+    margin-top: 0.4rem;
+    color: #fff;
+}
+.m-right text{
+    padding-top: 0.4rem;
+	color: #fff;
+}
+.u-nickname{
+	color: #fff;
+    font-size: 0.82667rem;
+    line-height: 1.48rem;
+    margin-bottom: 0.54rem;
+    margin-right: 1.53333rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.wave-wrap{
+	    position: absolute;
+    bottom: -.06667rem;
+    overflow: hidden;
+    width: 100%;
+}
+
+.m-ware-box{
+
+}
+.marquee-box{
+    position: absolute;
+    width: 100%;
+    bottom: -.13333rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 100%;
+}
+
+
+.a-section {
+  width: 750rpx;
+  height: auto;
+  overflow: hidden;
+  background: #fff;
+  color: #333;
+}
+
+.a-section .h {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 130rpx;
+}
+
+.a-section .h .txt {
+  padding-right: 30rpx;
+  background-size: 16.656rpx 27rpx;
+  display: inline-block;
+  height: 36rpx;
+  font-size: 33rpx;
+  line-height: 36rpx;
+}
+.a-section .c .txt {
+  background: url("http://ac-3yr0g9cz.clouddn.com/2cdba05369e10f934e54.png") right 4rpx no-repeat; 
+  padding-right: 30rpx;
+  background-size: 16.656rpx 27rpx;
+  display: inline-block;
+  height: 36rpx;
+  font-size: 33rpx;
+  line-height: 36rpx;
+}
+.a-new .b {
+  width: 750rpx;
+  height: auto;
+  overflow: hidden;
+  padding: 0 31rpx 45rpx 31rpx;
+}
+
+.a-new .b .item {
+  float: left;
+  width: 302rpx;
+  margin-top: 10rpx;
+  margin-left: 21rpx;
+  margin-right: 21rpx;
+}
+
+.a-new .b .item-b {
+  margin-left: 42rpx;
+}
+
+.a-new .b .img {
+  width: 302rpx;
+  height: 302rpx;
+}
+
+.a-new .b .name {
+  text-align: center;
+  display: block;
+  width: 302rpx;
+  height: 35rpx;
+  margin-bottom: 14rpx;
+  overflow: hidden;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.a-new .b .price {
+  display: block;
+  text-align: center;
+  line-height: 30rpx;
+  font-size: 30rpx;
+  color: #b4282d;
+}
+.a-new .b .name {
+  text-align: center;
+  display: block;
+  width: 302rpx;
+  height: 35rpx;
+  margin-bottom: 14rpx;
+  overflow: hidden;
+  font-size: 30rpx;
+  color: #333;
+}

@@ -267,6 +267,11 @@ Page({
       url: '/pages/cart/cart',
     });
   },
+  openHomePage: function () {
+    wx.switchTab({
+      url: '/pages/index/index',
+    });
+  },
   addToCart: function () {
     var that = this;
     if (this.data.openAttr == false) {

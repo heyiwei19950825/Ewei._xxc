@@ -1,8 +1,8 @@
-var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
-var NewApiRootUrl1 = 'https://small.redkylin.com/api/v1/';
+// var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
+// var NewApiRootUrl1 = 'https://small.redkylin.com/api/v1/';
 
-// var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
-// var NewApiRootUrl1 = 'http://127.0.0.1:8360/api/';
+var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
+var NewApiRootUrl1 = 'http://127.0.0.1:8360/api/';
 
 
 
@@ -75,5 +75,8 @@ module.exports = {
     GoodsCollective: NewApiRootUrl + 'collective/getList',//团购商品列表
     CollectivePay: NewApiRootUrl + 'collective/cart',   //团购订单
     CollectiveDetail: NewApiRootUrl + 'collective/detail',   //团购商品详情
+
+
+    FeedBack: NewApiRootUrl+'feedBack/add',//用户反馈
     
 };

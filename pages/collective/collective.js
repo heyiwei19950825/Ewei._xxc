@@ -101,6 +101,44 @@ Page({
 
     //重新计算哪些值不可以点击
   },
+  // 弹窗
+  setModalStatus: function (e) {
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: "linear",
+      delay: 0
+    })
+
+    this.animation = animation
+    animation.translateY(300).step();
+
+    this.setData({
+      animationData: animation.export()
+    })
+
+    if (e.currentTarget.dataset.status == 1) {
+
+      this.setData(
+        {
+          showModalStatus: true
+        }
+      );
+    }
+    setTimeout(function () {
+      animation.translateY(0).step()
+      this.setData({
+        animationData: animation
+      })
+      if (e.currentTarget.dataset.status == 0) {
+        this.setData(
+          {
+            showModalStatus: false
+          }
+        );
+      }
+    }.bind(this), 200)
+  },
+
 
   //获取选中的规格信息
   getCheckedSpecValue: function () {
@@ -257,20 +295,10 @@ Page({
     });
   },
   addToCart: function (event) {
-    var that = this;
-    if (this.data.openAttr == false) {
-      //打开规格选择窗口
-      this.setData({
-        openAttr: !this.data.openAttr,
-        collectBackImage: "/static/images/detail_back.png"
-      });
-    } else {
       let goodsId = event.currentTarget.dataset.goodsId;
       wx.navigateTo({
         url: '../collectiveOrder/collectiveOrder?goodsId=' + goodsId + '&num=' + this.data.number
       })
-    }
-
   },
   cutNumber: function () {
     this.setData({

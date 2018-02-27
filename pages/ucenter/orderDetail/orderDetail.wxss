@@ -70,6 +70,11 @@ page{
     background: #b4282d;
     color: #fff;
 }
+.item-c .btn.delete{
+    width:160rpx;
+    background: #b4282d;
+    color: #fff;
+}
 
 .order-goods{
     margin-top: 20rpx;

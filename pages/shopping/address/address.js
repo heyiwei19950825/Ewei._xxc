@@ -17,7 +17,7 @@ Page({
       that.url = '/pages/collectiveOrder/collectiveOrder?goodsId='+options.goodsId+'&num='+options.num;
     }
     if (options.type == 'default'){
-      that.url = '/pages/shopping/checkout/checkout';
+      that.url = '/pages/shopping/checkout/checkout?goodsId=' + options.goodsId + '&num=' + options.num;
     } 
 
     this.getAddressList();

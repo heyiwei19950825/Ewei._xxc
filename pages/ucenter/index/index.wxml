@@ -53,16 +53,23 @@
         <text class="txt">我的足迹</text>
       </navigator>
     </view>
-     <view class="item">
-      <navigator url="url" class="a">
-        <text class="icon kefu"></text>
-        <text class="txt">会员福利</text>
-      </navigator>
-    </view> 
     <view class="item">
       <navigator url="../address/address" class="a">
         <text class="icon address"></text>
         <text class="txt">地址管理</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="../member/member" class="a">
+        <text class="icon kefu"></text>
+        <text class="txt">会员中心</text>
+      </navigator>
+    </view> 
+  
+    <view class="item">
+      <navigator url="../enter/enter" class="a">
+        <text class="icon shop"></text>
+        <text class="txt">商家入驻</text>
       </navigator>
     </view>
     <!-- <view class="item">
@@ -71,11 +78,14 @@
         <text class="txt">账号安全</text>
       </navigator>
     </view> -->
-     <view class="item">
-      <navigator url="url" class="a">
-        <text class="icon kefu"></text>
-        <text class="txt">联系客服</text>
-      </navigator>
+     <view class="item ke-box">
+      <view class="a">
+       <!-- <contact-button type="default-light" session-from="productId_{{itemData.id}}" class="ke"> -->
+          <!-- <contact-button class="kefu-pos"></contact-button> -->
+          <text class="icon kefu"></text>
+          <text class="txt">联系客服</text>
+      <!-- </contact-button > -->
+      </view>
     </view> 
      <view class="item">
       <navigator url="url" class="a">

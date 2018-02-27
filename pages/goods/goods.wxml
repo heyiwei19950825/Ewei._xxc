@@ -180,17 +180,22 @@
   </view>
 </view>
   <view class="bottom-btn">
-    <view class="l l-cart">
-      <view class="box">
-        <contact-button type="default-light" session-from="productId_{{itemData.id}}" class="ke">
-            <contact-button class="pos"></contact-button>
-            <image class="icon" src="/static/images/ic_menu_choice_nor.png"></image>
-          </contact-button >
-      </view>
+    <view class="l l-collect" bindtap='openHomePage'>
+        <view class="box">
+          <image class="icon" src="/static/images/ic_menu_choice_nor.png"></image>
+        </view>
     </view>
     <view class="l l-cart">
       <view class="box">
-        <image class="icon" src="/static/images/detail_kefu.png"></image>
+          <contact-button type="default-light" session-from="productId_{{itemData.id}}" class="ke">
+            <contact-button class="pos"></contact-button>
+              <image class="icon" src="/static/images/detail_kefu.png"></image>
+          </contact-button >
+      </view>
+    </view>
+     <view class="l l-cart {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect" >
+      <view class="box">
+        <image class="icon" src="{{ collectBackImage }}"></image>
       </view>
     </view>
     <view class="l l-cart">

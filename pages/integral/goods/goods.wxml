@@ -113,7 +113,7 @@
     </view>
 
   </view>
-  <view wx:if="{{openAttr}}" class="attr-pop">
+  <!-- <view wx:if="{{openAttr}}" class="attr-pop">
     <view class="img-info">
       <image class="img" src="{{goods.thumb}}"></image>
       <view class="info">
@@ -140,21 +140,71 @@
         </view>
       </view>
     </view>
+  </view> -->
+
+    <!--弹窗-->
+<view class="drawer_screen attr-pop" bindtap="setModalStatus" data-status="0" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+<view class="close_icon" bindtap="setModalStatus" data-status="0">×</view>
+<view class="drawer_attr_content">
+    <view class="text_center">
+         <image class="drawer_image" src="{{goods.thumb}}" ></image>
+         <view class="mingcheng">
+             <view>{{goods.name}}</view>
+             <view style="font-size:29rpx;color:#b4282d">{{goods.sp_integral}}积分</view>
+             <view  style="font-size:26rpx;color:#ccc">库存：{{goods.sp_inventory}}</view>
+         </view>
+    </view>
+<view class="commodity_attr_list">
+  <view class="attr_box" wx:for="{{attrValueList}}" wx:for-item="attrValueObj" wx:for-index="attrValueList">
+    <view class="attr_name">{{attrValueObj.attrKey}}</view>
+    <view class="attr_value_box">
+
+      <view class="attr_value {{attrIndex==firstIndex || attrValueObj.attrValueStatus[valueIndex]?(value==attrValueObj.selectedValue?'attr_value_active':''):'attr_value_disabled'}}" bindtap="selectAttrValue" data-status="{{attrValueObj.attrValueStatus[valueIndex]}}"
+      data-value="{{value}}" data-key="{{attrValueObj.attrKey}}" data-index="{{attrIndex}}" data-selectedvalue="{{attrValueObj.selectedValue}}" wx:for="{{attrValueObj.attrValues}}" wx:for-item="value" wx:for-index="valueIndex">{{value}}</view>
+    </view>
   </view>
+</view>
+    <view class="shu">
+        <text class="cun">购买数量</text>
+       <view class="dian">
+        <view class=" number-item">
+        <view class="selnum">
+          <view class="cut" bindtap="cutNumber">-</view>
+          <input value="{{number}}" class="number" disabled="true" type="number" />
+          <view class="add" bindtap="addNumber">+</view>
+        </view>
+      </view>
+      </view>
+   </view>
+   <view class="footc"  bindtap="goToOrder" data-goods-id='{{goods.id}}'>
+立即兑换
+</view>
+  </view>
+</view>
   <view class="bottom-btn">
-    <view class="l l-collect {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect">
-      <image class="icon" src="{{ collectBackImage }}"></image>
+    <view class="l l-collect" bindtap='openHomePage'>
+        <view class="box">
+          <image class="icon" src="/static/images/ic_menu_choice_nor.png"></image>
+        </view>
     </view>
     <view class="l l-cart">
       <view class="box">
-        <text class="cart-count">{{cartGoodsCount}}</text>
-        <image bindtap="openCartPage" class="icon" src="/static/images/ic_menu_shoping_nor.png"></image>
-
+          <contact-button type="default-light" session-from="productId_{{itemData.id}}" class="ke">
+            <contact-button class="pos"></contact-button>
+              <image class="icon" src="/static/images/detail_kefu.png"></image>
+          </contact-button >
       </view>
     </view>
+    <view class="l l-cart {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect" >
+      <view class="box">
+        <image class="icon" src="{{ collectBackImage }}"></image>
+      </view>
+    </view>
+
     <view class="c"></view>
-    <navigator url='/pages/integral/order/order?goodsId={{goods.id}}&num={{number}}'>
-      <view class="r">立即兑换</view>
-    </navigator>
+    <!-- <navigator url='/pages/integral/order/order?goodsId={{goods.id}}&num={{number}}'> -->
+      <view class="r"  bindtap="setModalStatus" data-status="1">立即兑换</view>
+    <!-- </navigator> -->
   </view>
 </scroll-view>

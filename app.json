@@ -36,7 +36,9 @@
     "pages/integral/goods/goods",
     "pages/integral/order/order",
     "pages/collective/collective",
-    "pages/collectiveOrder/collectiveOrder"
+    "pages/collectiveOrder/collectiveOrder",
+    "pages/ucenter/member/member",
+    "pages/ucenter/enter/enter"
   ],
   "window": {
     "backgroundTextStyle": "dark",

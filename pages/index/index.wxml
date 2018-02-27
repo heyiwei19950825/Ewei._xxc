@@ -2,6 +2,12 @@
 <!--index.wxml-->
 <!-- 轮播 -->
 <view class="container">
+  <view class="search">
+    <navigator url="/pages/search/search" class="input">
+      <image class="icon"></image>
+      <text class="txt">商品搜索</text>
+    </navigator>
+  </view>
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
     <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
       <navigator url="{{item.link}}">
@@ -17,7 +23,7 @@
     </navigator>
   </view>
   <!-- 优惠券 -->
-  <view class="a-section a-coupon">
+  <!-- <view class="a-section a-coupon">
     <view class="b">
       <scroll-view scroll-x="true" class="list">
         <view class="item" wx:for="{{couponList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.coupon_type_id}}" >
@@ -32,7 +38,7 @@
         </view>
       </scroll-view>
     </view>
-  </view>
+  </view> -->
   <view class="a-section a-brand">
     <!-- <view class="h">
       <navigator url="../brand/brand">
