@@ -4,14 +4,12 @@
     <view class="info">
       <text class="name">{{userInfo.nickname}}</text>
       <text class="level">{{userInfo.username}}</text>  
-      <view class="rank">
-        <image src='/static/images/vip.png'></image>
+       <view class="rank">
+         <!-- <image src='/static/images/vip.png'></image> -->
         <view class="rank-text">
-        白金会员
-        </view>
-        <!-- <image></image> -->
-        <!-- <text>Vip 白金会员</text> -->
-      </view>   
+        积分：{{userInfo.integral}}
+        </view> 
+      </view>    
     </view>
     <view></view>
   </view>
@@ -23,24 +21,18 @@
         <text class="txt">我的订单</text>
       </navigator>
     </view>
-     <view class="item">
+      <!-- <view class="item">
       <navigator url="url" class="a">
         <text class="icon gift"></text>
         <text class="txt">我的团购</text>
       </navigator>
-    </view> 
+    </view>   -->
     <view class="item">
       <navigator url="/pages/ucenter/coupon/coupon" class="a">
         <text class="icon coupon"></text>
         <text class="txt">优惠券</text>
       </navigator>
     </view>
-    <!-- <view class="item">
-      <navigator url="url" class="a">
-        <text class="icon gift"></text>
-        <text class="txt">我的团购</text>
-      </navigator>
-    </view>  -->
     <view class="item">
       <navigator url="/pages/ucenter/collect/collect" class="a">
         <text class="icon address"></text>
@@ -60,40 +52,42 @@
       </navigator>
     </view>
     <view class="item">
+      <navigator url="/pages/newGoods/newGoods" class="a">
+        <text class="icon integral"></text>
+        <text class="txt">积分中心</text>
+      </navigator>
+    </view> 
+     <!-- <view class="item">
       <navigator url="../member/member" class="a">
         <text class="icon kefu"></text>
         <text class="txt">会员中心</text>
       </navigator>
-    </view> 
+    </view>  -->
   
-    <view class="item">
+    <!-- <view class="item">
       <navigator url="../enter/enter" class="a">
         <text class="icon shop"></text>
         <text class="txt">商家入驻</text>
       </navigator>
-    </view>
+    </view> -->
     <!-- <view class="item">
       <navigator url="url" class="a">
         <text class="icon security"></text>
         <text class="txt">账号安全</text>
       </navigator>
-    </view> -->
+    </view>  -->
      <view class="item ke-box">
       <view class="a">
-       <!-- <contact-button type="default-light" session-from="productId_{{itemData.id}}" class="ke"> -->
-          <!-- <contact-button class="kefu-pos"></contact-button> -->
-          <text class="icon kefu"></text>
+          <text class="icon kefu" bindtap='telKefu'></text>
           <text class="txt">联系客服</text>
-      <!-- </contact-button > -->
       </view>
     </view> 
-     <view class="item">
+    <!-- <view class="item">
       <navigator url="url" class="a">
         <text class="icon help"></text>
         <text class="txt">帮助中心</text>
       </navigator>
-    </view> 
-    <!-- <view class="item item-bottom "> -->
+    </view>   -->
      <view class="item">
       <navigator url="/pages/ucenter/feedback/feedback" class="a">
         <text class="icon feedback"></text>
@@ -101,6 +95,11 @@
       </navigator>
     </view> 
   </view>
-
-  <!--<view class="logout" bindtap="exitLogin">退出登录</view>-->
+  <!-- <view class="logout" bindtap="exitLogin">退出登录</view> -->
+  <view class='footer-copyright'>
+    <view class="footer-div">
+      <image src="../../../static/images/logo.png" class="icon_copyright" />
+      <text class="footer-zz">技术支持</text>
+    </view>
+  </view>
 </view>

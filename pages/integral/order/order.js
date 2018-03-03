@@ -54,10 +54,10 @@ Page({
         //   checkedGoodsList: res.data.checkedGoodsList,
           checkedAddress: res.data.checkedAddress,
           actualPrice: res.data.actualPrice,
-          product: res.data.product
+          product: res.data.product,
         //   couponNumber: res.data.couponNumber,
         //   couponPrice: res.data.couponPrice,
-        //   freightPrice: res.data.freightPrice,
+          freightPrice: res.data.freightPrice,
         //   goodsTotalPrice: res.data.goodsTotalPrice,
         //   // orderTotalPrice: res.data.orderTotalPrice,
         //   rankDiscount: res.data.rankDiscount
@@ -82,7 +82,7 @@ Page({
   },
   addAddress() {
     wx.navigateTo({
-      url: '/pages/shopping/addressAdd/addressAdd?type=integral'+this.data.goodsId+'&num='+this.data.num,
+      url: '/pages/shopping/addressAdd/addressAdd?type=integral&goodsId='+this.data.goodsId+'&num='+this.data.num,
     })
   },
   selectCoupon() {
@@ -119,21 +119,16 @@ Page({
       if (res.errno === 0) {
         const orderId = res.data.orderInfo.id;
         const goodsPrice = res.data.orderInfo.goods_price;
-        if (goodsPrice != 0) {
-          pay.payOrder(parseInt(orderId)).then(res => {
-            wx.redirectTo({
-              url: '/pages/payResult/payResult?status=1&orderId=' + orderId
-            });
-          }).catch(res => {
-            wx.redirectTo({
-              url: '/pages/payResult/payResult?status=0&orderId=' + orderId
-            });
-          });
-        }else{
+        pay.payOrder(parseInt(orderId)).then(res => {
           wx.redirectTo({
             url: '/pages/payResult/payResult?status=1&orderId=' + orderId
           });
-        }
+        }).catch(res => {
+          wx.redirectTo({
+            url: '/pages/payResult/payResult?status=0&orderId=' + orderId
+          });
+        });
+       
       } else {
         if (res.errmsg === ''){
           util.showErrorToast('下单失败');

@@ -6,6 +6,7 @@ Page({
     orderId: 0,
     orderInfo: {},
     orderGoods: [],
+    express: [],
     handleOption: {}
   },
   onLoad: function (options) {
@@ -25,7 +26,8 @@ Page({
         that.setData({
           orderInfo: res.data.orderInfo,
           orderGoods: res.data.orderGoods,
-          handleOption: res.data.handleOption
+          handleOption: res.data.handleOption,
+          express: res.data.express
         });
         //that.payTimer();
       }
@@ -46,7 +48,7 @@ Page({
   payOrder() {
     let that = this;
     util.request(api.PayPrepayId, {
-      orderId: that.data.orderId || 15
+      id: that.data.orderId || 15
     }).then(function (res) {
       if (res.errno === 0) {
         const payParam = res.data;
@@ -57,15 +59,43 @@ Page({
           'signType': payParam.signType,
           'paySign': payParam.paySign,
           'success': function (res) {
-            //console.log(res)
+            that.getOrderDetail();
           },
           'fail': function (res) {
-            // //console.log(res)
+            that.getOrderDetail();
           }
         });
       }
     });
 
+  },
+  //取消订单
+  updateOrder(event){
+    let that = this;
+    let status = event.currentTarget.dataset.status;
+    util.request(api.UpdateOrder, {
+      id: that.data.orderId, status: status
+    }, 'POST').then(function (res) {
+      wx.showToast({
+        title: res.errmsg,
+      })
+      that.getOrderDetail();
+    });
+  },
+  //删除订单
+  delOrder() {
+    let that = this;
+    util.request(api.DelOrder, {
+      id: that.data.orderId || 15
+    }).then(function (res) {
+      wx.showToast({
+        title: res.errmsg,
+      })
+      //跳转到订单列表
+      wx.redirectTo({
+        url: '/pages/ucenter/order/order'
+      })
+    });
   },
   onReady: function () {
     // 页面渲染完成

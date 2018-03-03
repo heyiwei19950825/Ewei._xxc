@@ -37,6 +37,8 @@ Page({
   },
   getCategoryInfo: function () {
     let that = this;
+     
+    
     util.request(api.CategoryList, { id: this.data.id })
       .then(function (res) {
 
@@ -45,6 +47,11 @@ Page({
             navList: res.data.brotherCategory,
             currentCategory: res.data.currentCategory
           });
+          
+          //设置分类页面标题
+          wx.setNavigationBarTitle({
+            title: res.data.currentCategory.name//页面标题为路由参数
+          })
 
           //nav位置
           let currentIndex = 0;

@@ -21,5 +21,6 @@ App({
       portrait: '/static/images/default_user.png'
     },
     token: '',
-  }
+  },
+ 
 })

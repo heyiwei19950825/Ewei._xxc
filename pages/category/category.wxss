@@ -108,10 +108,28 @@
 }
 
 .cate-item .item .price{
-  display: block;
+  /* display: block; */
   width: 365.625rpx;
   height: 30rpx;
-  text-align: center;
+  /* text-align: center; */
   font-size: 30rpx;
   color: #b4282d;
+}
+.o_price {
+  /* display: block; */
+  /* text-align: center; */
+  line-height: 20rpx;
+  font-size: 20rpx;
+  color: #999;
+  text-decoration:line-through;
+  margin-left:10rpx;
+}
+.market {
+  /* display: block; */
+  /* text-align: center; */
+  line-height: 20rpx;
+  font-size: 20rpx;
+  margin-left:10rpx;
+  color: #999;
+  right:0rpx;
 }

@@ -70,6 +70,13 @@
 }
 
 
+.goods-info .price-block{
+    height: 35rpx;
+    font-size: 35rpx;
+    line-height: 35rpx;
+    color: #999;
+    text-decoration:line-through;
+}
 .goods-info .price{
     height: 35rpx;
     font-size: 35rpx;

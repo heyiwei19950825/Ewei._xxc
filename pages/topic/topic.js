@@ -11,6 +11,17 @@ Page({
         scrollTop: 0,
         showPage: false
     },
+    //下拉刷新
+    onPullDownRefresh: function () {
+      wx.showNavigationBarLoading() //在标题栏中显示加载
+      this.getTopic();
+      //模拟加载
+      setTimeout(function () {
+        // complete
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh() //停止下拉刷新
+      }, 1500);
+    },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
         this.getTopic();

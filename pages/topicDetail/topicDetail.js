@@ -20,10 +20,14 @@ Page({
 
     util.request(api.TopicDetail, { id: that.data.id}).then(function (res) {
       if (res.errno === 0) {
-
+        //设置分类页面标题
+        wx.setNavigationBarTitle({
+          title: res.data.title//页面标题为路由参数
+        })
         that.setData({
           topic: res.data,
         });
+
 
         WxParse.wxParse('topicDetail', 'html', res.data.content, that);
       }

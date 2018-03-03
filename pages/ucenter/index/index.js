@@ -5,11 +5,16 @@ var app = getApp();
 
 Page({
   data: {
-    userInfo: {}
+    userInfo: {},
+    shopInfo:[]
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-    // //console.log(app.globalData)
+    var shopInfo = wx.getStorageSync('shopInfo');
+    this.setData({
+      shopInfo: shopInfo
+    });
+
   },
   onReady: function () {
 
@@ -64,5 +69,11 @@ Page({
       }
     })
 
+  },
+  telKefu:function(){
+    wx.makePhoneCall({
+      phoneNumber: this.data.shopInfo.shop_phone
+    })
   }
+
 })

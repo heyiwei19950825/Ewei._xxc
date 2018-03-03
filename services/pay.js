@@ -13,7 +13,14 @@ function payOrder(orderId) {
     util.request(api.PayPrepayId, {
       id: orderId
     }).then((res) => {
-      // //console.log(res)
+      // console.log(res)
+      if (res.data == 'SUCCESS') {
+        wx.redirectTo({
+          url: '/pages/payResult/payResult?status=1&orderId=' + orderId
+        });
+        return;
+      }
+
       if (res.errno === 0) {
         const payParam = res.data;
         wx.requestPayment({

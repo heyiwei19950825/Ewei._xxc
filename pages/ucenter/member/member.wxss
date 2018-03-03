@@ -1,7 +1,7 @@
 /* pages/ucenter/member/member.wxss */
 
 .g-row {
-	width: 20rem
+	width: 20rem;
     margin-right: auto;
     margin-left: auto;
 }

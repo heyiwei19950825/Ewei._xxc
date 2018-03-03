@@ -5,7 +5,6 @@
       <view class="info-box">
         <view class="info">
           <text class="txt">{{bannerInfo.name}}</text>
-          <text class="line">换换换</text>
         </view>
       </view>
     </view>
@@ -32,7 +31,7 @@
         <navigator class="item {{iindex % 2 == 0 ? 'item-b' : '' }}" url="../integral/goods/goods?id={{iitem.id}}">
           <image class="img" src="{{iitem.thumb}}" background-size="cover"></image>
           <text class="name">{{iitem.name}}</text>
-          <text class="integral">积分{{iitem.sp_integral}}<text class='price'>￥{{iitem.sp_price}}</text></text>
+          <text class="integral">积分{{iitem.sp_integral}}<text class='price'>￥{{iitem.sp_price}}</text> <text class="market">已售:{{iitem.sp_market}}</text></text>
         </navigator>
       </block>
     </view>

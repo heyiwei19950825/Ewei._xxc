@@ -246,3 +246,21 @@ text-align: center
 
 }
 
+.footer-copyright .icon_copyright{
+  width:150rpx;
+  height:50rpx;
+}
+
+.footer-copyright{
+    padding-top: 40px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.footer-zz{
+  font-size: 20rpx;
+  color: #999;
+  position:relative;
+  left:10rpx;
+  top:-15rpx;
+}
+

@@ -14,6 +14,7 @@ Page({
       mobile: '',
       is_default: 0
     },
+    url:'',
     addressId: 0,
     openSelectRegion: false,
     selectRegionList: [
@@ -118,8 +119,20 @@ Page({
 
   },
   onLoad: function (options) {
+    console.log(options);
     // 页面初始化 options为页面跳转所带来的参数
-    //console.log(options)
+    let that = this.data;
+    // 页面初始化 options为页面跳转所带来的参数
+    if (options.type == 'integral') {
+      that.url = '/pages/integral/order/order?goodsId=' + options.goodsId + '&num=' + options.num;
+    }
+    if (options.type == 'collective') {
+      that.url = '/pages/collectiveOrder/collectiveOrder?goodsId=' + options.goodsId + '&num=' + options.num;
+    }
+    if (options.type == 'default') {
+      that.url = '/pages/shopping/checkout/checkout?goodsId=' + options.goodsId + '&num=' + options.num;
+    }
+    console.log(that.url);
     if (options.id) {
       this.setData({
         addressId: options.id
@@ -259,7 +272,7 @@ Page({
     });
   },
   cancelAddress(){
-    wx.reLaunch({
+    wx.redirectTo({
       url: '/pages/shopping/address/address',
     })
   },
@@ -277,7 +290,6 @@ Page({
       util.showErrorToast('请输入手机号码');
       return false;
     }
-
 
     if (address.district_id == 0) {
       util.showErrorToast('请输入省市区');
@@ -302,9 +314,13 @@ Page({
       is_default: address.is_default,
     }, 'POST').then(function (res) {
       if (res.errno === 0) {
-        wx.reLaunch({
-          url: '/pages/shopping/address/address',
+        wx.setStorageSync('addressId', res.data);
+        wx.redirectTo({
+          url: that.data.url+'&addressId?='+res.data
         })
+      }
+      if (res.error_code != 0) {
+        util.showErrorToast(res.msg);
       }
     });
 

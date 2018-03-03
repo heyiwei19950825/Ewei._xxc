@@ -1,8 +1,8 @@
-// var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
-// var NewApiRootUrl1 = 'https://small.redkylin.com/api/v1/';
+var NewApiRootUrl = 'https://ld.mskfkj.comapi/v1/';
+var NewApiRootUrl1 = 'https://ld.mskfkj.com/api/v1/';
 
-var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
-var NewApiRootUrl1 = 'http://127.0.0.1:8360/api/';
+// var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
+// var NewApiRootUrl1 = 'http://127.0.0.1:8360/api/';
 
 
 
@@ -34,7 +34,10 @@ module.exports = {
     CartGoodsCount: NewApiRootUrl + 'cart/goodscount', // 获取购物车商品件数
     CartCheckout: NewApiRootUrl + 'cart/checkout', // 下单前信息确认
 
-    OrderSubmit: NewApiRootUrl + 'order', // 提交订单
+    OrderSubmit: NewApiRootUrl + 'order/place', // 提交订单
+    UpdateOrder: NewApiRootUrl + 'order/updatestatus', // 取消订单
+    DelOrder: NewApiRootUrl + 'order/delorder', // 取消订单
+    
     PayPrepayId: NewApiRootUrl + 'pay/pre_order', //获取微信统一下单prepay_id
 
     CollectList: NewApiRootUrl + 'collect/list',  //收藏列表

@@ -17,13 +17,24 @@ Page({
     collectiveList:[]
   },
   onShareAppMessage: function () {
+    wx.getStorageSync('shopInfo', res.data.shopInfo);
     return {
-      title: '九宴食材',
-      desc: '九宴食材微信小程序商城',
+      title: shopInfo.shop_name,
+      desc: shopInfo.shop_name,
       path: '/pages/index/index'
     }
   },
-
+  //下拉刷新
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    this.getIndexData();
+    //模拟加载
+    setTimeout(function () {
+      // complete
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+    }, 1500);
+  },
   getIndexData: function () {
     let that = this;
     util.request(api.IndexUrl).then(function (res) {
@@ -40,6 +51,12 @@ Page({
           collectiveList: res.data.collectiveList
           
         });
+        //设置店铺信息
+        wx.setStorageSync('shopInfo', res.data.shopInfo);
+        //设置分类页面标题
+        wx.setNavigationBarTitle({
+          title: res.data.shopInfo.shop_name//页面标题为路由参数
+        })
       }
     });
   },
@@ -70,14 +87,14 @@ Page({
         }
     })
   },
+  //获取商铺信息
+  shopInfoData: function (){
+
+  },
   onLoad: function (options) {
-    // wx.openSetting({
-    //   success: function (res) {
-    //     //尝试再次登录
-    //   }
-    // })
     this.goLogin()
     this.getIndexData();
+    this.shopInfoData();
   },
   
   onReady: function () {

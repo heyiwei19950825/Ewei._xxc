@@ -3,11 +3,17 @@
         <view class="item-a">下单时间：{{orderInfo.create_time}}</view>
         <view class="item-b">订单编号：{{orderInfo.order_no}}</view>
         <view class="item-c">
-            <view class="l">实付：<text class="cost">￥{{orderInfo.order_money}}</text></view>
+            <view class="l" wx:if='{{orderInfo.order_type == 1}}'>实付：<text class="cost">￥{{orderInfo.order_money}}</text></view>
+            <view class="l" wx:if='{{orderInfo.order_type == 2}}'>
+              积分：<text class="cost">{{orderInfo.point}}</text>
+            </view>
+            
             <view class="r">
-                <view class="btn delete" bindtap="cancelOrder" wx:if="{{orderInfo.order_status == 8}}">删除订单</view>
-                <view class="btn" bindtap="cancelOrder" wx:if="{{orderInfo.order_status == 0}}">取消订单</view>
+                <view class="btn delete" bindtap="delOrder" wx:if="{{orderInfo.order_status == 8}}">删除订单</view>
+                <view class="btn" bindtap="updateOrder" data-status="8" wx:if="{{orderInfo.order_status == 0}}">取消订单</view>
                 <view class="btn active" bindtap="payOrder" wx:if="{{orderInfo.order_status == 0}}">付款</view>
+                <view class="btn active" bindtap="updateOrder" data-status="3" wx:if="{{orderInfo.order_status == 2}}">签收</view>
+                
             </view>
         </view>
     </view>
@@ -52,9 +58,38 @@
                 <text class="txt">￥{{orderInfo.shipping_money}}</text>
             </view>
         </view>
-        <view class="pay-fee">
+        <view class="pay-fee" wx:if='{{orderInfo.order_type == 1}}'>
             <text class="label">实付：</text>
             <text class="txt">￥{{orderInfo.order_money}}</text>
+        </view>
+        <view class="pay-fee" wx:if='{{orderInfo.order_type == 2}}'>
+            <text class="label">积分：</text>
+            <text class="txt">{{orderInfo.point}}</text>
+        </view>
+    </view>
+
+    <view class="order-goods" wx:for="{{express}}" wx:key="{{item.express_no}}">
+        <view class="h">
+            <view class="label">{{item.express_name}}</view>
+            <view wx:if="{{item.express_no == 0}}">
+              <view class="status">商家配送</view>
+            </view>
+             <view wx:if="{{item.express_no != 0}}">
+              <view class="status">快递单号： {{item.express_no}}</view>
+            </view>
+            
+        </view>
+        <view class="goods">
+            <view class="item" wx:for="{{item.goods_list}}" wx:for-item="iitem">
+                <view class="img">
+                    <image src="{{iitem.goods_picture}}"></image>
+                </view>
+                <view class="info">
+                    <view class="t">
+                        <text class="name">{{iitem.goods_name}}</text>
+                    </view>
+                </view>
+            </view>
         </view>
     </view>
 </view>

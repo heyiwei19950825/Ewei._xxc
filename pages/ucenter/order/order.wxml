@@ -39,7 +39,7 @@
             </view>
             <view class="b">
                 <view class="l" wx:if='{{item.order_type != 2}}'>实付：￥{{item.actual_price}}</view>
-                <view class="l" wx:if='{{item.order_type == 2}}'>实付积分：￥{{item.point}}</view>
+                <view class="l" wx:if='{{item.order_type == 2}}'>实付积分：{{item.point}}</view>
                 <view class="r">
                     <button class="btn" data-order-index="{{index}}" catchtap="payOrder" wx:if="{{item.handleOption.pay}}">去付款</button>
                 </view>

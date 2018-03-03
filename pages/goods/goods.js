@@ -41,6 +41,10 @@ Page({
           productList: res.data.productList,
           userHasCollect: res.data.userHasCollect
         });
+        //设置页面标题
+        wx.setNavigationBarTitle({
+          title: res.data.info.name//页面标题为路由参数
+        })
 
         if (res.data.userHasCollect == 1) {
           that.setData({

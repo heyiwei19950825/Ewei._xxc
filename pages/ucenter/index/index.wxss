@@ -137,6 +137,11 @@ page{
     background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 0 no-repeat;
     background-size: 52.803rpx;
 }
+.user-menu .icon.integral{
+    background: url(http://small.redkylin.com/uploads/common/1519997445.png) 0 0 no-repeat;
+    background-size: 52.803rpx;
+    
+}
 
 .user-menu .icon.security{
     background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -500rpx no-repeat;

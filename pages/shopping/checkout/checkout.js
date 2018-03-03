@@ -27,7 +27,8 @@ Page({
 
     try {
       var addressId = wx.getStorageSync('addressId');
-      if (addressId) {
+      console.log(addressId);
+      if (options.addressId) {
         this.setData({
           'addressId': addressId
         });
@@ -89,12 +90,12 @@ Page({
   },
   selectAddress() {
     wx.navigateTo({
-      url: '/pages/shopping/address/address?type=default&goodsId=' + this.data.goodsId + '&num=' + this.data.num,
+      url: '/pages/shopping/address/address?type=default&goodsId=' + this.data.goodsId + '&num=' + this.data.num + '&type=default',
     })
   },
   addAddress() {
     wx.navigateTo({
-      url: '/pages/shopping/addressAdd/addressAdd?type=default&goodsId=' + this.data.goodsId + '&num=' + this.data.num,
+      url: '/pages/shopping/addressAdd/addressAdd?type=default&goodsId='+this.data.goodsId+'&num='+this.data.num+'&type=default',
     })
   },
   selectCoupon(){
@@ -126,10 +127,14 @@ Page({
       util.showErrorToast('请选择收货地址');
       return false;
     }
-    util.request(api.OrderSubmit, { goodsId: this.data.goodsId, name: this.data.name,addressId: this.data.addressId, couponId: this.data.couponId }, 'POST').then(res => {
+    util.request(api.OrderSubmit, { goodsId: this.data.goodsId, num: this.data.num,addressId: this.data.addressId, couponId: this.data.couponId }, 'POST').then(res => {
       if (res.errno === 0) {
         const orderId = res.data.orderInfo.id;
-        
+        try {
+          wx.setStorageSync('couponId', 0);
+        } catch (e) {
+
+        }
         pay.payOrder(parseInt(orderId)).then(res => {
           wx.redirectTo({
             url: '/pages/payResult/payResult?status=1&orderId=' + orderId

@@ -185,3 +185,12 @@ page{
   text-decoration:line-through;
   color: #808080;
 }
+.market {
+  /* display: block; */
+  /* text-align: center; */
+  line-height: 20rpx;
+  font-size: 20rpx;
+  margin-left:10rpx;
+  color: #999;
+  right:0rpx;
+}

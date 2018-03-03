@@ -38,12 +38,12 @@
     "pages/collective/collective",
     "pages/collectiveOrder/collectiveOrder",
     "pages/ucenter/member/member",
-    "pages/ucenter/enter/enter"
+    "pages/ucenter/enter/enter",
+    "pages/helper/helper"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "蔬菜配送",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
