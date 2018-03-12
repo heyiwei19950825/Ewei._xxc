@@ -1,0 +1,4 @@
+<!--pages/maintain/maintain.wxml-->
+<view class='maintain'>
+<image src="/static/img/maintain.jpg"></image>
+</view>

@@ -19,6 +19,8 @@ Page({
     couponId: 0,
     goodsId: 0,
     num: 0,
+    isVip:'',
+    vipPrice:0   //总价是否参与VIP价格
   },
   onLoad: function (options) {
 
@@ -27,7 +29,6 @@ Page({
 
     try {
       var addressId = wx.getStorageSync('addressId');
-      console.log(addressId);
       if (options.addressId) {
         this.setData({
           'addressId': addressId
@@ -48,12 +49,20 @@ Page({
         });
       }
 
-      var couponId = wx.getStorageSync('couponId');
+      var couponId = options.couponId;
       if (couponId) {
         this.setData({
           'couponId': couponId
         });
       }
+      //判断是否是VIP
+      let userInfo = app.globalData.userInfo;
+      if (userInfo.is_vip ==2 ){
+        this.setData({
+          'isVip':'会员价'
+        })
+      }
+      
 
     } catch (e) {
       // Do something when catch error
@@ -73,6 +82,7 @@ Page({
           couponPrice: res.data.couponPrice,
           freightPrice: res.data.freightPrice,
           goodsTotalPrice: res.data.goodsTotalPrice,
+          vipPrice: res.data.vipOrderTotalPrice,
           // orderTotalPrice: res.data.orderTotalPrice,
           rankDiscount: res.data.rankDiscount
           
@@ -100,7 +110,7 @@ Page({
   },
   selectCoupon(){
     wx.navigateTo({
-      url: '/pages/shopping/copon/copon',
+      url: '/pages/shopping/copon/copon?type=default&goodsId=' + this.data.goodsId + '&num=' + this.data.num + '&type=default',
     })
   },
   onReady: function () {

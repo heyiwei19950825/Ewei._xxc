@@ -12,7 +12,7 @@ Page({
     actualPrice: 0.00,     //实际需要支付的总价
     goodsPrice: 0.00,
     addressId: 0,
-    
+    collective_no: '',
     goodsId: 0,
     num: 0,
     userInfo: []
@@ -35,6 +35,12 @@ Page({
           'goodsId': goodsId
         });
       }
+      var collective_no = options.collective_no;
+      if (collective_no) {
+        this.setData({
+          'collective_no': collective_no
+        });
+      }
 
       var num = options.num;
       if (num) {
@@ -52,24 +58,23 @@ Page({
     let that = this;
     util.request(api.CollectivePay, { addressId: that.data.addressId, goodsId: that.data.goodsId, num: that.data.num }, 'POST').then(function (res) {
       if (res.errno === 0) {
-        console.log(res.data);
         that.setData({
           //   checkedGoodsList: res.data.checkedGoodsList,
           checkedAddress: res.data.checkedAddress,
           actualPrice: res.data.actualPrice,
           product: res.data.product,
-         
+
           //   couponNumber: res.data.couponNumber,
           //   couponPrice: res.data.couponPrice,
-            freightPrice: res.data.freightPrice,
-            goodsPrice: res.data.goodsPrice
+          freightPrice: res.data.freightPrice,
+          goodsPrice: res.data.goodsPrice
           //   // orderTotalPrice: res.data.orderTotalPrice,
           //   rankDiscount: res.data.rankDiscount
 
         });
 
         //有默认收货地址
-        if (that.data.addressId == 0 && that.data.checkedAddress != 0 ){
+        if (that.data.addressId == 0 && that.data.checkedAddress != 0) {
           that.setData({
             addressId: res.data.checkedAddress.id
           })
@@ -80,12 +85,12 @@ Page({
   },
   selectAddress() {
     wx.navigateTo({
-      url: '/pages/shopping/address/address?type=collective&goodsId=' + this.data.goodsId + '&num=' + this.data.num,
+      url: '/pages/shopping/address/address?type=collective&goodsId=' + this.data.goodsId + '&num=' + this.data.num + '&collectiveNo=' + this.data.collective_no,
     })
   },
   addAddress() {
     wx.navigateTo({
-      url: '/pages/shopping/addressAdd/addressAdd?type=collective&goodsId=' + this.data.goodsId + '&num=' + this.data.num,
+      url: '/pages/shopping/addressAdd/addressAdd?type=collective&goodsId=' + this.data.goodsId + '&num=' + this.data.num + '&collectiveNo=' + this.data.collective_no,
     })
   },
   selectCoupon() {
@@ -132,10 +137,10 @@ Page({
           'signType': payParam.signType,
           'paySign': payParam.paySign,
           'success': function (res) {
-            //console.log(res)
+            console.log(res)
           },
           'fail': function (res) {
-            // //console.log(res)
+            console.log(res)
           }
         });
       }
@@ -147,12 +152,13 @@ Page({
       util.showErrorToast('请选择收货地址');
       return false;
     }
-    util.request(api.OrderSubmit, { addressId: this.data.addressId,goodsId: this.data.goodsId, num: this.data.num,type:'collective' }, 'POST').then(res => {
+    util.request(api.OrderSubmit, { addressId: this.data.addressId, goodsId: this.data.goodsId, num: this.data.num, type: 'collective', collectiveNo: this.data.collective_no }, 'POST').then(res => {
       if (res.errno === 0) {
         const orderId = res.data.orderInfo.id;
+        const cId = res.data.orderInfo.cId;//开团ID
         pay.payOrder(parseInt(orderId)).then(res => {
           wx.redirectTo({
-            url: '/pages/payResult/payResult?status=1&orderId=' + orderId
+            url: '/pages/collectiveDetail/collectiveDetail?cid=' + cId
           });
         }).catch(res => {
           wx.redirectTo({

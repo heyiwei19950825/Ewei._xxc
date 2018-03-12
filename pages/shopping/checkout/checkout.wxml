@@ -51,6 +51,7 @@
             </view>
             <view class="r">
                 <text class="txt">￥{{goodsTotalPrice}}</text>
+                <view wx:if="{{vipPrice == 1 }}" style='display:inline;'><text class="txt is-vip">{{isVip}}</text></view>
             </view>
         </view>
         <view class="order-item" wx:if="{{rankDiscount > 0}}">
@@ -92,6 +93,7 @@
                 </view>
                 <!-- <view class="m">{{item.goods_specifition_name_value}}</view> -->
                 <view class="b">￥{{item.price}}</view>
+                <view class="txt is-vip" wx:if="{{item.vip_price == 1}}">{{isVip}}</view>
             </view>
         </view>
     </view>

@@ -4,11 +4,11 @@
 			<view class='m-content'>
 				<view class='m-info'>
 					<view class='u-avatarUrl'>
-						<image src="http://yanxuan.nosdn.127.net/8945ae63d940cc42406c3f67019c5cb6.png"></image>
+						<image src="{{userInfo.portrait}}"></image>
 					</view>
 					<view class='m-right'>
-						<view class='u-nickname'>lamp_heyiwei</view>
-						<text>普通用户</text>
+						<view class='u-nickname'>{{userInfo.nickname}}</view>
+						<text>{{vipNote}}</text>
 					</view>
 				</view>
 				<!-- <view class='wave-wrap'>
@@ -29,18 +29,35 @@
 		    <view class="h">
 		      <view>
 		        <navigator>
-		          <text class="txt">会员推荐</text>
+		          <text class="txt">{{title}} <text class='reason' wx:if="{{reason != '' }}">[{{reason}}]</text></text>
 		        </navigator>
 		      </view>
 		    </view>
-		    <view class="b">
-		      <view class="item" wx:for="{{newGoods}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-		        <navigator url="../goods/goods?id={{item.id}}">
+        <view class="form-box" wx:if="{{isVip == 0 }}">
+          <view class="form-item">
+            <input class="username" value="{{username}}" bindinput="bindUsernameInput" placeholder="真实姓名" auto-focus/>
+            <image wx:if="{{ username.length > 0 }}" id="clear-username" class="clear" src="/static/images/clear_input.png" catchtap="clearInput"></image>
+          </view>
+          <view class="form-item">
+            <input class="iphone" value="{{iphone}}" bindinput="bindIphoneInput" placeholder="输入手机号" auto-focus/>
+            <image wx:if="{{ iphone.length > 0 }}" id="clear-iphone" class="clear" src="/static/images/clear_input.png" catchtap="clearInput"></image>
+          </view>
+          <view class="form-item">
+            <input class="email" value="{{email}}" bindinput="bindEmailInput" placeholder="输入邮箱"/>
+            <image class="clear" id="clear-email" wx:if="{{ email.length > 0 }}" src="/static/images/clear_input.png" catchtap="clearInput"></image>
+          </view>
+    	    <button type="default" class="login-btn" bindtap="ApplyVip">申请会员</button>
+    </view>
+		    <view class="b" wx:if="{{isVip == 2}}">
+		      <view class="item" wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+		        <navigator url="/pages/goods/goods?id={{item.id}}">
 		          <image class="img" src="{{item.thumb}}" background-size="cover"></image>
 		          <text class="name">{{item.name}}</text>
-		          <text class="price">￥{{item.sp_price}}</text>
+		          <text class="price">会员价￥{{item.sp_vip_price}}</text>
+              <text class="o_price">￥{{item.sp_o_price}}</text>
+              <text class="market">已售:{{item.sp_market}}</text>
 		        </navigator>
 		      </view>
-		    </view>
+		    </view> 
   		</view>
 </view>

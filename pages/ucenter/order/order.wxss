@@ -63,9 +63,10 @@ page{
 .order .goods .name{
     margin-top: 30rpx;
     display: block;
-    height: 44rpx;
+    max-height: 44rpx;
     line-height: 44rpx;
     color: #333;
+    overflow: hidden;
     font-size: 30rpx;
 }
 

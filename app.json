@@ -39,7 +39,10 @@
     "pages/collectiveOrder/collectiveOrder",
     "pages/ucenter/member/member",
     "pages/ucenter/enter/enter",
-    "pages/helper/helper"
+    "pages/helper/helper",
+    "pages/maintain/maintain",
+    "pages/ucenter/collective/collective",
+    "pages/collectiveDetail/collectiveDetail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -89,5 +92,5 @@
     "request": 10000,
     "downloadFile": 10000
   },
-  "debug": true
+  "debug": false
 }

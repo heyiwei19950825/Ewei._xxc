@@ -22,5 +22,51 @@ App({
     },
     token: '',
   },
+  goLogin: function() {
+    wx.showLoading({
+      title: "正在登录",
+      mask: true,
+    });
+    user.loginByWeixin().then(res => {
+      // wx.removeStorageSync('token');
+      // wx.removeStorageSync('userInfo');
+      app.globalData.userInfo = res.data.userInfo;
+      app.globalData.token = res.data.token;
+    }).catch((err) => {
+      // //console.log(err)
+    });
+  },
+
+  getauth: function (object) {
+    wx.showModal({
+      title: '是否打开设置页面重新授权',
+      content: object.content,
+      confirmText: '去设置',
+      success: function (e) {
+        if (e.confirm) {
+          wx.openSetting({
+            success: function (res) {
+              if (object.success) {
+                object.success(res);
+              }
+            },
+            fail: function (res) {
+              if (object.fail) {
+                object.fail(res);
+              }
+            },
+            complete: function (res) {
+              if (object.complete)
+                object.complete(res);
+            }
+          })
+        } else {
+          if (object.cancel) {
+            getApp().getauth(object);
+          }
+        }
+      }
+    })
+  },
  
 })

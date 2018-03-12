@@ -6,7 +6,12 @@ Page({
     brandList: [],
     page: 1,
     size: 10,
-    totalPages: 1
+    totalPages: 1,
+    cid: 0,
+    scrollLeft: 600,
+    scrollTop: 0,
+    emptyGoods: 0,
+    page_count: 0,
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -20,7 +25,7 @@ Page({
     util.request(api.GoodsCollective, { page: that.data.page, size: that.data.size }).then(function (res) {
       if (res.errno === 0) {
         that.setData({
-          brandList: that.data.brandList.concat(res.data.data),
+          goods: that.data.brandList.concat(res.data.data),
           totalPages: res.data.totalPages
         });
       }

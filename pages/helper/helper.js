@@ -1,18 +1,32 @@
 // pages/helper/helper.js
+const util = require('../../utils/util.js');
+const api = require('../../config/api.js');
+var WxParse = require('../../lib/wxParse/wxParse.js');
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
   },
 
+  getHelper:function(){
+    let that = this;
+    
+    util.request(api.GetHelper).then(function (res) {
+      if (res.errno === 0) {
+        WxParse.wxParse('helper', 'html', res.data, that);
+      }
+    })
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getHelper();
   },
 
   /**

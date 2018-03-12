@@ -11,12 +11,12 @@
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
     <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
       <navigator url="{{item.actions}}{{item.actions_id}}}">
-        <image src="{{item.image}}" background-size="cover"></image>
+        <view class='image_con'><image src="{{item.image}}" background-size="cover"></image></view>
       </navigator>
     </swiper-item>
   </swiper>
   <!-- 菜单 -->
-  <view class="m-menu">
+  <view class="m-menu clearfix">
    <navigator  class="item" url="/pages/category/category?id=9999">
       <image src="/static/img/meitu_all.png" background-size="cover"></image>
       <text>全部商品</text>
@@ -28,29 +28,37 @@
       </view>
     </navigator>
   </view>
+
   <!-- 优惠券 -->
   <view class="a-section a-coupon">
     <view class="b">
       <scroll-view scroll-x="true" class="list">
         <view class="item" wx:for="{{couponList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.coupon_type_id}}" >
           <view bindtap='userGetCoupon' data-id='{{item.coupon_type_id}}'>
-            <view class="coupon-item" background-size="cover">
+            <view class="coupon-item">
             <text class='price'>￥ {{item.money}}</text>
             <text class='name'>{{item.coupon_name}}</text>
-            <text class='date'>{{item.start_time}}-{{item.end_time}}</text>
-            <text class='note'>{{item.range_type}} 购物{{item.at_least}}元可用</text>
             </view>
           </view>
         </view>
       </scroll-view>
     </view>
   </view>
-  <!-- <view class="a-section a-brand">
-     <view class="h">
+  <!-- 公告 -->
+  <view class="example" wx:if="{{text != ''}}">
+    <view class="marquee_box">
+      <!-- <image src='/static/images/inform.png' class="inform_img"></image> -->
+      <view class="marquee_text" style="{{orientation}}:{{marqueeDistance}}px;font-size: {{size}}px;">
+        通知：{{text}}
+      </view>
+    </view>
+  </view>
+  <view class="a-section a-brand" wx:if="nav.length > 0">
+      <view class="h">
       <navigator url="../brand/brand">
         <text class="txt">品牌制造商直供</text>
       </navigator>
-    </view> 
+    </view>  
     <view class="b">
       <view class="item item-1" wx:for="{{nav}}" wx:key="item.id">
         <navigator url="{{item.link}}">
@@ -63,8 +71,8 @@
         </navigator>
       </view>
     </view>
-  </view> -->
-  <!-- <view class="a-section a-collective" wx:if="{{hotGoods.length > 0}}">
+  </view> 
+  <view class="a-section a-collective" wx:if="{{collectiveList.length > 0}}" >
     <view class="h c">
       <view>
         <navigator url="/pages/brand/brand">
@@ -88,13 +96,13 @@
         </navigator>
       </view>
     </view>
-  </view> -->
+  </view>
   <view class="a-section a-new" wx:if="{{newGoods.length > 0}}">
     <view class="h">
       <view>
-        <navigator>
+        <view class='border-bg'>
           <text class="txt">新品首发</text>
-        </navigator>
+        </view>
       </view>
     </view>
     <view class="b">
@@ -103,9 +111,9 @@
           <image class="img" src="{{item.thumb}}" background-size="cover"></image>
           <text class="name">{{item.name}}</text>
           <text class="price">￥{{item.sp_price}}</text>
-          <text class="o_price">￥{{item.sp_o_price}}</text>
-          <text class="market">已售:{{item.sp_market}}</text>
-          
+          <text class="o_price">￥{{item.sp_price}}</text>
+          <text class="market-o">已售:{{item.sp_market}}</text>
+          <view wx:if="{{item.sp_vip_price > 0}}"><text class="vip_price">会员售价:￥{{item.sp_vip_price}}</text></view>
         </navigator>
       </view>
     </view>
@@ -113,9 +121,9 @@
   <view class="a-section a-popular" wx:if="{{hotGoods.length > 0}}">
     <view class="h">
       <view>
-        <navigator url="../hotGoods/hotGoods">
+        <view class='border-bg'>
           <text class="txt">人气推荐</text>
-        </navigator>
+        </view>
       </view>
     </view>
     <view class="b">
@@ -129,6 +137,7 @@
               <text class="price">￥{{item.sp_price}}</text>
               <text class="o_price">￥{{item.sp_o_price}}</text>
               <text class="market">已售:{{item.sp_market}}</text>
+              <view wx:if="{{item.sp_vip_price > 0}}"><text class="vip_price">会员售价:￥{{item.sp_vip_price}}</text></view>
             </view>
           </view>
         </navigator>
@@ -137,7 +146,7 @@
   </view>
   <view class="a-section a-topic" wx:if="topics.length > 0">
     <view class="h c">
-      <view>
+      <view class='border-bg'>
       <navigator url="/pages/topic/topic" open-type="switchTab">
         <text class="txt">精选文章</text>
         </navigator>
@@ -158,13 +167,13 @@
       </scroll-view>
     </view>
   </view>
-  <view class="good-grid" wx:for="{{floorGoods}}" wx:key="{{item.id}}">
+  <view class="good-grid" wx:for="{{floorGoods}}" wx:key="{{item.id}}"  wx:if="{{item.goodsList  != ''}}">
     <view class="h" wx:if="{{item.name != ''}}">
       <view>
         <text>{{item.name}}</text>
       </view>
     </view>
-    <view class="b" wx:if="{{item.goodsList  != ''}}">
+    <view class="b">
       <block wx:for="{{item.goodsList}}" wx:for-index="iindex" wx:for-item="iitem" wx:key="{{iitem.id}}">
         <view class="item {{iindex % 2 == 0 ? '' : 'item-b'}}"  >
           <navigator url="../goods/goods?id={{iitem.id}}" class="a">
@@ -173,6 +182,7 @@
             <text class="price">￥{{iitem.sp_price}}</text>
             <text class="o_price">￥{{iitem.sp_o_price}}</text>
             <text class="market">已售:{{iitem.sp_market}}</text>
+            <view wx:if="{{iitem.sp_vip_price > 0}}"><text class="vip_price">会员售价:￥{{iitem.sp_vip_price}}</text></view>
           </navigator>
         </view>
       </block>

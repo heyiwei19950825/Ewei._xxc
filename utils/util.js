@@ -68,6 +68,12 @@ function request(url, data = {}, method = "GET") {
           reject(res.errMsg);
         }
 
+      }, 
+      complete: function (res) {
+        setTimeout(function () {
+          // 延长一秒取消加载动画
+          wx.hideLoading();
+        }, 1000);
       },
       fail: function (err) {
         reject(err)
@@ -120,11 +126,21 @@ function getUserInfo() {
     wx.getUserInfo({
       withCredentials: true,
       success: function (res) {
+        wx.hideLoading();
         // //console.log(res)
         resolve(res);
       },
-      fail: function (err) {
-        reject(err);
+      fail: function (res) {
+        wx.hideLoading();
+        getApp().getauth({
+          content: '需要获取您的用户信息授权，请到小程序设置中打开授权',
+          cancel: true,
+          success: function (e) {
+            if (e) {
+              getApp().goLogin();
+            }
+          },
+        });
       }
     })
   });

@@ -54,6 +54,17 @@ page{
     line-height: 29rpx;
     color: #b4282d;
 }
+.is-vip{
+    margin-left: 6.25rpx;
+    width: 102rpx;
+    height: 40rpx;
+    border-radius: 5rpx;
+    border: 1px solid #f48f18;
+    font-size: 30.5rpx;
+    text-align: center;
+    line-height: 40rpx;
+    color: #f48f18;
+}
 
 .address-box .m{
     flex: 1;
@@ -236,6 +247,7 @@ page{
 }
 
 .goods-items .t .name{
+    width:400rpx;
     display: block;
     float: left;
 }

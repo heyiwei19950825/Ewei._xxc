@@ -61,15 +61,15 @@ page {
   text-align: center;
   line-height: 90rpx;
   width: 162rpx;
-  height: 90rpx;
+  height: 80rpx;
   color: #333;
-  font-size: 28rpx;
+  font-size: 25rpx;
   border-left: 6rpx solid #fff;
 }
 
 .catalog .nav .item.active {
   color: #ab2b2b;
-  font-size: 36rpx;
+  font-size: 30rpx;
   border-left: 6rpx solid #ab2b2b;
 }
 

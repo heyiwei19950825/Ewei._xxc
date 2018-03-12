@@ -14,7 +14,7 @@ Page({
       that.url = '/pages/integral/order/order?goodsId='+options.goodsId+'&num='+options.num;
     }
     if (options.type == 'collective') {
-      that.url = '/pages/collectiveOrder/collectiveOrder?goodsId='+options.goodsId+'&num='+options.num;
+      that.url = '/pages/collectiveOrder/collectiveOrder?goodsId=' + options.goodsId + '&num=' + options.num + '&collectiveNo='.options.collective_no;
     }
     if (options.type == 'default'){
       that.url = '/pages/shopping/checkout/checkout?goodsId=' + options.goodsId + '&num=' + options.num;

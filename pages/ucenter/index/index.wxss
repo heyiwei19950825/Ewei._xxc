@@ -51,13 +51,14 @@ page{
 }
 .profile-info .rank{
     position:absolute;
-    right:-30rpx;
+    top:30rpx;
+    right:0rpx;
     color:#7f7f7f;
     background:rgba(255,255,255,0.8);
-    width:250rpx;
+    width:200rpx;
     height:66rpx;
     line-height:66rpx;
-    border-radius:200px;
+    border-radius:200px 0 0 200px;
     text-align:center;
     padding-right:30rpx;
 }

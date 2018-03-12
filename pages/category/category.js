@@ -47,7 +47,9 @@ Page({
             navList: res.data.brotherCategory,
             currentCategory: res.data.currentCategory
           });
-          
+          if (that.data.id == 9999){
+            res.data.currentCategory.name = '全部商品';
+          }
           //设置分类页面标题
           wx.setNavigationBarTitle({
             title: res.data.currentCategory.name//页面标题为路由参数

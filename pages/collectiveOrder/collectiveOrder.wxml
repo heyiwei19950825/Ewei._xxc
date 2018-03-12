@@ -23,7 +23,7 @@
         </view>
     </view>
     <view class="order-box">
-      <view class="collective-item">
+      <!-- <view class="collective-item">
             <view class="l">
                 <text class="name">开团成员</text>
             </view>
@@ -33,7 +33,7 @@
                 <view class='member'></view>
                 <image src='{{userInfo.portrait}}' class='member'></image>
             </view>
-        </view>
+        </view> -->
         <view class="order-item">
             <view class="l">
                 <text class="name">商品合计</text>

@@ -1,6 +1,7 @@
-var NewApiRootUrl = 'https://ld.mskfkj.comapi/v1/';
-var NewApiRootUrl1 = 'https://ld.mskfkj.com/api/v1/';
-
+var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
+var NewApiRootUrl1 = 'https://small.redkylin.com/api/v1/';
+// var NewApiRootUrl = 'https://ld.mskfkj.com/api/v1/';
+// var NewApiRootUrl1 = 'https://ld.mskfkj.com/api/v1/';
 // var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
 // var NewApiRootUrl1 = 'http://127.0.0.1:8360/api/';
 
@@ -20,6 +21,8 @@ module.exports = {
     GoodsDetail: NewApiRootUrl + 'goods/detail',  //获得商品的详情
     GoodsNew: NewApiRootUrl + 'goods/new',  //新品
     GoodsHot: NewApiRootUrl + 'goods/hot',  //热门
+    GoodsVip: NewApiRootUrl + 'goods/vip',  //会员专享
+    
     GoodsRelated: NewApiRootUrl1 + 'goods/related',  //商品详情页的关联商品（大家都在看）
     GoodsIntegral: NewApiRootUrl +'goods/integral', // 积分兑换商品
 
@@ -78,8 +81,14 @@ module.exports = {
     GoodsCollective: NewApiRootUrl + 'collective/getList',//团购商品列表
     CollectivePay: NewApiRootUrl + 'collective/cart',   //团购订单
     CollectiveDetail: NewApiRootUrl + 'collective/detail',   //团购商品详情
+    CollectiveOrder: NewApiRootUrl + 'collective/order',   //团购订单列表
+    CollectiveDetailById: NewApiRootUrl + 'collective/detailbyid',//团购详情
 
 
     FeedBack: NewApiRootUrl+'feedBack/add',//用户反馈
+    GetHelper: NewApiRootUrl + 'shop/helper',//用户反馈
+    ApplyVip: NewApiRootUrl + 'user/applyvip',//申请会员
+    
+    
     
 };

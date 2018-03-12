@@ -6,15 +6,16 @@
       </swiper-item>
     </swiper>
     <view class="service-policy">
-      <view class="item">30天无忧退货</view>
-      <view class="item">48小时快速退款</view>
+      <view class="item">品质优鲜</view>
+      <view class="item">24小时快速送达</view>
       <view class="item">满88元免邮费</view>
     </view>
     <view class="goods-info">
       <view class="c">
         <text class="name">{{goods.name}}</text>
         <text class="desc">{{goods.prefix_title}}</text>
-        <text class="price">￥{{goods.sp_price}}</text>
+        <text class="price">拼团 ￥{{goods.goods_price}}</text>
+        <view><text class="vip_price">单人购买 ￥{{goods.sp_price}}</text></view>
         <view class="brand" wx:if="{{brand.name}}">
           <navigator url="../brandDetail/brandDetail?id={{brand.brandId}}">
             <text>{{brand.name}}</text>
@@ -22,10 +23,10 @@
         </view>
       </view>
     </view>
-    <view class="section-nav section-attr" bindtap="switchAttrPop">
+    <!-- <view class="section-nav section-attr" bindtap="switchAttrPop">
       <view class="t">请选择规格数量</view>
       <image class="i" src="../../static/images/address_right.png" background-size="cover"></image>
-    </view>
+    </view> -->
     <view class="section-nav section-act" wx:if="{{goods.give_integral > 0}}">
       <view class="t">
         <view class="label">积分活动:</view>
@@ -149,7 +150,7 @@
          <image class="drawer_image" src="{{goods.thumb}}" ></image>
          <view class="mingcheng">
              <view>{{goods.name}}</view>
-             <view style="font-size:29rpx;color:#b4282d">¥ {{goods.sp_price}}</view>
+             <view style="font-size:29rpx;color:#b4282d">¥ {{goods.goods_price}}</view>
              <view  style="font-size:26rpx;color:#ccc">库存：{{goods.sp_inventory}}</view>
          </view>
     </view>
@@ -176,7 +177,7 @@
       </view>
    </view>
    <view class="footc"  bindtap="addToCart" data-goods-id='{{goods.id}}'>
-一键拼
+一键拼团
 </view>
   </view>
 </view>
@@ -200,6 +201,6 @@
       </view>
     </view>
     <view class="c"> </view>
-    <view class="r" bindtap="setModalStatus"  data-status="1">一键拼</view>
+    <view class="r" bindtap="setModalStatus"  data-status="1">{{goods.user_number}}拼团</view>
   </view>
 </scroll-view>

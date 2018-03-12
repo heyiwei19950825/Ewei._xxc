@@ -1,2 +1,4 @@
-<!--pages/helper/helper.wxml-->
-<text>pages/helper/helper.wxml</text>
+ <view class="detail">
+      <import src="../../lib/wxParse/wxParse.wxml" />
+      <template is="wxParse" data="{{wxParseData:helper.nodes}}" />
+</view>
