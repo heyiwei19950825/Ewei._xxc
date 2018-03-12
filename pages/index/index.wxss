@@ -642,4 +642,9 @@
   line-height: 40rpx;
   color: #b4282d;
 }
-
+.box_shodow{
+  box-shadow: 0 0 10rpx #ccc;
+}
+.border-radius{
+  border-radius: 10rpx;
+}
