@@ -214,7 +214,7 @@
   margin-left:10rpx;
   color: #999;
   right:0rpx;
-  display:block;
+  /* display:block; */
   text-align:center;
 }
 .a-new .b .name {

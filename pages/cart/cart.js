@@ -189,9 +189,9 @@ Page({
     }
 
   },
-  updateCart: function (productId, goodsId, number, id) {
+  updateCart: function (productId, goodsId, number, id, itemIndex) {
     let that = this;
-
+  
     util.request(api.CartUpdate, {
       productId: productId,
       goodsId: goodsId,
@@ -204,6 +204,15 @@ Page({
           //cartGoods: res.data.cartList,
           //cartTotal: res.data.cartTotal
         });
+      }else{
+        //库存不足 商品不能加1
+        let cartItem = that.data.cartGoods[itemIndex];
+        let number = cartItem.num - 1;
+        cartItem.num = number;
+        that.setData({
+          cartGoods: that.data.cartGoods
+        });
+        util.showErrorToast(res.errmsg);
       }
 
       that.setData({
@@ -231,7 +240,7 @@ Page({
     this.setData({
       cartGoods: this.data.cartGoods
     });
-    this.updateCart(cartItem.product_id, cartItem.goods_id, number, cartItem.id);
+    this.updateCart(cartItem.product_id, cartItem.goods_id, number, cartItem.id, itemIndex);
 
   },
   checkoutOrder: function () {

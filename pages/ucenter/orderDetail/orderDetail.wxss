@@ -47,6 +47,7 @@ page{
     display: flex;
     align-items: center;
     padding-right: 16rpx;
+    width:500rpx;
 }
 
 .item-c .r .btn{
@@ -167,10 +168,18 @@ page{
 }
 
 .order-goods .item .price{
+    margin-top: 10rpx;
     height: 30rpx;
     line-height: 30rpx;
     color: #333;
     font-size: 30rpx;
+}
+.order-goods .item .cost-price{
+  margin-top: 25rpx;
+  color:#999;
+  text-decoration:line-through;
+  font-size:25rpx;
+  line-height: 25rpx;
 }
 
 .order-bottom{
@@ -258,4 +267,16 @@ page{
     display: inline-block;
     width: 140rpx;
     color: #b4282d;
+}
+
+.is-vip{
+    margin-left: 6.25rpx;
+    width: 102rpx;
+    height: 40rpx;
+    border-radius: 5rpx;
+    border: 1px solid #f48f18;
+    font-size: 30.5rpx;
+    text-align: center;
+    line-height: 40rpx;
+    color: #f48f18;
 }

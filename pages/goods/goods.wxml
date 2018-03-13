@@ -158,7 +158,7 @@
          </view>
     </view>
 <view class="commodity_attr_list">
-  <view class="attr_box" wx:for="{{attrValueList}}" wx:for-item="attrValueObj" wx:for-index="attrValueList">
+  <view class="attr_box" wx:for="{{attrValueList}}" wx:for-item="attrValueObj" wx:for-index="attrValueList" wx:key='item'>
     <view class="attr_name">{{attrValueObj.attrKey}}</view>
     <view class="attr_value_box">
 
@@ -179,7 +179,7 @@
       </view>
       </view>
    </view>
-   <view class="footc" bindtap="addShopCart" data-status="{{clickType}}" data-goods-id='{{goods.id}}'>
+   <view class="footc" bindtap="addShopCart" data-status="0" data-goods-id='{{goods.id}}'>
 {{clickNote}}
 </view>
   </view>

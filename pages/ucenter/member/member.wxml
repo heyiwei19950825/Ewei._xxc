@@ -49,15 +49,34 @@
     	    <button type="default" class="login-btn" bindtap="ApplyVip">申请会员</button>
     </view>
 		    <view class="b" wx:if="{{isVip == 2}}">
-		      <view class="item" wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-		        <navigator url="/pages/goods/goods?id={{item.id}}">
-		          <image class="img" src="{{item.thumb}}" background-size="cover"></image>
-		          <text class="name">{{item.name}}</text>
-		          <text class="price">会员价￥{{item.sp_vip_price}}</text>
-              <text class="o_price">￥{{item.sp_o_price}}</text>
-              <text class="market">已售:{{item.sp_market}}</text>
-		        </navigator>
-		      </view>
+		          <view class="sort">
+                <view class="sort-box">
+                  <view class="item {{currentSortType == 'id' ? 'active' : ''}}"  bindtap="openSortFilter" id="defaultSort">
+                    <text class="txt">综合</text>
+                  </view>
+                  <view class="item by-price {{currentSortType == 'sp_integral' ? 'active' : ''}} {{currentSortOrder == 'asc'  ? 'asc' : 'desc'}}" bindtap="openSortFilter" id="priceSort">
+                    <text class="txt">价格</text>
+                  </view>
+                  <view class="item {{currentSortType == 'category' ? 'active' : ''}}" bindtap="openSortFilter" id="categoryFilter">
+                    <text class="txt">分类</text>
+                  </view>
+                </view>
+                <view class="sort-box-category" wx-if="{{categoryFilter}}">
+                  <view class="item {{item.checked ? 'active' : ''}}" wx:for="{{filterCategory}}" wx:key="cate-{{item.id}}" data-category-index="{{index}}" bindtap="selectCategory">{{item.name}}</view>
+                </view>
+              </view>
+              <view class="cate-item">
+                <view class="b">
+                  <block wx:for="{{goodsList}}" wx:for-index="iindex" wx:for-item="iitem" wx:key="unique">
+                    <navigator class="item {{iindex % 2 == 0 ? 'item-b' : '' }}" url="../integral/goods/goods?id={{iitem.id}}">
+                      <image class="img" src="{{iitem.thumb}}" background-size="cover"></image>
+                      <text class="name">{{iitem.name}}</text>
+                      <text class="integral">￥{{iitem.sp_vip_price}}<text class='price'>￥{{iitem.sp_price}}</text> 
+                      <text class="market">已售:{{iitem.sp_market}}</text></text>
+                    </navigator>
+                  </block>
+                </view>
+              </view>
 		    </view> 
   		</view>
 </view>
