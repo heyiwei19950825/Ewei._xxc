@@ -9,8 +9,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.6.6",
-	"appid": "wx72c389ec2a423099",
-	"projectname": "%E6%A2%A8%E6%96%97%E6%89%A7%E4%BA%8B",
+	"appid": "wx720cf9c5765a5c4d",
+	"projectname": "%E7%9C%89%E5%B1%B1%E5%90%8C%E5%9F%8E%E5%B9%B3%E5%8F%B0%E6%B5%8B%E8%AF%95%E5%8F%B7",
 	"isGameTourist": true,
 	"condition": {
 		"search": {

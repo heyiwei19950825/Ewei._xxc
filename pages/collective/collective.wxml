@@ -181,8 +181,10 @@
 </view>
   </view>
 </view>
-  <view class="bottom-btn">
-    <view class="l l-collect" bindtap='openHomePage'>
+</scroll-view>
+<view class="bottom-btn">
+   <view class='btn_group_left'>
+       <view class="l l-collect" bindtap='openHomePage'>
         <view class="box">
           <image class="icon" src="/static/images/ic_menu_choice_nor.png"></image>
         </view>
@@ -200,7 +202,7 @@
         <image class="icon" src="{{ collectBackImage }}"></image>
       </view>
     </view>
-    <view class="c"> </view>
-    <view class="r" bindtap="setModalStatus"  data-status="1">{{goods.user_number}}拼团</view>
+   </view>
+    <!-- <view class="c"> </view> -->
+    <view class="r bg_gradient_red btn_join_cart" bindtap="setModalStatus"  data-status="1">{{goods.user_number}}拼团</view>
   </view>
-</scroll-view>

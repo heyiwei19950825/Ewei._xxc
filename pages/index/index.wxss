@@ -15,8 +15,6 @@
 .m-menu {
   height: auto;
   width: 100%;
-  flex-flow: row wrap;
-  align-items: center;
   background-color: #fff;
 }
 
@@ -642,4 +640,9 @@
   line-height: 40rpx;
   color: #b4282d;
 }
-
+.box_shodow{
+  box-shadow: 0 0 10rpx #ccc;
+}
+.border-radius{
+  border-radius: 10rpx;
+}

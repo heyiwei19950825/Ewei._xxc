@@ -11,10 +11,11 @@
 }
 .m-content{
 	height: 8.93333rem;
-    background-image: linear-gradient(-134deg,#959595 0,#C7C7C7 100%);
+    background-image: url('http://ld.mskfkj.com/uploads/goods/1520998639822688.png');
     box-shadow: 0 0 .4rem 0 rgba(0,0,0,.15);
     border-radius: .10667rem;
     position: relative;
+    background-size: 100% 100%;
     overflow: hidden;
 }
 .m-info{

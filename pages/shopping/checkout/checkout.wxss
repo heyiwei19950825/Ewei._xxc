@@ -282,6 +282,7 @@ page{
     height: 100rpx;
     width: 100%;
     display: flex;
+    z-index: 1000;
 }
 
 .order-total .l{
