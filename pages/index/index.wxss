@@ -15,8 +15,6 @@
 .m-menu {
   height: auto;
   width: 100%;
-  flex-flow: row wrap;
-  align-items: center;
   background-color: #fff;
 }
 

@@ -127,7 +127,7 @@ Page({
       windowWidth: windowWidth,
       marquee2_margin: length < windowWidth ? windowWidth - length : vm.data.marquee2_margin//当文字长度小于屏幕长度时，需要增加补白
     });
-    // vm.run1();// 水平一行字滚动完了再按照原来的方向滚动
+    //  vm.run1();// 水平一行字滚动完了再按照原来的方向滚动
     
   },
   onShow: function () {
