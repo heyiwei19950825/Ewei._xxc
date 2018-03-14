@@ -89,11 +89,15 @@
 .a-section .h .txt {
   display: inline-block;
   font-size: 33rpx;
-  line-height: 120rpx;
+  height: 100rpx;
   background: url('http://ld.mskfkj.com/uploads/goods/1521006474789439.png') no-repeat;
-  padding: 0 24rpx;
-  background-size: 100%;
-  color: #fff;
+  padding: 0 26rpx;
+  background-size: 100% 100%;
+  text-align: center;
+}
+.a-section .h .text_c{
+  line-height: 45rpx;
+  color: #fff;  
 }
 .a-section .c .txt {
   background: url("http://ac-3yr0g9cz.clouddn.com/2cdba05369e10f934e54.png") right 4rpx no-repeat; 
