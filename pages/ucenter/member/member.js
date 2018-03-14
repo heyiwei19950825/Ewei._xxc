@@ -131,17 +131,18 @@ Page({
     this.getGoodsList();
 
   },
-  
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.goLogin()
     this.setData({
       userInfo: app.globalData.userInfo,
       isVip: app.globalData.userInfo.is_vip,
       reason: app.globalData.userInfo.vip_refuse_note,
     });
-    if ( this.data.userInfo.is_vip == 2 ){
+    if (this.data.userInfo.is_vip == 2) {
       this.setData({
         vipNote: 'VIP会员'
       });
@@ -168,11 +169,10 @@ Page({
       case 3:
         this.setData({
           title: '拒绝申请',
-          
+
         });
         break;
     }
-   
   },
 
   /**
@@ -186,7 +186,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**

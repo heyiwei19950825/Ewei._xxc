@@ -56,7 +56,7 @@
   <view class="a-section a-brand" wx:if="{{nav.length > 0}}">
       <view class="h">
       <navigator url="../brand/brand">
-        <text class="txt">品牌制造商直供</text>
+        <text class="txt">精选活动</text>
       </navigator>
     </view>  
     <view class="b">
