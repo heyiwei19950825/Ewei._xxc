@@ -83,15 +83,17 @@
   align-items: center;
   justify-content: center;
   height: 130rpx;
+  margin-top: 20rpx;
 }
 
 .a-section .h .txt {
-  padding-right: 30rpx;
-  background-size: 16.656rpx 27rpx;
   display: inline-block;
-  height: 36rpx;
   font-size: 33rpx;
-  line-height: 36rpx;
+  line-height: 120rpx;
+  background: url('http://ld.mskfkj.com/uploads/goods/1521006474789439.png') no-repeat;
+  padding: 0 24rpx;
+  background-size: 100%;
+  color: #fff;
 }
 .a-section .c .txt {
   background: url("http://ac-3yr0g9cz.clouddn.com/2cdba05369e10f934e54.png") right 4rpx no-repeat; 
