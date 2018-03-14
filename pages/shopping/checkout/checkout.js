@@ -20,7 +20,8 @@ Page({
     goodsId: 0,
     num: 0,
     isVip:'',
-    vipPrice:0   //总价是否参与VIP价格
+    vipPrice:0,   //总价是否参与VIP价格
+    content: ''
   },
   onLoad: function (options) {
 
@@ -67,6 +68,20 @@ Page({
     } catch (e) {
       // Do something when catch error
     }
+  },
+  //留言变量绑定和字数统计
+  bindInpuntValue(event) {
+
+    let value = event.detail.value;
+
+    //判断是否超过140个字符
+    if (value && value.length > 140) {
+      return false;
+    }
+    this.setData({
+      content: event.detail.value,
+    })
+    // //console.log(event.detail)
   },
   getCheckoutInfo: function () {
     let that = this;
@@ -137,7 +152,7 @@ Page({
       util.showErrorToast('请选择收货地址');
       return false;
     }
-    util.request(api.OrderSubmit, { goodsId: this.data.goodsId, num: this.data.num,addressId: this.data.addressId, couponId: this.data.couponId }, 'POST').then(res => {
+    util.request(api.OrderSubmit, { goodsId: this.data.goodsId, num: this.data.num, addressId: this.data.addressId, couponId: this.data.couponId,buyer_message:this.data.content }, 'POST').then(res => {
       if (res.errno === 0) {
         const orderId = res.data.orderInfo.id;
         try {
