@@ -21,7 +21,7 @@
       <image src="/static/img/meitu_all.png" background-size="cover"></image>
       <text>全部商品</text>
     </navigator>
-    <navigator  class="item" url="/pages/category/category?id={{item.id}}" wx:for="{{channel}}" wx:key="{{item.id}}">
+    <navigator  class="item" url="/pages/store/storeList/storeList" wx:for="{{nav}}" wx:key="{{item.id}}">
       <image src="{{item.icon}}" background-size="cover"></image>
       <view wx:if="{{item.name != ''}}">
         <text>{{item.name}}</text>
