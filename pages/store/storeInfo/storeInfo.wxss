@@ -1,0 +1,186 @@
+page{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+.storeInfoCon{
+  background: #32abfe;
+  color: #fff;
+  padding-bottom: 20rpx;
+}
+.storeInfoCon text{
+  color: #fff;
+}
+.storeInfo{
+  padding-top: 20rpx;
+}
+.storeInfoCon .image_con{
+  width: 200rpx;
+  height: 200rpx;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.image_con image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.info_con{
+  display: flex;
+  padding-left: 12rpx;
+  flex-flow: column;
+  min-height: 200rpx;
+  padding-top: 20rpx;
+}
+.activeInfo{
+  margin-top: 20rpx;
+}
+.icon-new{
+  background-position: center;
+}
+
+.tabCon{
+  height: 100rpx;
+  line-height: 100rpx;
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid #eeeeee;
+}
+.tab-item{
+  flex: 1;
+  font-size: 28rpx;
+  text-align: center;
+  color: #606060;
+}
+.active{
+  color: #32abfe;
+}
+.tab-sliverCon{
+   position: absolute;
+   bottom: -2rpx;
+   width: 33.33%;
+   height: 4rpx;
+   transition: all 0.25s ease-in;
+   text-align: center;
+}
+.tab-sliver{
+  margin:  0 auto;
+  width: 50%;
+  height: 100%;
+  background: #32abfe;
+}
+.goodsView{
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  background: #f8f8f9;
+}
+.goodsView .navCon{
+  width: 250rpx;
+  height: 100%;
+  overflow: scroll;
+  box-sizing: border-box;
+  border-right: 1px solid #eeeeee;
+}
+.navCon .nav-item{
+  position: relative;
+  text-align: center;
+  border-bottom: 1px solid #eeeeee;
+  line-height: 160rpx;
+  height: 160rpx;
+  color: #656565;
+  transition: all 0.2s ease-in;
+}
+.navCon .nav-item.active{
+  background: #ffffff;
+  color: #333333;
+}
+.navCon .nav-item.active::after{
+  content: '';
+  position: absolute;
+  width: 3rpx;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  background: #32abfe;
+  animation: slideIndown 0.18s ease-in;
+}
+.goodsView .listCon{
+  flex: 1;
+  overflow: scroll;
+  box-sizing: border-box;
+  padding: 20rpx;
+  background: #ffffff;
+}
+.goodsInfo{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eeeeee;
+}
+.image_con{
+  width: 140rpx;
+  height: 140rpx;
+}
+.info_con{
+  padding-top: 20rpx;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+.goodsPrice{
+  font-size: 34rpx;
+  color: #fe4d3d;
+  font-weight: bold;
+}
+.control_con{
+  position: absolute;
+  bottom: 20rpx;
+  right: 0;
+  line-height: 50rpx;
+  display: flex;
+}
+.control_con .control{
+  width: 50rpx;
+  height: 50rpx;
+  text-align: center;
+  background: #32abfe;
+  color: #ffffff;
+  font-size: 36rpx;
+  border-radius: 50%;
+  transition: all 0.15s linear;
+}
+.control_con .num{
+  width: 90rpx;
+  text-align: center;
+}
+
+.flex{
+  display: flex;
+}
+.flex1{
+  flex: 1;
+}
+.flex-c{
+  align-items: center;
+}
+.padding_lr{
+  padding-left: 20rpx;
+  padding-right: 20rpx; 
+}
+.title{
+  font-size: 34rpx;
+  line-height: 48rpx;
+}
+.tip_text{
+  font-size: 24rpx;
+  line-height: 44rpx;
+}
+.marginRight6{
+  margin-right: 12rpx;
+}
+
+@keyframes slideIndown{
+  0% {height: 0}
+  100% {height: 100%}
+}

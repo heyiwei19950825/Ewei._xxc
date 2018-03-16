@@ -291,3 +291,22 @@ text-align: center
 .bg_gradient_radialCenter{ 
     background-image: radial-gradient(circle,rgba(0,0,0,0.2),rgba(0,0,0,0.7));
 }
+
+/*icon  */
+.icon{
+  display: inline-block;
+  width: 36rpx;
+  height: 36rpx;
+}
+.icon-new{
+  background-image: url("http://ld.mskfkj.com/uploads/goods/1521170868605600.png");
+  background-size: 100% 100%;
+}
+.icon-hot{
+  background-image: url("http://ld.mskfkj.com/uploads/goods/1521169169831178.png");
+  background-size: 100% 100%;
+}
+.icon-zhe{
+  background-image: url("http://ld.mskfkj.com/uploads/goods/1521169362494840.png");
+  background-size: 100% 100%;
+}
