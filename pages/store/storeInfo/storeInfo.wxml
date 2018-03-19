@@ -1,0 +1,48 @@
+<view class='storeInfoCon'>
+    <view class='storeInfo padding_lr flex flex-c'>
+        <view class='image_con'><image src='https://p1.meituan.net/mogu/483bb01924f6c76689e792daa9b2ebdb83897.jpg@160w_160h_1e_1c'></image></view>
+        <view class='info_con flex1'>
+          <text class='title'>N多寿司（上大南街店）</text>
+          <text class='tip_text serve_info'>￥1元起送 | 配送费: ￥1 | 配送服务： 商家配送</text>
+            <text class='notice tip_text'>公告： 春天来了啊！</text>
+        </view>
+    </view>
+    <view class='activeInfo padding_lr'>
+        <view class='active-item flex flex-c'>
+            <view class='icon icon-new marginRight6'></view>
+            <text class='tip_text'>新用户下单立减6元（不与其他活动同享）</text>
+        </view>
+    </view>
+</view>
+<view class='tabCon'>
+  <view class="tab-item {{viewIndex==0?'active':''}}" bindtap='tabChange' data-index='0'>商家</view>
+  <view class="tab-item {{viewIndex==1?'active':''}}" bindtap='tabChange' data-index='1'>评论</view>
+  <view class="tab-item {{viewIndex==2?'active':''}}" bindtap='tabChange' data-index='2'>详情</view>
+  <view class='tab-sliverCon' style='left:{{sliverLeft}}'><view class='tab-sliver'></view></view>
+</view>
+<view class='goodsView flex1' wx:if='{{viewIndex==0}}'>
+<view class='navCon'>
+  <view class="nav-item {{index==navIndex?'active':''}}" wx:for='{{navList}}' data-index='{{index}}' bindtap='caseChange' wx:key='{{index}}'>{{item.title}}</view>
+</view>
+<view class='listCon'>
+    <view class='goodsInfo' wx:for='{{goodsList}}' wx:key='{{index}}'>
+      <view class='image_con'><image src='{{item.imageUrl}}'></image></view>
+      <view class='info_con flex1'>
+        <text class='title'>{{item.goodsName}}</text>
+        <text class='color80'>{{item.sales}}</text>
+        <text class='goodsPrice'>￥{{item.price}}</text>
+        <view class='control_con'>
+          <view class='derease control' wx:if='{{item.count}}' data-index='{{index}}' bindtap='decrease'>-</view>
+          <text class='num' wx:if='{{item.count}}'>{{item.count}}</text>
+          <view class='add control' data-index='{{index}}' bindtap='add'>+</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='goodsView flex1' wx:if='{{viewIndex==1}}'>
+评论
+</view>
+<view class='goodsView flex1' wx:if='{{viewIndex==2}}'>
+详情
+</view>

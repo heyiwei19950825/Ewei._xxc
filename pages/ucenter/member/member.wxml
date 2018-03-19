@@ -29,7 +29,11 @@
 		    <view class="h">
 		      <view>
 		        <navigator>
-		          <text class="txt">{{title}} <text class='reason' wx:if="{{reason != '' }}">[{{reason}}]</text></text>
+		          <text class="txt">
+                <text class='text_c'>
+                  {{title}} <text class='reason' wx:if="{{reason != '' }}">[{{reason}}]</text>
+                </text>
+              </text>
 		        </navigator>
 		      </view>
 		    </view>

@@ -1,3 +1,5 @@
+// var NewApiRootUrl = 'https://mscy.mskfkj.com/api/v1/';
+// var NewApiRootUrl1 = 'https://mscy.mskfkj.com/api/v1/';
 var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
 var NewApiRootUrl1 = 'https://small.redkylin.com/api/v1/';
 // var NewApiRootUrl = 'https://ld.mskfkj.com/api/v1/';

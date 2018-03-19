@@ -54,6 +54,7 @@ Page({
               url: '/pages/maintain/maintain',
             })
         }
+        console.log(res)
         that.setData({
           newGoods: res.data.newGoodsList,
           hotGoods: res.data.hotGoodsList,
