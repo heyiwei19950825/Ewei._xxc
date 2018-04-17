@@ -17,11 +17,7 @@
   </swiper>
   <!-- 菜单 -->
   <view class="m-menu clearfix">
-   <navigator  class="item" url="/pages/category/category?id=9999">
-      <image src="/static/img/meitu_all.png" background-size="cover"></image>
-      <text>全部商品</text>
-    </navigator>
-    <navigator  class="item" url="/pages/store/storeList/storeList" wx:for="{{nav}}" wx:key="{{item.id}}">
+    <navigator  class="item" url="{{item.link}}" wx:for="{{nav}}" wx:key="{{item.id}}">
       <image src="{{item.icon}}" background-size="cover"></image>
       <view wx:if="{{item.name != ''}}">
         <text>{{item.name}}</text>
@@ -30,7 +26,7 @@
   </view>
 
   <!-- 优惠券 -->
-  <view class="a-section a-coupon">
+  <view class="a-section a-coupon" wx:if="{{couponList != ''}}">
     <view class="b">
       <scroll-view scroll-x="true" class="list">
         <view class="item" wx:for="{{couponList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.coupon_type_id}}" >
@@ -64,9 +60,6 @@
         <navigator url="{{item.link}}">
           <view class="wrap">
             <image class="img" src="{{item.icon}}" mode="aspectFill"></image>
-            <view class="mt">
-              <text class="price">{{item.alias}}</text>
-            </view>
           </view>
         </navigator>
       </view>

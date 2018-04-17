@@ -299,6 +299,7 @@
   width: 750rpx;
   height: auto;
   overflow: hidden;
+  background: #fff7f5;
 }
 
 .a-collective .b .item {
