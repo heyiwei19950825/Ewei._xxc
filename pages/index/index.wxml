@@ -17,11 +17,7 @@
   </swiper>
   <!-- 菜单 -->
   <view class="m-menu clearfix">
-   <navigator  class="item" url="/pages/category/category?id=9999">
-      <image src="/static/img/meitu_all.png" background-size="cover"></image>
-      <text>全部商品</text>
-    </navigator>
-    <navigator  class="item" url="/pages/category/category?id={{item.id}}" wx:for="{{channel}}" wx:key="{{item.id}}">
+    <navigator  class="item" url="{{item.link}}" wx:for="{{nav}}" wx:key="{{item.id}}">
       <image src="{{item.icon}}" background-size="cover"></image>
       <view wx:if="{{item.name != ''}}">
         <text>{{item.name}}</text>
@@ -30,7 +26,7 @@
   </view>
 
   <!-- 优惠券 -->
-  <view class="a-section a-coupon">
+  <view class="a-section a-coupon" wx:if="{{couponList != ''}}">
     <view class="b">
       <scroll-view scroll-x="true" class="list">
         <view class="item" wx:for="{{couponList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.coupon_type_id}}" >
@@ -53,10 +49,10 @@
       </view>
     </view>
   </view>
-  <view class="a-section a-brand" wx:if="nav.length > 0">
+  <view class="a-section a-brand" wx:if="{{nav.length > 0}}">
       <view class="h">
       <navigator url="../brand/brand">
-        <text class="txt">品牌制造商直供</text>
+        <text class="txt">精选活动</text>
       </navigator>
     </view>  
     <view class="b">
@@ -64,9 +60,6 @@
         <navigator url="{{item.link}}">
           <view class="wrap">
             <image class="img" src="{{item.icon}}" mode="aspectFill"></image>
-            <view class="mt">
-              <text class="price">{{item.alias}}</text>
-            </view>
           </view>
         </navigator>
       </view>
@@ -83,7 +76,7 @@
     <view class="b">
       <view class="item" wx:for="{{collectiveList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
         <navigator url="../collective/collective?id={{item.id}}">
-          <image class="img" src="{{item.thumb}}" background-size="cover"></image>
+          <image class="img box_shodow border-radius" src="{{item.thumb}}" background-size="cover"></image>
           <view class="right">
             <view class="text">
               <text class="name">{{item.name}}</text>
@@ -108,7 +101,7 @@
     <view class="b">
       <view class="item" wx:for="{{newGoods}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
         <navigator url="/pages/goods/goods?id={{item.id}}">
-          <image class="img" src="{{item.thumb}}" background-size="cover"></image>
+          <image class="img box_shodow border-radius" src="{{item.thumb}}" background-size="cover"></image>
           <text class="name">{{item.name}}</text>
           <text class="price">￥{{item.sp_price}}</text>
           <text class="o_price">￥{{item.sp_price}}</text>
@@ -129,7 +122,7 @@
     <view class="b">
       <view class="item" wx:for="{{hotGoods}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
         <navigator url="/pages/goods/goods?id={{item.id}}">
-          <image class="img" src="{{item.thumb}}" background-size="cover"></image>
+          <image class="img box_shodow border-radius" src="{{item.thumb}}" background-size="cover"></image>
           <view class="right">
             <view class="text">
               <text class="name">{{item.name}}</text>
@@ -177,7 +170,7 @@
       <block wx:for="{{item.goodsList}}" wx:for-index="iindex" wx:for-item="iitem" wx:key="{{iitem.id}}">
         <view class="item {{iindex % 2 == 0 ? '' : 'item-b'}}"  >
           <navigator url="../goods/goods?id={{iitem.id}}" class="a">
-            <image class="img" src="{{iitem.thumb}}" background-size="cover"></image>
+            <image class="img box_shodow border-radius" src="{{iitem.thumb}}" background-size="cover"></image>
             <text class="name">{{iitem.name}}</text>
             <text class="price">￥{{iitem.sp_price}}</text>
             <text class="o_price">￥{{iitem.sp_o_price}}</text>

@@ -26,7 +26,7 @@
         </view>
         <view class='pt-status-pic'>
                 <image src='/static/img/pt-success.png' wx:if="{{group_fail.status ==1}}"></image>
-                <image src='/static/img/pt-fail.png' wx:if="{{group_fail.status ==2}}"></image>
+                <image src='/static/img/pt-fail.png' wx:if="{{group_fail.status ==2  || group_fail.status == 4}}"></image>
         </view>
     </view>
 
@@ -35,7 +35,7 @@
             <view class='flex-grow-0 top-title flex-x-center' wx:if="{{group_fail.status==0}}">
                 还剩 <text>{{surplus}}</text> 人，仅剩 <text>{{limit_time.days}}：{{limit_time.hours}} ：{{limit_time.mins}}：{{limit_time.secs}}</text> 失效
             </view>
-            <view class='flex-grow-0 top-title flex-x-center' wx:if="{{group_fail.status==2}}">
+            <view class='flex-grow-0 top-title flex-x-center' wx:if="{{group_fail.status==2 || group_fail.status == 4}}">
                 超过有效时间， <text>拼团失败</text>
             </view>
             <view class='flex-grow-0 top-title flex-x-center' wx:if="{{group_fail.status==1}}">

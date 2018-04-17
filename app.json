@@ -42,7 +42,9 @@
     "pages/helper/helper",
     "pages/maintain/maintain",
     "pages/ucenter/collective/collective",
-    "pages/collectiveDetail/collectiveDetail"
+    "pages/collectiveDetail/collectiveDetail",
+    "pages/store/storeList/storeList",
+    "pages/store/storeInfo/storeInfo"
   ],
   "window": {
     "backgroundTextStyle": "dark",

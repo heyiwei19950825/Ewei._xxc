@@ -1,5 +1,5 @@
 .container{
-    margin-bottom: 100rpx;
+    padding-bottom: 100rpx;
 }
 .goodsimgs{
   width: 750rpx;
@@ -434,6 +434,8 @@
     width: 750rpx;
     height: auto;
     overflow: hidden;
+    margin-bottom:100rpx;
+
 }
 
 .related-goods .h{
@@ -521,29 +523,29 @@
     width: 44rpx;
 }
 
-
+.btn_group_left{
+  display: flex;
+  flex: 1;
+}
 .bottom-btn .c{
-    float: left;
     height: 100rpx;
     line-height: 96rpx;
-    flex: 1;
-    text-align: center;
-    color: #333;
-    border-top: 1px solid #f4f4f4;
-    border-bottom: 1px solid #f4f4f4;
 }
 
 .bottom-btn .r{
-    border:1px solid #b4282d;
-    background: #b4282d;
-    float: left;
     height: 100rpx;
     line-height: 96rpx;
-    flex: 1;
     text-align: center;
     color: #fff;
 }
-
+.btn_buy{
+  width: 200rpx;
+  text-align: center;
+}
+.btn_join_cart{
+  width: 200rpx;
+  text-align: center;
+}
 .footc{
   display:block;
 position:fixed;

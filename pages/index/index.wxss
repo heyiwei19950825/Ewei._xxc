@@ -15,8 +15,6 @@
 .m-menu {
   height: auto;
   width: 100%;
-  flex-flow: row wrap;
-  align-items: center;
   background-color: #fff;
 }
 
@@ -214,7 +212,7 @@
   margin-left:10rpx;
   color: #999;
   right:0rpx;
-  display:block;
+  /* display:block; */
   text-align:center;
 }
 .a-new .b .name {
@@ -301,6 +299,7 @@
   width: 750rpx;
   height: auto;
   overflow: hidden;
+  background: #fff7f5;
 }
 
 .a-collective .b .item {
@@ -618,15 +617,20 @@
 .example {
   display: block;
   width: 100%;
+  height: 40rpx;
   line-height: 40rpx;
   margin-top: 20rpx;
+  overflow: hidden;
 }
-
+@keyframes run {
+  0% { margin-left: 100%}
+  100% { margin-left: -100%}
+}
 .marquee_box {
-  width: 100%;
   height: 40rpx;
   position: relative;
   overflow: hidden;
+  animation: run 9s linear infinite;
 }
 .inform_img{
   width: 50rpx;
@@ -642,4 +646,9 @@
   line-height: 40rpx;
   color: #b4282d;
 }
-
+.box_shodow{
+  box-shadow: 0 0 10rpx #ccc;
+}
+.border-radius{
+  border-radius: 10rpx;
+}
