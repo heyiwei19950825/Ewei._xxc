@@ -13,13 +13,13 @@
     <textarea class="content" bindinput="bindContent" value='{{content}}' placeholder="对我们网站、商品、服务，你还有什么建议吗？你还希望在严选上买到什么？请告诉我们..." />
     <view class="text-count">{{contentCount}}/140</view>
   </view>
-  <view class="fb-mobile">
+  <!-- <view class="fb-mobile">
     <view class="label">手机号码</view>
     <view class="mobile-box">
       <input class="mobile"  bindinput="bindMobile" value='{{mobile}}' placeholder="方便我们与你联系" type='number' />
-      <!-- <image bindtap='bindClearMobile' class="clear-icon" src="/static/images/clear.png"></image> -->
+       <image bindtap='bindClearMobile' class="clear-icon" src="/static/images/clear.png"></image> 
     </view>
-  </view>
+  </view> -->
 
   <button class="fb-btn" bindtap='bindFankuiPost'>提交</button>
 </view>

@@ -45,14 +45,14 @@ Page({
       });
       return;
     }
-    if (that.mobile == '') {
-      wx.showToast({
-        image: '/static/images/icon_error.png',
-        title: '请输入手机号',
-        mask: true
-      });
-      return;
-    }
+    // if (that.mobile == '') {
+    //   wx.showToast({
+    //     image: '/static/images/icon_error.png',
+    //     title: '请输入手机号',
+    //     mask: true
+    //   });
+    //   return;
+    // }
     if (that.content == '') {
       wx.showToast({
         image: '/static/images/icon_error.png',

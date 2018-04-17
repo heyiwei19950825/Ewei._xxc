@@ -42,9 +42,7 @@
     "pages/helper/helper",
     "pages/maintain/maintain",
     "pages/ucenter/collective/collective",
-    "pages/collectiveDetail/collectiveDetail",
-    "pages/store/storeList/storeList",
-    "pages/store/storeInfo/storeInfo"
+    "pages/collectiveDetail/collectiveDetail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -63,12 +61,6 @@
         "iconPath": "static/images/ic_menu_choice_nor.png",
         "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
         "text": "首页"
-      },
-      {
-        "pagePath": "pages/topic/topic",
-        "iconPath": "static/images/ic_menu_topic_nor.png",
-        "selectedIconPath": "static/images/ic_menu_topic_pressed.png",
-        "text": "专题"
       },
       {
         "pagePath": "pages/catalog/catalog",

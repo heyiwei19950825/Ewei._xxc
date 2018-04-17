@@ -19,7 +19,7 @@ Page({
   },
   getCommentCount: function () {
     let that = this;
-    util.request(api.ArticleCommentCount, { valueId: that.data.valueId, typeId: that.data.typeId}).then(function (res) {
+    util.request(api.CommentCount, { valueId: that.data.valueId, typeId: that.data.typeId}).then(function (res) {
       if (res.errno === 0) {
 
         that.setData({
@@ -31,7 +31,7 @@ Page({
   },
   getCommentList: function(){
     let that = this;
-    util.request(api.ArticleCommentList, { 
+    util.request(api.CommentList, { 
       valueId: that.data.valueId, 
       typeId: that.data.typeId, 
       size: that.data.size,

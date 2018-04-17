@@ -92,19 +92,10 @@
                     <text class="number">x{{item.num}}</text>
                 </view>
                 <!-- <view class="m">{{item.goods_specifition_name_value}}</view> -->
-                <view class="b" wx:if="{{item.vip_price != 0}}">￥{{item.vip_price}}</view>
-                <view class="b" wx:if="{{item.vip_price == 0}}">￥{{item.price}}</view>
-                <view class="txt is-vip" wx:if="{{item.vip_price != 0}}">{{isVip}}</view>
+                <view class="b">￥{{item.price}}</view>
+                <view class="txt is-vip" wx:if="{{item.vip_price == 1}}">{{isVip}}</view>
             </view>
         </view>
-    </view>
-    <view class="container">
-        <view class="post-comment">
-              <view class="input-box">
-                  <textarea class="content" bindinput="bindInpuntValue" maxlength="140" placeholder="留言" />
-                  <text class="count">{{140 - content.length}}</text>
-              </view>
-          </view>
     </view>
 
     <view class="order-total">

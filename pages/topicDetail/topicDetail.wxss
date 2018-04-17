@@ -20,7 +20,7 @@
 }
 
 .comments .h{
-    height: 103rpx;
+    height: 93rpx;
     line-height: 93rpx;
     width: 720rpx;
     padding-right: 30rpx;
@@ -147,7 +147,7 @@
 .rec-box .h{
     position: relative;
     width: 690rpx;
-    height: 130rpx;
+    height: 96rpx;
     /*border-bottom: 1px solid #d0d0d0;*/
     margin-bottom: 32rpx;
 }
@@ -159,7 +159,7 @@
     top: 59rpx;
     left: 200rpx;
     width: 290rpx;
-    /* height: 45rpx; */
+    height: 45rpx;
     line-height: 45rpx;
     font-size: 30rpx;
     color: #999;
@@ -186,117 +186,4 @@
     width: 642rpx;
     font-size: 28rpx;
 }
-
-/* 关联商品 */
-.topic-goods{
-  margin-top:30rpx;
-}
-.topic-goods .b {
-  width: 750rpx;
-  height: auto;
-  overflow: hidden;
-  padding: 0 31rpx 45rpx 31rpx;
-}
-
-.topic-goods .b .item {
-  float: left;
-  width: 302rpx;
-  height:450rpx;
-  margin-top: 10rpx;
-  margin-left: 21rpx;
-  margin-right: 21rpx;
-}
-
-.topic-goods .b .item-b {
-  margin-left: 42rpx;
-}
-
-.topic-goods .b .img {
-  width: 302rpx;
-  height: 302rpx;
-}
-
-.topic-goods .b .name {
-  text-align: center;
-  display: block;
-  width: 302rpx;
-  height: 35rpx;
-  margin-bottom: 14rpx;
-  overflow: hidden;
-  font-size: 30rpx;
-  color: #333;
-}
-
-.topic-goods .b .price {
-  /* display: block; */
-  /* text-align: center; */
-  line-height: 30rpx;
-  font-size: 30rpx;
-  color: #b4282d;
-  margin-left:20rpx;
-}
-.vip_price{
-  display: block; 
-  margin-top:10rpx;
-  margin-left:20rpx;
-  line-height: 20rpx;
-  font-size: 20rpx;
-  color: #b4282d;
-}
-.o_price {
-  /* display: block; */
-  /* text-align: center; */
-  line-height: 20rpx;
-  font-size: 20rpx;
-  color: #999;
-  text-decoration:line-through;
-  margin-left:10rpx;
-}
-.market {
-  /* display: block; */
-  /* text-align: center; */
-  line-height: 20rpx;
-  font-size: 20rpx;
-  margin-left:10rpx;
-  color: #999;
-  right:0rpx;
-}
-.market-o{
-  line-height: 20rpx;
-  font-size: 20rpx;
-  margin-left:10rpx;
-  color: #999;
-  right:0rpx;
-  display:block;
-  text-align:center;
-}
-.topic-goods .b .name {
-  /* text-align: center; */
-  display: block;
-  width: 302rpx;
-  height: 35rpx;
-  margin-bottom: 14rpx;
-  overflow: hidden;
-  font-size: 30rpx;
-  color: #333;
-}
-.topic-goods .h{
-    height: 103rpx;
-    line-height: 93rpx;
-    width: 720rpx;
-    padding-right: 30rpx;
-    border-bottom: 1px solid #d9d9d9;
-    background-color:#f4f4f4;
-
-}
-
-.topic-goods .h .t{
-    display: block;
-    float: left;
-    width: 50%;
-    font-size: 29rpx;
-    color: #333;
-    margin-left:30rpx;
-}
-
 @import "../../lib/wxParse/wxParse.wxss";

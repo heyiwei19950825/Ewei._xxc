@@ -1,8 +1,8 @@
 <view class="container">
   <view class="service-policy">
     <view class="item">品质优鲜</view>
-    <view class="item">24小时快速送达</view>
-    <view class="item">满88元免邮费</view>
+    <view class="item">新鲜即达</view>
+    <view class="item">全场免运费</view>
   </view>
   <view class="no-cart" wx:if="{{cartGoods.length <= 0}}">
     <view class="c">
@@ -26,12 +26,7 @@
                 </view>
                  <!-- <view class="attr">{{ isEditCart ? '已选择:' : ''}}{{item.name}}</view>  -->
                 <view class="b">
-                  <view wx:if="{{item.vip_price!=0}}">
-                    <text class="price">￥{{item.vip_price}}</text>
-                  </view>
-                   <view wx:if="{{item.vip_price==0}}">
-                    <text class="price">￥{{item.price}}</text>
-                  </view>
+                  <text class="price">￥{{item.price}}</text>
                   <view class="selnum">
                     <view class="cut" bindtap="cutNumber" data-item-index="{{index}}">-</view>
                     <input value="{{item.num}}" class="number" disabled="true" type="number" />

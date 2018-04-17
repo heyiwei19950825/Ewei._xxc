@@ -1,4 +1,8 @@
 /**app.wxss**/
+page{
+  width: 100%;
+  height: 100%;
+}
 .container {
   box-sizing: border-box;
   background-color: #f4f4f4;
@@ -264,49 +268,3 @@ text-align: center
   top:-15rpx;
 }
 
-/*渐变背景  */
-.bg_gradient_blue {
-    color: #fff;
-    background: linear-gradient(to right, #609ef8, #4183ff);
-}
-.bg_gradient_orange {
-    color: #fff;
-    background-image: linear-gradient(to right, #ee8733, #eb5f2a);
-}
-
-.bg_gradient_green {
-    color: #fff;
-    background-image: linear-gradient(to right, #44CF81, #00bd53);
-}
-
-.bg_gradient_gold {
-    color: #fff;
-    background-image: linear-gradient(to bottom right, #f9c238, #ba912e);
-}
-
-.bg_gradient_red {
-    color: #fff;
-    background-image: linear-gradient(to right, #f8282f, #d4282d);
-}
-.bg_gradient_radialCenter{ 
-    background-image: radial-gradient(circle,rgba(0,0,0,0.2),rgba(0,0,0,0.7));
-}
-
-/*icon  */
-.icon{
-  display: inline-block;
-  width: 36rpx;
-  height: 36rpx;
-}
-.icon-new{
-  background-image: url("http://ld.mskfkj.com/uploads/goods/1521170868605600.png");
-  background-size: 100% 100%;
-}
-.icon-hot{
-  background-image: url("http://ld.mskfkj.com/uploads/goods/1521169169831178.png");
-  background-size: 100% 100%;
-}
-.icon-zhe{
-  background-image: url("http://ld.mskfkj.com/uploads/goods/1521169362494840.png");
-  background-size: 100% 100%;
-}

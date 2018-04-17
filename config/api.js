@@ -1,9 +1,7 @@
-// var NewApiRootUrl = 'https://mscy.mskfkj.com/api/v1/';
-// var NewApiRootUrl1 = 'https://mscy.mskfkj.com/api/v1/';
-var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
-var NewApiRootUrl1 = 'https://small.redkylin.com/api/v1/';
-// var NewApiRootUrl = 'https://ld.mskfkj.com/api/v1/';
-// var NewApiRootUrl1 = 'https://ld.mskfkj.com/api/v1/';
+// var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
+// var NewApiRootUrl1 = 'https://small.redkylin.com/api/v1/';
+var NewApiRootUrl = 'https://ld.mskfkj.com/api/v1/';
+var NewApiRootUrl1 = 'https://ld.mskfkj.com/api/v1/';
 // var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
 // var NewApiRootUrl1 = 'http://127.0.0.1:8360/api/';
 
@@ -38,8 +36,6 @@ module.exports = {
     CartChecked: NewApiRootUrl + 'cart/checked', // 选择或取消选择商品
     CartGoodsCount: NewApiRootUrl + 'cart/goodscount', // 获取购物车商品件数
     CartCheckout: NewApiRootUrl + 'cart/checkout', // 下单前信息确认
-    CheckStatus: NewApiRootUrl + 'cart/checkstatus', // 检查商品状态
-    
 
     OrderSubmit: NewApiRootUrl + 'order/place', // 提交订单
     UpdateOrder: NewApiRootUrl + 'order/updatestatus', // 取消订单
@@ -50,10 +46,9 @@ module.exports = {
     CollectList: NewApiRootUrl + 'collect/list',  //收藏列表
     CollectAddOrDelete: NewApiRootUrl + 'collect/addordelete',  //添加或取消收藏
 
-    //文章
-    ArticleCommentList: NewApiRootUrl + 'comment/articlelist',  //评论列表
-    ArticleCommentCount: NewApiRootUrl + 'comment/articlecount',  //评论总数
-    ArticleCommentPost: NewApiRootUrl + 'comment/articlepost',   //发表评论
+    CommentList: NewApiRootUrl1 + 'comment/list',  //评论列表
+    CommentCount: NewApiRootUrl1 + 'comment/count',  //评论总数
+    CommentPost: NewApiRootUrl1 + 'comment/post',   //发表评论
 
     TopicList: NewApiRootUrl + 'Article/list',  //专题列表
     TopicDetail: NewApiRootUrl + 'Article/detail',  //专题详情

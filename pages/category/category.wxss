@@ -133,3 +133,30 @@
   color: #999;
   right:0rpx;
 }
+.market-o{
+  float:left;
+  line-height: 50rpx;
+  font-size: 20rpx;
+  margin-left:25rpx;
+  color: #999;
+  right:0rpx;
+  display:block;
+}
+/* 添加购物车 */
+.add-cart{
+  float:right;
+  line-height:70rpx;
+  margin-top:10rpx;
+  z-index: 999;
+}
+.symbol {
+  width:20px;
+  height:20px;
+  margin:0 10px;
+  float:left;
+}
+.value{
+  float:left;
+  font-size:14px;
+  line-height:32rpx;
+}

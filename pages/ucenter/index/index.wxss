@@ -17,8 +17,7 @@ page{
     align-items: center;
     justify-content: flex-start;
     padding: 0 30.25rpx;
-    background: url('http://ld.mskfkj.com/uploads/goods/1520999662395210.jpg');
-    background-size: 100% 100%;
+    background: #333;
 }
 
 .profile-info .avatar{

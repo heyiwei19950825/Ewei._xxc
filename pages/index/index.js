@@ -17,14 +17,8 @@ Page({
     collectiveList:[],
     //公告参数
     text: '',
-    marqueePace: 1,//滚动速度
-    marqueeDistance: 0,//初始滚动距离
-    marqueeDistance2: 0,
-    marquee2copy_status: false,
-    marquee2_margin: 60,
-    size: 14,
-    orientation: 'left',//滚动方向
-    interval: 20 // 时间间隔
+    cartData: {},//购物车列表清单
+    cartIdData:{} //购物车id列表，与清单对应
   },
   onShareAppMessage: function () {
     wx.getStorageSync('shopInfo', res.data.shopInfo);
@@ -45,6 +39,7 @@ Page({
       wx.stopPullDownRefresh() //停止下拉刷新
     }, 1500);
   },
+
   getIndexData: function () {
     let that = this;
     util.request(api.IndexUrl).then(function (res) {
@@ -54,7 +49,6 @@ Page({
               url: '/pages/maintain/maintain',
             })
         }
-        console.log(res)
         that.setData({
           newGoods: res.data.newGoodsList,
           hotGoods: res.data.hotGoodsList,
@@ -94,45 +88,109 @@ Page({
   shopInfoData: function (){
 
   },
-
-  //跑马灯
-  run1: function () {
-    var vm = this;
-    var interval = setInterval(function () {
-      if (-vm.data.marqueeDistance < vm.data.length) {
-        vm.setData({
-          marqueeDistance: vm.data.marqueeDistance - vm.data.marqueePace,
-        });
-      } else {
-        clearInterval(interval);
-        vm.setData({
-          marqueeDistance: vm.data.windowWidth
-        });
-        vm.run1();
-      }
-    }, vm.data.interval);
-  },
   onLoad: function (options) {
-    app.goLogin()
+    app.goLogin((res)=>{
+      this.getCartList();
+    })
     this.getIndexData();
     this.shopInfoData();
   },
-  
-  onReady: function () {
-    // 页面渲染完成
-    var vm = this;
-    var length = vm.data.text.length * vm.data.size;//文字长度
-    var windowWidth = wx.getSystemInfoSync().windowWidth;// 屏幕宽度
-    vm.setData({
-      length: length,
-      windowWidth: windowWidth,
-      marquee2_margin: length < windowWidth ? windowWidth - length : vm.data.marquee2_margin//当文字长度小于屏幕长度时，需要增加补白
+
+  add: function (e) {
+    var that = this;
+    // 所点商品id
+    var foodId = e.currentTarget.dataset.foodId;
+    // 获取当前商品数量
+    var foodCount = that.data.cartData[foodId] ? that.data.cartData[foodId] : 0;
+    // 自增1后存回
+    that.data.cartData[foodId] = ++foodCount;
+    // 转换成购物车数据为数组
+    that.cartToArray(foodId, foodCount);
+  },
+  subtract: function (e) {
+    var that = this;
+    // 所点商品id
+    var foodId = e.currentTarget.dataset.foodId;
+    // 获取当前商品数量
+    var foodCount = that.data.cartData[foodId];
+    // 自减1
+    --foodCount;
+    // 减到零了就直接移除
+    if (foodCount == 0) {
+      delete that.data.cartData[foodId]
+    } else {
+      that.data.cartData[foodId] = foodCount;
+    }
+    // 转换成购物车数据为数组
+    that.cartToArray(foodId, foodCount);
+  },
+
+  //添加商品到购物车
+  cartToArray: function (foodId, foodCount){
+    var that = this;
+    wx.showLoading();
+    if (foodCount!=0){
+      util.request(api.CartAdd, { cartArray: this.data.cartData }, "POST")
+        .then(function (res) {
+          wx.hideLoading();
+          if (res.errno == 0) {
+            that.getCartList();
+          }else{
+            that.data.cartData[foodId] --;
+            wx.showToast({
+              image: '/static/images/icon_error.png',
+              title: res.errmsg,
+              mask: true
+            });
+          }
+
+        });
+    }else{
+      let productIds = this.data.cartIdData[foodId];
+      util.request(api.CartDelete, {
+        productIds: productIds
+      }, 'POST').then((res)=>{
+        wx.hideLoading();
+        if (res.errno === 0) {
+          this.getCartList();
+        }else{
+          wx.showToast({
+            image: '/static/images/icon_error.png',
+            title: res.errmsg,
+            mask: true
+          });
+        }
+      })
+    }
+  },
+  getCartList: function () {
+    let that = this;
+    util.request(api.CartList).then(function (res) {
+      if (res.errno === 0) {
+        let list = res.data.cartList;
+        let o = {},c = {};
+        list.forEach((val)=>{
+          o[val.goods_id] = val.num;
+          c[val.goods_id] = val.id;
+        })
+        that.setData({
+          cartData:o,
+          cartIdData:c
+        })
+      }
     });
-    
+  },
+  onReady: function () {
   },
   onShow: function () {
-    // 页面显示
-   
+    try {
+      var token = wx.getStorageSync('token');
+      console.log(token);
+      if (token) {
+        this.getCartList();
+      }
+    } catch (e) {
+    }
   },
 
   onHide: function () {

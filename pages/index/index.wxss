@@ -15,6 +15,8 @@
 .m-menu {
   height: auto;
   width: 100%;
+  flex-flow: row wrap;
+  align-items: center;
   background-color: #fff;
 }
 
@@ -30,7 +32,7 @@
   height: 58rpx;
   margin: 0 auto;
   margin-bottom: 12rpx;
-  border-radius: 55rpx;
+  border-radius: 20rpx;
 }
 
 .m-menu text {
@@ -207,13 +209,13 @@
   right:0rpx;
 }
 .market-o{
-  line-height: 20rpx;
+  float:left;
+  line-height: 50rpx;
   font-size: 20rpx;
-  margin-left:10rpx;
+  margin-left:25rpx;
   color: #999;
   right:0rpx;
-  /* display:block; */
-  text-align:center;
+  display:block;
 }
 .a-new .b .name {
   /* text-align: center; */
@@ -250,7 +252,7 @@
 .a-popular .b .right {
   float: left;
   height: 264rpx;
-  width: 456rpx;
+  /* width: 456rpx; */
   display: flex;
   flex-flow: row nowrap;
 }
@@ -264,11 +266,11 @@
   overflow: hidden;
   overflow: hidden;
   height: 264rpx;
-  width: 456rpx;
+  /* width: 456rpx; */
 }
 
 .a-popular .b .name {
-  width: 456rpx;
+  /* width: 456rpx; */
   max-height: 50rpx;
   display: block;
   overflow: hidden;
@@ -278,7 +280,7 @@
 }
 
 .a-popular .b .desc {
-  width: 456rpx;
+  /* width: 456rpx; */
   max-height: 50rpx;
   display: block;
   overflow: hidden;
@@ -288,7 +290,7 @@
 }
 
 .a-popular .b .price {
-  width: 206rpx;
+  /* width: 206rpx; */
   color: #b4282d;
   line-height: 50rpx;
   font-size: 33rpx;
@@ -507,7 +509,7 @@
   background: #fff;
   width: 365rpx;
   margin-bottom: 6.25rpx;
-  height: 502rpx;
+  height: 522rpx;
   overflow: hidden;
   text-align: center;
 }
@@ -629,7 +631,7 @@
   height: 40rpx;
   position: relative;
   overflow: hidden;
-  animation: run 9s linear infinite;
+  animation: run 12s linear infinite;
 }
 .inform_img{
   width: 50rpx;
@@ -645,9 +647,46 @@
   line-height: 40rpx;
   color: #b4282d;
 }
-.box_shodow{
-  box-shadow: 0 0 10rpx #ccc;
+.feekbackCon{
+  position:fixed;
+  bottom:32rpx;
+  right:24rpx;
+  background:#999;
+  font-size:0;
+  padding:20rpx;
+  border-radius:999rpx;
+  box-shadow:0 1rpx 3rpx rgba(0,0,0,.2);
+  z-index:100;
 }
-.border-radius{
-  border-radius: 10rpx;
+.feekbackCon text{
+  color: #ffffff;
+}
+.icon{
+    display: inline-block;
+    height: 58rpx;
+    width: 58rpx;
+    line-height: 58rpx;
+}
+.icon.feedback{
+    background: url(http://ld.mskfkj.com/uploads/goods/1522401680433332.png) no-repeat;
+    background-size: 52rpx;
+}
+
+/* 添加购物车 */
+.add-cart{
+  float:right;
+  line-height:70rpx;
+  margin-top:10rpx;
+  z-index: 999;
+}
+.symbol {
+  width:20px;
+  height:20px;
+  margin:0 10px;
+  float:left;
+}
+.value{
+  float:left;
+  font-size:14px;
+  line-height:32rpx;
 }

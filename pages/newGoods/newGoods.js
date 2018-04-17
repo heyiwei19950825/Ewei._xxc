@@ -18,7 +18,15 @@ Page({
     size: 1000
   },
   getGoodsList: function () {
-     that.getGoodsList();
+    // let that = this;
+    // util.request(api.GoodsHot).then(function (res) {
+    //   if (res.errno === 0) {
+    //     that.setData({
+    //       bannerInfo: res.data.bannerInfo,
+    //     });
+        that.getGoodsList();
+      // }
+    // });
   },
   getGoodsList() {
     var that = this;

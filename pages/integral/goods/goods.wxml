@@ -7,8 +7,8 @@
     </swiper>
     <view class="service-policy">
       <view class="item">品质优鲜</view>
-      <view class="item">24小时快速送达</view>
-      <view class="item">满88元免邮费</view>
+      <view class="item">新鲜即达</view>
+      <view class="item">全场免运费</view>
     </view>
     <view class="goods-info">
       <view class="c">

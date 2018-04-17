@@ -313,6 +313,7 @@ Page({
             wx.showToast({
               title: '添加成功'
             });
+            
             that.setData({
               openAttr: !that.data.openAttr,
               cartGoodsCount: _res.data.cartTotal.goodsCount
@@ -326,7 +327,6 @@ Page({
                 'collectBackImage': that.data.noCollectImage
               });
             }
-           
           } else {
             wx.showToast({
               image: '/static/images/icon_error.png',
@@ -409,10 +409,6 @@ Page({
             wx.showToast({
               title: '添加成功'
             });
-
-            //模拟关闭弹窗
-            that.setModalStatus(e);
-
             that.setData({
               cartGoodsCount: _res.data.cartTotal.goodsCount
             });
@@ -437,17 +433,9 @@ Page({
         });
     }else{
       let goodsId = e.currentTarget.dataset.goodsId;
-      util.request(api.CheckStatus, { goodsId: goodsId, number: that.data.number })
-        .then(function (res) {
-            if(res.errno == 0 ){
-              wx.navigateTo({
-                url: '../shopping/checkout/checkout?goodsId=' + goodsId + '&num=' + that.data.number
-              })
-            }else{
-              util.showErrorToast(res.errmsg);
-            }
-        })
-     
+      wx.navigateTo({
+        url: '../shopping/checkout/checkout?goodsId=' + goodsId + '&num=' + that.data.number
+      })
     }
     
   }

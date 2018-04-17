@@ -6,9 +6,9 @@
       </swiper-item>
     </swiper>
     <view class="service-policy">
-       <view class="item">品质优鲜</view>
-      <view class="item">24小时快速送达</view>
-      <view class="item">满88元免邮费</view>
+      <view class="item">品质优鲜</view>
+      <view class="item">新鲜即达</view>
+      <view class="item">全场免运费</view>
     </view>
     <view class="goods-info">
       <view class="c">
@@ -158,7 +158,7 @@
          </view>
     </view>
 <view class="commodity_attr_list">
-  <view class="attr_box" wx:for="{{attrValueList}}" wx:for-item="attrValueObj" wx:for-index="attrValueList" wx:key='item'>
+  <view class="attr_box" wx:for="{{attrValueList}}" wx:for-item="attrValueObj" wx:for-index="attrValueList">
     <view class="attr_name">{{attrValueObj.attrKey}}</view>
     <view class="attr_value_box">
 
@@ -179,15 +179,13 @@
       </view>
       </view>
    </view>
-   <view class="footc" bindtap="addShopCart" data-status="0" data-goods-id='{{goods.id}}'>
+   <view class="footc" bindtap="addShopCart" data-status="{{clickType}}" data-goods-id='{{goods.id}}'>
 {{clickNote}}
 </view>
   </view>
 </view>
-</scroll-view>
-<view class="bottom-btn">
-    <view class='btn_group_left'>
-      <view class="l l-collect" bindtap='openHomePage'>
+  <view class="bottom-btn">
+    <view class="l l-collect" bindtap='openHomePage'>
         <view class="box">
           <image class="icon" src="/static/images/ic_menu_choice_nor.png"></image>
         </view>
@@ -211,7 +209,7 @@
         <image bindtap="openCartPage" class="icon" src="/static/images/ic_menu_shoping_nor.png"></image>
       </view>
     </view>
-    </view>
-     <view class="c bg_gradient_orange btn_buy" bindtap='setModalStatus' data-type="buy" data-status="1">立即购买</view> 
-    <view class="r bg_gradient_red btn_join_cart" bindtap="setModalStatus"  data-type="addToCart" data-status="1">加入购物车</view>
+     <view class="c" bindtap='setModalStatus' data-type="buy" data-status="1">立即购买</view> 
+    <view class="r" bindtap="setModalStatus"  data-type="addToCart" data-status="1">加入购物车</view>
   </view>
+</scroll-view>

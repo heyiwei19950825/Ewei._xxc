@@ -12,7 +12,8 @@ Page({
     scrollTop: 0,
     scrollHeight: 0,
     page: 1,
-    size: 10000
+    size: 10000,
+    cartData: {}//购物车列表清单
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -34,6 +35,75 @@ Page({
 
     this.getCategoryInfo();
 
+  },
+  add: function (e) {
+    var that = this;
+    // 所点商品id
+    var foodId = e.currentTarget.dataset.foodId;
+    // 读取目前购物车数据
+    var cartData = that.data.cartData;
+    // 获取当前商品数量
+    var foodCount = cartData[foodId] ? cartData[foodId] : 0;
+    // 自增1后存回
+    cartData[foodId] = ++foodCount;
+    // 设值到data数据中
+    that.setData({
+      cartData: cartData
+    });
+    // 转换成购物车数据为数组
+    that.cartToArray(foodId, foodCount);
+  },
+  subtract: function (e) {
+    var that = this;
+    // 所点商品id
+    var foodId = e.currentTarget.dataset.foodId;
+    // 读取目前购物车数据
+    var cartData = that.data.cartData;
+    // 获取当前商品数量
+    var foodCount = cartData[foodId];
+    // 自减1
+    --foodCount;
+    // 减到零了就直接移除
+    if (foodCount == 0) {
+      delete cartData[foodId]
+    } else {
+      cartData[foodId] = foodCount;
+    }
+    // 设值到data数据中
+    that.setData({
+      cartData: cartData
+    });
+    // 转换成购物车数据为数组
+    that.cartToArray();
+  },
+  //添加商品到购物车
+  cartToArray: function (foodId, foodCount) {
+    var that = this;
+    util.request(api.CartAdd, { cartArray: this.data.cartData }, "POST")
+      .then(function (res) {
+        let _res = res;
+        if (_res.errno != 0) {
+          // 读取目前购物车数据
+          var cartData = that.data.cartData;
+          if (foodCount == 0) {
+            delete cartData[foodId]
+          } else {
+            cartData[foodId] = foodCount - 1;
+          }
+          // 设值到data数据中
+          that.setData({
+            cartData: cartData
+          });
+
+
+          wx.showToast({
+            image: '/static/images/icon_error.png',
+            title: _res.errmsg,
+            mask: true
+          });
+        }
+
+      });
   },
   getCategoryInfo: function () {
     let that = this;

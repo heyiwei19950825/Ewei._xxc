@@ -30,7 +30,7 @@ Page({
     }
 
 
-    util.request(api.ArticleCommentPost, {
+    util.request(api.CommentPost, {
       typeId: that.data.typeId,
       valueId: that.data.valueId,
       content: that.data.content
@@ -38,7 +38,6 @@ Page({
       if (res.errno === 0) {
         wx.showToast({
           title: '评论成功',
-          duration: 1000,
           complete: function(){
             wx.navigateBack({
               delta: 1

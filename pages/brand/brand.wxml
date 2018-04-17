@@ -1,4 +1,4 @@
- <!-- <view class="container">
+<!-- <view class="container">
     <view class="brand-list" >
         <navigator url="../collective/collective?id={{item.id}}"  class="item" wx:for="{{brandList}}" wx:key="id">
             <view class="img-bg">
@@ -18,7 +18,7 @@
             </view>
         </navigator >
     </view>
-</view>  -->
+</view> -->
 
 
 <!--pages/pt/index.wxml--> 
@@ -173,7 +173,7 @@
     <include src="/commons/float-icon/float-icon.wxml"/>
 </block>
 
- <view class='new-group flex-y-center'>
+<!-- <view class='new-group flex-y-center'>
         <view class='new-group-bg'></view>
         <view class='new-group-info flex-row flex-y-center'>
             <view class='flex-grow-0 flex-y-center'>
@@ -183,4 +183,4 @@
                 最新团来自疯狂的小土豆啊，100秒前
             </view>
         </view>
-</view> 
+</view> -->

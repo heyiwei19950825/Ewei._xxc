@@ -22,12 +22,15 @@ App({
     },
     token: '',
   },
-  goLogin: function() {
+  goLogin: function(callback) {
     wx.showLoading({
       title: "正在登录",
       mask: true,
     });
-    user.loginByWeixin().then(res => {
+    user.loginByWeixin().then((res) => {
+      if (callback && callback instanceof Function) {
+        callback(res);
+      }
       // wx.removeStorageSync('token');
       // wx.removeStorageSync('userInfo');
       app.globalData.userInfo = res.data.userInfo;

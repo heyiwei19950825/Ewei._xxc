@@ -13,11 +13,7 @@
                 <view class="btn" bindtap="updateOrder" data-status="8" wx:if="{{orderInfo.order_status == 0}}">取消订单</view>
                 <view class="btn active" bindtap="payOrder" wx:if="{{orderInfo.order_status == 0}}">付款</view>
                 <view class="btn active" bindtap="updateOrder" data-status="3" wx:if="{{orderInfo.order_status == 2}}">签收</view>
-            </view>
-        </view>
-        <view class="item-c" wx:if="{{orderInfo.order_status == 0}}">
-          <view class="r">
-                <view style='color:red;font-size:25rpx;'>30分钟内未付款系统将自动删除订单信息</view>
+                
             </view>
         </view>
     </view>
@@ -38,28 +34,13 @@
                         <text class="number">x{{item.num}}</text>
                     </view>
                     <!-- <view class="attr">{{item.goods_specifition_name_value}}</view> -->
-                    <view wx:if="{{item.point_exchange_type == 0}}">
-                      <view class="price" wx:if="{{item.vip_price != 0}}">￥{{item.vip_price}}</view>
-                      <view class="price" wx:if="{{item.vip_price == 0}}">￥{{item.price}}</view>
-                      <view class="txt is-vip" wx:if="{{item.vip_price != 0}}">会员价</view>
-                      <view class="cost-price">原价 ￥{{item.cost_price}}</view>
-                    </view>
-                     <view wx:if="{{item.point_exchange_type == 1}}">
-                      <view class="price">积分{{item.sp_integral}}</view>
-                    </view>
-                    
+                    <view class="price">￥{{item.cost_price}}</view>
                 </view>
             </view>
         </view>
     </view>
 
     <view class="order-bottom">
-        <view class="address" wx:if="{{orderInfo.buyer_message!=''}}">
-            <view class="t">
-                <text class="name">留言内容：</text>
-                <text class="mobile">{{orderInfo.buyer_message}}</text>
-            </view>
-        </view>
         <view class="address">
             <view class="t">
                 <text class="name">{{orderInfo.receiver_name}}</text>

@@ -28,10 +28,10 @@ page {
 
 .pay-result .btn {
   text-align: center;
-  /* height: 80rpx; */
+  height: 80rpx;
   margin: 0 20rpx;
   width: 200rpx;
-  /* line-height: 78rpx; */
+  line-height: 78rpx;
   border: 1px solid #868686;
   color: #000000;
   border-radius: 5rpx;

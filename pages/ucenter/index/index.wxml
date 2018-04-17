@@ -21,13 +21,13 @@
         <text class="txt">我的订单</text>
       </navigator>
     </view>
-    <view class="item">
+    <view class="item" style='display:none'>
       <navigator url="/pages/ucenter/collective/collective" class="a">
         <text class="icon gift"></text>
         <text class="txt">我的团购</text>
       </navigator>
     </view>   
-    <view class="item">
+    <view class="item" style='display:none'>
       <navigator url="/pages/ucenter/coupon/coupon" class="a">
         <text class="icon coupon"></text>
         <text class="txt">优惠券</text>
@@ -57,7 +57,7 @@
         <text class="txt">积分中心</text>
       </navigator>
     </view>
-    <view class="item" >
+    <view class="item"  style='display:none'>
        <navigator url="../member/member" class="a"> 
       <!-- <navigator url="/pages/auth/register/register" class="a"> -->
       
