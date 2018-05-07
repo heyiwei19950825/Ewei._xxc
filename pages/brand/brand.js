@@ -12,6 +12,7 @@ Page({
     scrollTop: 0,
     emptyGoods: 0,
     page_count: 0,
+    banner:'',
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -26,7 +27,8 @@ Page({
       if (res.errno === 0) {
         that.setData({
           goods: that.data.brandList.concat(res.data.data),
-          totalPages: res.data.totalPages
+          totalPages: res.data.totalPages,
+          banner:res.data.banner
         });
       }
       wx.hideLoading();

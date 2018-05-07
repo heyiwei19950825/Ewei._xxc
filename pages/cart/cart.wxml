@@ -1,8 +1,8 @@
 <view class="container">
   <view class="service-policy">
-    <view class="item">品质优鲜</view>
-    <view class="item">24小时快速送达</view>
-    <view class="item">满88元免邮费</view>
+  <view wx:for="{{commitment}}" wx:key="k">
+    <view class="item">{{item}}</view>
+  </view>
   </view>
   <view class="no-cart" wx:if="{{cartGoods.length <= 0}}">
     <view class="c">

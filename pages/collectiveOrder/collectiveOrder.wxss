@@ -331,3 +331,12 @@ page{
   text-align:center;
   margin-left:20rpx;
 }
+
+.shop-name{
+  width:100%;
+  height:40rpx;
+  line-height:40rpx;
+  padding:15rpx 0 30rpx 30rpx;
+  font-weight:bold;
+
+}

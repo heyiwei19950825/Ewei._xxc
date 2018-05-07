@@ -1,11 +1,11 @@
 // var NewApiRootUrl = 'https://mscy.mskfkj.com/api/v1/';
 // var NewApiRootUrl1 = 'https://mscy.mskfkj.com/api/v1/';
-var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
-var NewApiRootUrl1 = 'https://small.redkylin.com/api/v1/';
+// var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
+// var NewApiRootUrl1 = 'https://small.redkylin.com/api/v1/';
 // var NewApiRootUrl = 'https://ld.mskfkj.com/api/v1/';
 // var NewApiRootUrl1 = 'https://ld.mskfkj.com/api/v1/';
-// var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
-// var NewApiRootUrl1 = 'http://127.0.0.1:8360/api/';
+var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
+var NewApiRootUrl1 = 'http://127.0.0.1:8360/api/';
 
 
 
@@ -54,10 +54,10 @@ module.exports = {
     ArticleCommentList: NewApiRootUrl + 'comment/articlelist',  //评论列表
     ArticleCommentCount: NewApiRootUrl + 'comment/articlecount',  //评论总数
     ArticleCommentPost: NewApiRootUrl + 'comment/articlepost',   //发表评论
-
     TopicList: NewApiRootUrl + 'Article/list',  //专题列表
     TopicDetail: NewApiRootUrl + 'Article/detail',  //专题详情
     TopicRelated: NewApiRootUrl + 'Article/related',  //相关专题
+    AritcleCategoryList: NewApiRootUrl + 'Article/articleCategoryList',//文章分类
 
     SearchIndex: NewApiRootUrl + 'search/index',  //搜索页面数据
     SearchResult: NewApiRootUrl1 + 'search/result',  //搜索数据
@@ -77,10 +77,11 @@ module.exports = {
 
     FootprintList: NewApiRootUrl + 'footprint/list',  //足迹列表
     FootprintDelete: NewApiRootUrl1 + 'footprint/delete',  //删除足迹
-    CouponList: NewApiRootUrl + 'coupon/userCouponList',  //优惠券列表
-    UseCouponList: NewApiRootUrl + 'coupon/useCouponList',  //用户优惠券列表
+    UserCouponList: NewApiRootUrl + 'coupon/userCouponList',  //用户优惠券列表
+    UseCouponList: NewApiRootUrl + 'coupon/useCouponList',  //用户可用优惠券列表
     UserGetCoupon: NewApiRootUrl + 'coupon/userGetCoupon',  //用户领取优惠券
-
+    CouponList: NewApiRootUrl + 'coupon/list',  //用户领取优惠券
+  
     IntegralPay: NewApiRootUrl + 'integral/integralCart',   //积分购买商品
 
     GoodsCollective: NewApiRootUrl + 'collective/getList',//团购商品列表
@@ -93,6 +94,16 @@ module.exports = {
     FeedBack: NewApiRootUrl+'feedBack/add',//用户反馈
     GetHelper: NewApiRootUrl + 'shop/helper',//用户反馈
     ApplyVip: NewApiRootUrl + 'user/applyvip',//申请会员
+
+    ShopEnter: NewApiRootUrl + 'shop/enter', //商家入驻
+    ShopList: NewApiRootUrl + 'shop/shopList',//商家列表
+    ShopInfo: NewApiRootUrl + 'shop/shopInfo',//商家店铺
+    GetShopGroup: NewApiRootUrl + 'shop/shopGroup',//商家店铺分类
+    getShopOne: NewApiRootUrl + 'shop/getOneGoods',//获取商品信息
+    
+    ShopGoodsList: NewApiRootUrl + 'shop/goodsByCategory',//获取分类商品列表
+    GetShopCategory: NewApiRootUrl + 'shop/getShopCategory',//获取分类商品列表
+    
     
     
     

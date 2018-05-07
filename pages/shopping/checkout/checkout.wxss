@@ -330,7 +330,7 @@ page, .container {
 }
 
 .post-comment .input-box .content {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
   display: block;
@@ -372,4 +372,19 @@ page, .container {
   line-height: 108rpx;
   text-align: right;
   padding: 0 30rpx;
+}
+.cart-goods{
+  margin-top:20rpx;
+background:#fff;
+
+}
+.shop-name{
+height:83.3rpx;
+line-height:83.3rpx;
+margin-left:31.25rpx;
+padding-right:31.25rpx;
+border-bottom:1px solid #f4f4f4;
+font-size:30rpx;
+color:#333;
+font-weight: bold;
 }

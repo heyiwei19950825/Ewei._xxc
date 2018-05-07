@@ -1,20 +1,31 @@
-
-<!--index.wxml-->
+<!-- 公告 -->
+<view class='notice flex-row' wx:if='{{text}}' bindtap='showNotice'>
+      <view class='flex-grow-0 flex-y-center notice-a'>
+          <image src='/static/img/icon-notice.png' style='width:36rpx;height:36rpx;margin-right:24rpx;'></image>
+          <view>公告：</view>
+      </view>
+      <view class='flex-grow-1 notice-box'>
+          <view class='notice-content'>
+              <view style='display: inline-block;'>{{text}}</view>
+          </view>
+      </view>
+</view>
 <!-- 轮播 -->
 <view class="container">
+  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+    <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
+      <navigator url="{{item.actions}}{{item.actions_id}}">
+        <view class='image_con'><image src="{{item.image}}" background-size="cover"></image></view>
+      </navigator>
+    </swiper-item>
+  </swiper>
   <view class="search">
     <navigator url="/pages/search/search" class="input">
       <image class="icon"></image>
       <text class="txt">商品搜索</text>
     </navigator>
   </view>
-  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
-    <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
-      <navigator url="{{item.actions}}{{item.actions_id}}}">
-        <view class='image_con'><image src="{{item.image}}" background-size="cover"></image></view>
-      </navigator>
-    </swiper-item>
-  </swiper>
+
   <!-- 菜单 -->
   <view class="m-menu clearfix">
     <navigator  class="item" url="{{item.link}}" wx:for="{{nav}}" wx:key="{{item.id}}">
@@ -33,45 +44,98 @@
           <view bindtap='userGetCoupon' data-id='{{item.coupon_type_id}}'>
             <view class="coupon-item">
             <text class='price'>￥ {{item.money}}</text>
-            <text class='name'>{{item.coupon_name}}</text>
+            <text class='name'>{{item.coupon_name}} {{item.range_type}}</text>
             </view>
           </view>
         </view>
       </scroll-view>
     </view>
   </view>
-  <!-- 公告 -->
-  <view class="example" wx:if="{{text != ''}}">
-    <view class="marquee_box">
-      <!-- <image src='/static/images/inform.png' class="inform_img"></image> -->
-      <view class="marquee_text" style="{{orientation}}:{{marqueeDistance}}px;font-size: {{size}}px;">
-        通知：{{text}}
-      </view>
-    </view>
-  </view>
-  <view class="a-section a-brand" wx:if="{{nav.length > 0}}">
-      <view class="h">
-      <navigator url="../brand/brand">
-        <text class="txt">精选活动</text>
-      </navigator>
-    </view>  
-    <view class="b">
-      <view class="item item-1" wx:for="{{nav}}" wx:key="item.id">
-        <navigator url="{{item.link}}">
-          <view class="wrap">
-            <image class="img" src="{{item.icon}}" mode="aspectFill"></image>
-          </view>
-        </navigator>
-      </view>
-    </view>
-  </view> 
+
+
+  <view class='pic-model'>
+    <block wx:if="{{block.data.pic_list.length==1}}">
+                    <view class="user-block" style="height: auto">
+                        <navigator style="display:block;font-size: 0;width: 100%;height: auto;" bindtap="navigatorClick" data-url="{{block.data.pic_list[0].url}}" data-open_type="{{block.data.pic_list[0].open_type}}" url="{{block.data.pic_list[0].url}}">
+                            <image src="{{block.data.pic_list[0].pic_url}}" mode="widthFix" style="width: 100%;"></image>
+                        </navigator>
+                    </view>
+                </block>
+
+                <block wx:if="{{block.data.pic_list.length==2}}">
+                    <view class="flex-row user-block" style="height: 360rpx;">
+                        <view class="flex-grow-0" style="width: 300rpx;height: 100%; border-right: 5rpx solid transparent">
+                            <navigator style="display:block;font-size: 0;width: 100%;height: 100%;" bindtap="navigatorClick" data-url="{{block.data.pic_list[0].url}}" data-open_type="{{block.data.pic_list[0].open_type}}" url="{{block.data.pic_list[0].url}}">
+                                <image src="{{block.data.pic_list[0].pic_url}}" style="width: 100%;height: 100%;" mode="aspectFill"></image>
+                            </navigator>
+                        </view>
+                        <view class="flex-grow-1" style="height: 100%;">
+                            <navigator style="display:block;font-size: 0;width: 100%;height: 100%;" bindtap="navigatorClick" data-url="{{block.data.pic_list[1].url}}" data-open_type="{{block.data.pic_list[1].open_type}}" url="{{block.data.pic_list[1].url}}">
+                                <image src="{{block.data.pic_list[1].pic_url}}" style="width: 100%;height: 100%;" mode="aspectFill"></image>
+                            </navigator>
+                        </view>
+                    </view>
+                </block>
+
+                <block wx:if="{{block.data.pic_list.length==3}}">
+                    <view class="flex-row user-block" style="height: 360rpx;">
+                        <view class="flex-grow-0" style="width: 300rpx;height: 100%;border-right: 5rpx solid transparent">
+                            <navigator style="display:block;font-size: 0;width: 100%;height: 100%;" bindtap="navigatorClick" data-url="{{block.data.pic_list[0].url}}" data-open_type="{{block.data.pic_list[0].open_type}}" url="{{block.data.pic_list[0].url}}">
+                                <image src="{{block.data.pic_list[0].pic_url}}" style="width: 100%;height: 100%;" mode="aspectFill"></image>
+                            </navigator>
+                        </view>
+                        <view class="flex-grow-1 flex-col" style="height: 100%;">
+                            <view class="flex-grow-1" style="height: 50%;border-bottom: 5rpx solid transparent">
+                                <navigator style="display:block;font-size: 0;width: 100%;height: 100%;" bindtap="navigatorClick" data-url="{{block.data.pic_list[1].url}}" data-open_type="{{block.data.pic_list[1].open_type}}" url="{{block.data.pic_list[1].url}}">
+                                    <image src="{{block.data.pic_list[1].pic_url}}" style="width: 100%;height: 100%;" mode="aspectFill"></image>
+                                </navigator>
+                            </view>
+                            <view class="flex-grow-1" style="height: 50%">
+                                <navigator style="display:block;font-size: 0;width: 100%;height: 100%;" bindtap="navigatorClick" data-url="{{block.data.pic_list[2].url}}" data-open_type="{{block.data.pic_list[2].open_type}}" url="{{block.data.pic_list[2].url}}">
+                                    <image src="{{block.data.pic_list[2].pic_url}}" style="width: 100%;height: 100%;" mode="aspectFill"></image>
+                                </navigator>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+
+                <block wx:if="{{block.data.pic_list.length==4}}">
+                    <view class="flex-row user-block" style="height: 360rpx;">
+                        <view class="flex-grow-0" style="width: 300rpx;height: 100%;border-right: 5rpx solid transparent">
+                            <navigator style="display:block;font-size: 0;width: 100%;height: 100%;" bindtap="navigatorClick" data-url="{{block.data.pic_list[0].url}}" data-open_type="{{block.data.pic_list[0].open_type}}" url="{{block.data.pic_list[0].url}}">
+                                <image src="{{block.data.pic_list[0].pic_url}}" style="width: 100%;height: 100%;" mode="aspectFill"></image>
+                            </navigator>
+                        </view>
+                        <view class="flex-grow-1 flex-col" style="height: 100%">
+                            <view class="flex-grow-1" style="height: 50%;border-bottom: 5rpx solid transparent">
+                                <navigator style="display:block;font-size: 0;width: 100%;height: 100%;" bindtap="navigatorClick" data-url="{{block.data.pic_list[1].url}}" data-open_type="{{block.data.pic_list[1].open_type}}" url="{{block.data.pic_list[1].url}}">
+                                    <image src="{{block.data.pic_list[1].pic_url}}" style="width: 100%;height: 100%;" mode="aspectFill"></image>
+                                </navigator>
+                            </view>
+                            <view class="flex-grow-1 flex-row" style="height: 50%">
+                                <view class="flex-grow-1" style="height: 100%;border-right: 5rpx solid transparent">
+                                    <navigator style="display:block;font-size: 0;width: 100%;height: 100%;" bindtap="navigatorClick" data-url="{{block.data.pic_list[2].url}}" data-open_type="{{block.data.pic_list[2].open_type}}" url="{{block.data.pic_list[2].url}}">
+                                        <image src="{{block.data.pic_list[2].pic_url}}" style="width: 100%;height: 100%;" mode="aspectFill"></image>
+                                    </navigator>
+                                </view>
+                                <view class="flex-grow-1" style="height: 100%;">
+                                    <navigator style="display:block;font-size: 0;width: 100%;height: 100%;" bindtap="navigatorClick" data-url="{{block.data.pic_list[3].url}}" data-open_type="{{block.data.pic_list[3].open_type}}" url="{{block.data.pic_list[3].url}}">
+                                        <image src="{{block.data.pic_list[3].pic_url}}" style="width: 100%;height: 100%;" mode="aspectFill"></image>
+                                    </navigator>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+</view> 
   <view class="a-section a-collective" wx:if="{{collectiveList.length > 0}}" >
     <view class="h c">
-      <view>
         <navigator url="/pages/brand/brand">
-          <text class="txt">更多团购商品</text>
+          <view class="flex-grow-1 flex-y-bottom">
+              <image src="/static/img/icon-pintuan-text.png" style="width: 88rpx;height: 40rpx;margin-right: 20rpx"></image>
+              <view style="color: #aaa;font-size: 9pt;line-height: 1.2">限量拼团，每日必逛</view>
+          </view>
         </navigator>
-      </view>
     </view>
     <view class="b">
       <view class="item" wx:for="{{collectiveList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
@@ -91,12 +155,13 @@
     </view>
   </view>
   <view class="a-section a-new" wx:if="{{newGoods.length > 0}}">
-    <view class="h">
-      <view>
-        <view class='border-bg'>
-          <text class="txt">新品首发</text>
-        </view>
-      </view>
+    <view class="h c">
+        <navigator url="/pages/brand/brand">
+          <view class="flex-grow-1 flex-y-bottom">
+              <image src="/static/img/new.png" style="width: 88rpx;height: 40rpx;margin-right: 20rpx"></image>
+              <view style="color: #aaa;font-size: 9pt;line-height: 1.2">{{modelTitle.new.title}}</view>
+          </view>
+        </navigator>
     </view>
     <view class="b">
       <view class="item" wx:for="{{newGoods}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
@@ -112,12 +177,11 @@
     </view>
   </view>
   <view class="a-section a-popular" wx:if="{{hotGoods.length > 0}}">
-    <view class="h">
-      <view>
-        <view class='border-bg'>
-          <text class="txt">人气推荐</text>
+    <view class="h c">
+        <view class="flex-grow-1 flex-y-bottom">
+            <image src="/static/img/renqi.png" style="width: 88rpx;height: 40rpx;margin-right: 20rpx"></image>
+            <view style="color: #aaa;font-size: 9pt;line-height: 1.2">{{modelTitle.hot.title}}</view>
         </view>
-      </view>
     </view>
     <view class="b">
       <view class="item" wx:for="{{hotGoods}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
@@ -130,20 +194,21 @@
               <text class="price">￥{{item.sp_price}}</text>
               <text class="o_price">￥{{item.sp_o_price}}</text>
               <text class="market">已售:{{item.sp_market}}</text>
-              <view wx:if="{{item.sp_vip_price > 0}}"><text class="vip_price">会员售价:￥{{item.sp_vip_price}}</text></view>
+              <view wx:if="{{item.sp_vip_price > 0}}"><text class="r_vip_price">会员售价:￥{{item.sp_vip_price}}</text></view>
             </view>
           </view>
         </navigator>
       </view>
     </view>
   </view>
-  <view class="a-section a-topic" wx:if="topics.length > 0">
+  <view class="a-section a-topic" wx:if="{{topics.length > 0}}">
     <view class="h c">
-      <view class='border-bg'>
-      <navigator url="/pages/topic/topic" open-type="switchTab">
-        <text class="txt">精选文章</text>
+        <navigator url="/pages/topic/topic">
+          <view class="flex-grow-1 flex-y-bottom">
+              <image src="/static/img/zhuanti.png" style="width: 88rpx;height: 40rpx;margin-right: 20rpx"></image>
+              <view style="color: #aaa;font-size: 9pt;line-height: 1.2">{{modelTitle.article.title}}</view>
+          </view>
         </navigator>
-      </view>
     </view>
     <view class="b">
       <scroll-view scroll-x="true" class="list">
@@ -160,11 +225,15 @@
       </scroll-view>
     </view>
   </view>
+  <!-- 分类商品信息 -->
   <view class="good-grid" wx:for="{{floorGoods}}" wx:key="{{item.id}}"  wx:if="{{item.goodsList  != ''}}">
-    <view class="h" wx:if="{{item.name != ''}}">
-      <view>
-        <text>{{item.name}}</text>
-      </view>
+     <view class="title-bar flex-y-center flex-x-center" wx:if="{{item.name != ''}}">
+        <view class="title-line"></view>
+        <view class="title flex-y-center">
+            <image src="{{item.icon}}" mode="aspectFill"></image>
+            <text>{{item.name}}</text>
+        </view>
+        <view class="title-line"></view>
     </view>
     <view class="b">
       <block wx:for="{{item.goodsList}}" wx:for-index="iindex" wx:for-item="iitem" wx:key="{{iitem.id}}">

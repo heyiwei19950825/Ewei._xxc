@@ -35,7 +35,7 @@
             <!-- <block wx:for="{{banner}}"> -->
                 <!-- <swiper-item> -->
                     <view> 
-                        <image src="/static/banner/pt_banner.jpg" class="slide-image" mode="aspectFill"/>
+                        <image src="{{banner}}" class="slide-image"/>
                     </view> 
                 <!-- </swiper-item> -->
             <!-- </block> -->
@@ -43,7 +43,6 @@
     <!-- Banner 结束 -->
     <!--    advert  start   -->
     <view class='advert' wx:if="{{ad && ad.length>0}}">
-
         <view class='division'> </view>
         <block wx:if="{{ad.length==1}}">
             <view class="user-block" style="height: auto">
@@ -173,7 +172,7 @@
     <include src="/commons/float-icon/float-icon.wxml"/>
 </block>
 
- <view class='new-group flex-y-center'>
+ <!-- <view class='new-group flex-y-center'>
         <view class='new-group-bg'></view>
         <view class='new-group-info flex-row flex-y-center'>
             <view class='flex-grow-0 flex-y-center'>
@@ -183,4 +182,4 @@
                 最新团来自疯狂的小土豆啊，100秒前
             </view>
         </view>
-</view> 
+</view>  -->

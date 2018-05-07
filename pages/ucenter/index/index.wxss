@@ -17,7 +17,7 @@ page{
     align-items: center;
     justify-content: flex-start;
     padding: 0 30.25rpx;
-    background: url('http://ld.mskfkj.com/uploads/goods/1520999662395210.jpg');
+    background: url('http://wq.mskfkj.com/public/1520999662395210.jpg');
     background-size: 100% 100%;
 }
 
@@ -140,8 +140,8 @@ page{
     background-size: 52.803rpx;
 }
 .user-menu .icon.integral{
-    background: url(http://small.redkylin.com/uploads/common/1519997445.png) 0 0 no-repeat;
-    background-size: 52.803rpx;
+    background: url(https://wq.mskfkj.com/public/integral.png) 0 0 no-repeat;
+    background-size: 62.803rpx;
     
 }
 
@@ -156,8 +156,16 @@ page{
 }
 
 .user-menu .icon.shop{
-    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -312.5rpx no-repeat;
-    background-size: 52.803rpx;
+    background: url(https://wq.mskfkj.com/public/shop.png) 0 0 no-repeat;
+    background-size:52.803rpx;
+}
+.user-menu .icon.vip{
+    background: url(https://wq.mskfkj.com/public/vip.png) 0 0 no-repeat;
+    background-size:52.803rpx;
+}
+.user-menu .icon.collect{
+    background: url(https://wq.mskfkj.com/public/collect.png) 0 0 no-repeat;
+    background-size:52.803rpx;
 }
 
 .user-menu .icon.help{
@@ -205,3 +213,39 @@ page{
   opacity: 0;
   z-index:999999;
 } */
+.integral-bg,.integral{
+    height:100rpx;
+    width:100%;
+    position:relative;
+    bottom:0;
+    left:0;
+}
+.integral-bg{
+    background-color:#888888;
+    opacity:0.1;
+}
+.integral{
+    padding: 0 27rpx;
+    color:#fff;
+    font-size:12pt;
+}
+.integral text{
+    margin-left:20rpx; 
+}
+.integral image{
+    width:52rpx;
+    height:54rpx;
+    margin-right: 20rpx;
+}
+.integral-num{
+    margin-left: 20rpx;
+}
+.user-integral-arrow image{
+    width: 16rpx;
+    height: 26rpx;
+}
+.user-integral-go{
+    font-size: 11pt;
+    color: #666666;
+    margin-right: 20rpx;
+}

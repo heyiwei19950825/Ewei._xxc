@@ -170,10 +170,12 @@ page{
 .cate-item .item .integral{
   display: block;
   width: 345.625rpx;
-  height: 30rpx;
+  height: 25rpx;
   text-align: center;
-  font-size: 30rpx;
+  font-size: 25rpx;
   color: #b4282d;
+  padding-left:15px;
+
 }
 .cate-item .item .integral .price{
   /* display: block; */

@@ -80,9 +80,10 @@
             </view>
         </view>
     </view>
-
+    <view class="cart-goods" wx:for='{{checkedGoodsList}}'  wx:key="{{index}}" wx:for-item="items">
+    <view class="shop-name">{{index}}</view>
     <view class="goods-items">
-        <view class="item" wx:for="{{checkedGoodsList}}" wx:key="{{item.id}}">
+        <view class="item" wx:for="{{items}}" wx:key="{{item.id}}">
             <view class="img">
                 <image src="{{item.goods_picture}}"></image>
             </view>
@@ -91,21 +92,22 @@
                     <text class="name">{{item.goods_name}}</text>
                     <text class="number">x{{item.num}}</text>
                 </view>
-                <!-- <view class="m">{{item.goods_specifition_name_value}}</view> -->
                 <view class="b" wx:if="{{item.vip_price != 0}}">￥{{item.vip_price}}</view>
                 <view class="b" wx:if="{{item.vip_price == 0}}">￥{{item.price}}</view>
                 <view class="txt is-vip" wx:if="{{item.vip_price != 0}}">{{isVip}}</view>
             </view>
         </view>
     </view>
-    <view class="container">
+    </view>
+    
+    <!-- <view class="container">
         <view class="post-comment">
               <view class="input-box">
                   <textarea class="content" bindinput="bindInpuntValue" maxlength="140" placeholder="留言" />
                   <text class="count">{{140 - content.length}}</text>
               </view>
           </view>
-    </view>
+    </view> -->
 
     <view class="order-total">
         <view class="l">实付：￥{{actualPrice}}</view>

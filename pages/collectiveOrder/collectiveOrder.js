@@ -15,7 +15,8 @@ Page({
     collective_no: '',
     goodsId: 0,
     num: 0,
-    userInfo: []
+    userInfo: [],
+    shop:[]
   },
   onLoad: function (options) {
 
@@ -63,7 +64,7 @@ Page({
           checkedAddress: res.data.checkedAddress,
           actualPrice: res.data.actualPrice,
           product: res.data.product,
-
+          shop:res.data.shop,
           //   couponNumber: res.data.couponNumber,
           //   couponPrice: res.data.couponPrice,
           freightPrice: res.data.freightPrice,
@@ -72,7 +73,7 @@ Page({
           //   rankDiscount: res.data.rankDiscount
 
         });
-
+        console.log(that.data.shop);
         //有默认收货地址
         if (that.data.addressId == 0 && that.data.checkedAddress != 0) {
           that.setData({

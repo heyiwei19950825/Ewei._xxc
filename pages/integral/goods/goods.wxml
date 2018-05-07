@@ -6,9 +6,9 @@
       </swiper-item>
     </swiper>
     <view class="service-policy">
-      <view class="item">品质优鲜</view>
-      <view class="item">24小时快速送达</view>
-      <view class="item">满88元免邮费</view>
+    <view wx:for="{{commitment}}" wx:key="k">
+      <view class="item">{{item}}</view>
+    </view>
     </view>
     <view class="goods-info">
       <view class="c">
@@ -156,7 +156,7 @@
          </view>
     </view>
 <view class="commodity_attr_list">
-  <view class="attr_box" wx:for="{{attrValueList}}" wx:for-item="attrValueObj" wx:for-index="attrValueList">
+  <view class="attr_box" wx:for="{{attrValueList}}" wx:for-item="attrValueObj" wx:for-index="attrValueList" wx:key='index'>
     <view class="attr_name">{{attrValueObj.attrKey}}</view>
     <view class="attr_value_box">
 

@@ -5,7 +5,7 @@ var app = getApp();
 Page({
   data: {
     bannerInfo: {
-      'img_url': 'https://small.redkylin.com/uploads/common/1516629219.png',
+      'img_url': 'http://wq.mskfkj.com/public/1520405232.jpg',
       'name': '积分商城'
     },
     categoryFilter: false,
@@ -28,7 +28,8 @@ Page({
         if (res.errno === 0) {
           that.setData({
             goodsList: res.data.goodsList,
-            filterCategory: res.data.filterCategory
+            filterCategory: res.data.filterCategory,
+            bannerInfo:res.data.banner
           });
         }
       });

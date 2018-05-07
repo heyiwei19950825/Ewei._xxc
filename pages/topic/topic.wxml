@@ -1,16 +1,25 @@
 <view class="container">
-    <scroll-view class="topic-list" scroll-y="true" scroll-top="{{scrollTop}}">
-        <navigator class="item" wx:for="{{topicList}}" wx:key="{{item.id}}" url="../topicDetail/topicDetail?id={{item.id}}">
-            <image class="img" src="{{item.thumb}}"></image>
-            <view class="info">
-                <text class="title">{{item.title}}</text>
-                <text class="desc">{{item.introduction}}</text>
-                <text class="price">阅读量：{{item.reading}}次</text>
+    <view class="cate-nav">
+        <scroll-view scroll-x="true" class="cate-nav-body" style="width: 750rpx;" scroll-left="{{scrollLeft}}">
+            <view  wx:for="{{navList}}" class="item {{ id == item.id ? 'active' : ''}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchCate">
+                <view class="name">{{item.name}}</view>
             </view>
-        </navigator>
-        <view class="page" wx:if="{{showPage}}">
-            <view class="prev {{ page <= 1 ? 'disabled' : ''}}" bindtap="prevPage">上一页</view>
-            <view class="next {{ (count / size) < page +1 ? 'disabled' : ''}}" bindtap="nextPage">下一页</view>
-        </view>
+        </scroll-view>
+    </view>
+    <scroll-view  class="topic-list" scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}};margin-top:100rpx;">
+    <view class="cate-item">
+          <navigator class="item" wx:for="{{topicList}}" wx:key="{{item.id}}" url="../topicDetail/topicDetail?id={{item.id}}">
+          <image class="img" src="{{item.thumb}}"></image>
+          <view class="info">
+          <text class="title">{{item.title}}</text>
+          <text class="desc">{{item.introduction}}</text>
+          <text class="price">阅读量：{{item.reading}}次</text>
+          </view>
+          </navigator>
+          <!-- <view class="page" wx:if="{{showPage}}">
+          <view class="prev {{ page <= 1 ? 'disabled' : ''}}" bindtap="prevPage">上一页</view>
+          <view class="next {{ (count / size) < page +1 ? 'disabled' : ''}}" bindtap="nextPage">下一页</view>
+          </view> -->
+    </view>
     </scroll-view>
 </view>

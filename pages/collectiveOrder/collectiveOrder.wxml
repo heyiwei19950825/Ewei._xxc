@@ -51,7 +51,9 @@
             </view>
         </view>
     </view>
-
+    <view class='shop-name' wx:if="{{that.data.shop != 'null' }}">
+          {{shop.shop_name}}
+    </view>
     <view class="goods-items">
         <view class="item">
             <view class="img">

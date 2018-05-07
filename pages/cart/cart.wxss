@@ -219,6 +219,7 @@ page{
     height: 52rpx;
     border: 1rpx solid #ccc;
     display: flex;
+    margin-left:170rpx;
 }
 
 .selnum .cut{

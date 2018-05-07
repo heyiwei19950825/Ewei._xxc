@@ -59,6 +59,8 @@ page{
 .fb-mobile{
   height: 162rpx;
   width: 100%;
+  padding-left:20rpx;
+  padding-right:20rpx;
 }
 
 .fb-mobile .label{
@@ -77,8 +79,6 @@ page{
   height: 104rpx;
   width: 100%;
   color: #333;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
   font-size: 24rpx;
   background: #fff;
   position: relative;
@@ -89,7 +89,7 @@ page{
   top: 27rpx;
   left: 30rpx;
   height: 50rpx;
-  width: 100%;
+  width: 93%;
   color: #333;
   line-height: 50rpx;
   font-size: 24rpx;

@@ -10,14 +10,25 @@ Page({
    */
   data: {
     collectiveList: [],
+    types: 9999
   },
+  switchOrder: function (event) {
+    if (this.data.types == event.currentTarget.dataset.types) {
+      return false;
+    }
+    console.log(event.currentTarget.dataset.types);
+    this.setData({
+      types: event.currentTarget.dataset.types
+    });
 
+    this.getCollectiveList();
+  },
   /**
    * 获取拼团信息
    */
   getCollectiveList:function(){
     let that = this;
-    util.request(api.CollectiveOrder).then(function (res){
+    util.request(api.CollectiveOrder, { types: that.data.types }).then(function (res){
       that.setData({
         collectiveList: res.data,
       });

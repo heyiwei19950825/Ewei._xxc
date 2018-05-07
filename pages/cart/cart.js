@@ -12,6 +12,9 @@ Page({
       "checkedGoodsCount": 0,
       "checkedGoodsAmount": 0.00
     },
+    commitment:[
+
+    ],
     isEditCart: false,
     checkedAllStatus: true,
     editCartList: []
@@ -28,6 +31,10 @@ Page({
     }, 1500);
   },
   onLoad: function (options) {
+    let that = this;
+    this.setData({
+      commitment: wx.getStorageSync('commitment')
+    })
     // 页面初始化 options为页面跳转所带来的参数
     this.goLogin();
   },

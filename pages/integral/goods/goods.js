@@ -22,7 +22,8 @@ Page({
     openAttr: false,
     noCollectImage: "/static/images/icon_collect.png",
     hasCollectImage: "/static/images/icon_collect_checked.png",
-    collectBackImage: "/static/images/icon_collect.png"
+    collectBackImage: "/static/images/icon_collect.png",
+    commitment: []
   },
   getGoodsInfo: function () {
     let that = this;
@@ -218,8 +219,8 @@ Page({
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     this.setData({
-      id: parseInt(options.id)
-      // id: 1181000
+      id: parseInt(options.id),
+      commitment: wx.getStorageSync('commitment')
     });
     var that = this;
     this.getGoodsInfo();

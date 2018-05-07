@@ -105,7 +105,7 @@ page{
 .order-goods .item{
     display: flex;
     align-items: center;
-    height: 192rpx;
+    height: 220rpx;
     margin-left: 31.25rpx;
     padding-right: 31.25rpx;
     border-bottom: 1px solid #f4f4f4;
@@ -137,6 +137,14 @@ page{
     height: 33rpx;
     line-height: 33rpx;
     margin-bottom: 10.5rpx;
+}
+.order-goods .item .ts{
+    margin-top: 8rpx;
+    height: 33rpx;
+    line-height: 33rpx;
+    margin-bottom: 10.5rpx;
+    font-size:15rpx;
+    color:#999;
 }
 
 .order-goods .item .t .name{

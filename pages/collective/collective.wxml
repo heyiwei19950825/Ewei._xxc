@@ -6,9 +6,9 @@
       </swiper-item>
     </swiper>
     <view class="service-policy">
-      <view class="item">品质优鲜</view>
-      <view class="item">24小时快速送达</view>
-      <view class="item">满88元免邮费</view>
+      <view wx:for="{{commitment}}" wx:key="k">
+      <view class="item">{{item}}</view>
+    </view>
     </view>
     <view class="goods-info">
       <view class="c">
@@ -141,8 +141,33 @@
     </view>
   </view> -->
 
+</scroll-view>
+<view class="bottom-btn">
+   <view class='btn_group_left'>
+       <view class="l l-collect" bindtap='openHomePage'>
+        <view class="box">
+          <image class="icon" src="/static/images/ic_menu_choice_nor.png"></image>
+        </view>
+    </view>
+    <view class="l l-cart">
+      <view class="box">
+          <contact-button type="default-light" session-from="productId_{{itemData.id}}" class="ke">
+            <contact-button class="pos"></contact-button>
+              <image class="icon" src="/static/images/detail_kefu.png"></image>
+          </contact-button >
+      </view>
+    </view>
+    <view class="l l-cart {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect" >
+      <view class="box">
+        <image class="icon" src="{{ collectBackImage }}"></image>
+      </view>
+    </view>
+   </view>
+    <!-- <view class="c"> </view> -->
+    <view class="r bg_gradient_red btn_join_cart" bindtap="setModalStatus"  data-status="1">{{goods.user_number}}拼团</view>
+  </view>
    <!--弹窗-->
-<view class="drawer_screen attr-pop" bindtap="setModalStatus" data-status="0" wx:if="{{showModalStatus}}"></view>
+  <view class="drawer_screen attr-pop" bindtap="setModalStatus" data-status="0" wx:if="{{showModalStatus}}"></view>
 <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
 <view class="close_icon" bindtap="setModalStatus" data-status="0">×</view>
 <view class="drawer_attr_content">
@@ -181,28 +206,3 @@
 </view>
   </view>
 </view>
-</scroll-view>
-<view class="bottom-btn">
-   <view class='btn_group_left'>
-       <view class="l l-collect" bindtap='openHomePage'>
-        <view class="box">
-          <image class="icon" src="/static/images/ic_menu_choice_nor.png"></image>
-        </view>
-    </view>
-    <view class="l l-cart">
-      <view class="box">
-          <contact-button type="default-light" session-from="productId_{{itemData.id}}" class="ke">
-            <contact-button class="pos"></contact-button>
-              <image class="icon" src="/static/images/detail_kefu.png"></image>
-          </contact-button >
-      </view>
-    </view>
-    <view class="l l-cart {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect" >
-      <view class="box">
-        <image class="icon" src="{{ collectBackImage }}"></image>
-      </view>
-    </view>
-   </view>
-    <!-- <view class="c"> </view> -->
-    <view class="r bg_gradient_red btn_join_cart" bindtap="setModalStatus"  data-status="1">{{goods.user_number}}拼团</view>
-  </view>

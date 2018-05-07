@@ -15,16 +15,8 @@ Page({
     channel: [],
     couponList:[],
     collectiveList:[],
-    //公告参数
-    text: '',
-    marqueePace: 1,//滚动速度
-    marqueeDistance: 0,//初始滚动距离
-    marqueeDistance2: 0,
-    marquee2copy_status: false,
-    marquee2_margin: 60,
-    size: 14,
-    orientation: 'left',//滚动方向
-    interval: 20 // 时间间隔
+    block:[],
+    text: '',//公告参数
   },
   onShareAppMessage: function () {
     wx.getStorageSync('shopInfo', res.data.shopInfo);
@@ -54,7 +46,6 @@ Page({
               url: '/pages/maintain/maintain',
             })
         }
-        console.log(res)
         that.setData({
           newGoods: res.data.newGoodsList,
           hotGoods: res.data.hotGoodsList,
@@ -65,8 +56,12 @@ Page({
           channel: res.data.channel,
           couponList: res.data.couponList,
           collectiveList: res.data.collectiveList,
-          text: res.data.system.inform
+          text: res.data.system.inform,
+          block: res.data.picModel,
+          modelTitle: res.data.system.title
         });
+
+        wx.setStorageSync('commitment', res.data.system.commitment.value);
         //设置店铺信息
         wx.setStorageSync('shopInfo', res.data.shopInfo);
         //设置分类页面标题
@@ -94,24 +89,6 @@ Page({
   shopInfoData: function (){
 
   },
-
-  //跑马灯
-  run1: function () {
-    var vm = this;
-    var interval = setInterval(function () {
-      if (-vm.data.marqueeDistance < vm.data.length) {
-        vm.setData({
-          marqueeDistance: vm.data.marqueeDistance - vm.data.marqueePace,
-        });
-      } else {
-        clearInterval(interval);
-        vm.setData({
-          marqueeDistance: vm.data.windowWidth
-        });
-        vm.run1();
-      }
-    }, vm.data.interval);
-  },
   onLoad: function (options) {
     app.goLogin()
     this.getIndexData();
@@ -119,16 +96,6 @@ Page({
   },
   
   onReady: function () {
-    // 页面渲染完成
-    var vm = this;
-    var length = vm.data.text.length * vm.data.size;//文字长度
-    var windowWidth = wx.getSystemInfoSync().windowWidth;// 屏幕宽度
-    vm.setData({
-      length: length,
-      windowWidth: windowWidth,
-      marquee2_margin: length < windowWidth ? windowWidth - length : vm.data.marquee2_margin//当文字长度小于屏幕长度时，需要增加补白
-    });
-    
   },
   onShow: function () {
     // 页面显示

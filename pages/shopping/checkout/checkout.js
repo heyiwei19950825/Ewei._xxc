@@ -32,35 +32,35 @@ Page({
       var addressId = wx.getStorageSync('addressId');
       if (options.addressId) {
         this.setData({
-          'addressId': addressId
+          addressId: addressId
         });
       }
 
       var goodsId = options.goodsId;
       if (goodsId) {
         this.setData({
-          'goodsId': goodsId
+          goodsId: goodsId
         });
       }
 
       var num = options.num;
       if (num) {
         this.setData({
-          'num': num
+          num: num
         });
       }
 
       var couponId = options.couponId;
       if (couponId) {
         this.setData({
-          'couponId': couponId
+          couponId: couponId
         });
       }
       //判断是否是VIP
       let userInfo = app.globalData.userInfo;
       if (userInfo.is_vip ==2 ){
         this.setData({
-          'isVip':'会员价'
+          isVip:'会员价'
         })
       }
       
@@ -87,7 +87,7 @@ Page({
     let that = this;
     util.request(api.CartCheckout, { goodsId: that.data.goodsId, num: that.data.num,addressId: that.data.addressId, couponId: that.data.couponId }).then(function (res) {
       if (res.errno === 0) {
-        //console.log(res.data);
+       
         that.setData({
           checkedGoodsList: res.data.checkedGoodsList,
           checkedAddress: res.data.checkedAddress,
@@ -102,7 +102,7 @@ Page({
           rankDiscount: res.data.rankDiscount
           
         });
-
+ console.log(res.data.checkedGoodsList);
         //有默认收货地址
         if (that.data.addressId == 0 && that.data.checkedAddress != 0) {
           that.setData({

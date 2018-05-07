@@ -47,7 +47,6 @@
                      <view wx:if="{{item.point_exchange_type == 1}}">
                       <view class="price">积分{{item.sp_integral}}</view>
                     </view>
-                    
                 </view>
             </view>
         </view>
@@ -91,7 +90,7 @@
         <view class="h">
             <view class="label">{{item.express_name}}</view>
             <view wx:if="{{item.express_no == 0}}">
-              <view class="status">商家配送</view>
+              <view class="status">{{item.express_company}}</view>
             </view>
              <view wx:if="{{item.express_no != 0}}">
               <view class="status">快递单号： {{item.express_no}}</view>
@@ -106,6 +105,12 @@
                 <view class="info">
                     <view class="t">
                         <text class="name">{{iitem.goods_name}}</text>
+                    </view>
+                    <view class="t">
+                        <text class="name"></text>
+                    </view>
+                    <view class="ts">
+                        <text class="name">发货时间：{{item.express_time}}</text>
                     </view>
                 </view>
             </view>

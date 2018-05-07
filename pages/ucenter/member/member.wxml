@@ -11,16 +11,6 @@
 						<text>{{vipNote}}</text>
 					</view>
 				</view>
-				<!-- <view class='wave-wrap'>
-					<view class='m-ware-box'>
-						<view class="marquee-box marquee-up">
-							<view class="marquee">
-							</view>
-						</view>
-						<view class='m-ware-box'>
-						</view>
-					</view>
-				</view> -->
 			</view>
 		</view>
 		
@@ -31,7 +21,7 @@
 		        <navigator>
 		          <text class="txt">
                 <text class='text_c'>
-                  {{title}} <text class='reason' wx:if="{{reason != '' }}">[{{reason}}]</text>
+                  {{title}} <text class='reason' wx:if="{{reason != '' && reason != null}}">[{{reason}}]</text>
                 </text>
               </text>
 		        </navigator>
@@ -72,7 +62,7 @@
               <view class="cate-item">
                 <view class="b">
                   <block wx:for="{{goodsList}}" wx:for-index="iindex" wx:for-item="iitem" wx:key="unique">
-                    <navigator class="item {{iindex % 2 == 0 ? 'item-b' : '' }}" url="../integral/goods/goods?id={{iitem.id}}">
+                    <navigator class="item {{iindex % 2 == 0 ? 'item-b' : '' }}" url="../../goods/goods?id={{iitem.id}}">
                       <image class="img" src="{{iitem.thumb}}" background-size="cover"></image>
                       <text class="name">{{iitem.name}}</text>
                       <text class="integral">￥{{iitem.sp_vip_price}}<text class='price'>￥{{iitem.sp_price}}</text> 

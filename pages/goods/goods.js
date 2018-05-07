@@ -24,7 +24,8 @@ Page({
     hasCollectImage: "/static/images/icon_collect_checked.png",
     collectBackImage: "/static/images/icon_collect.png",
     clickType:false,
-    clickNote:'立即购买'
+    clickNote:'立即购买',
+    commitment:[]
   },
   getGoodsInfo: function () {
     let that = this;
@@ -185,7 +186,8 @@ Page({
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     this.setData({
-      id: parseInt(options.id)
+      id: parseInt(options.id),
+      commitment: wx.getStorageSync('commitment')
       // id: 1181000
     });
     var that = this;
