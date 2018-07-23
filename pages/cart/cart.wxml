@@ -81,5 +81,9 @@
       <view class="checkout" bindtap="deleteCart" wx:if="{{isEditCart}}">删除所选</view>
       <view class="checkout" bindtap="checkoutOrder" wx:if="{{!isEditCart}}">下单</view>
     </view>
+  
+  </view>
+  <!-- 好物推荐 -->
+  <view>
   </view>
 </view>

@@ -6,7 +6,7 @@
         <view class="flex-grow-0">{{topic.reading}}人浏览</view>
     </view>
 </view>
-  <scroll-view class="content">
+  <scroll-view class="content"  style='padding:5%;width:90%;background:#fff;'>
     <import src="../../lib/wxParse/wxParse.wxml"/> 
     <template is="wxParse" data="{{wxParseData:topicDetail.nodes}}"/>
   </scroll-view>

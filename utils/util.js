@@ -132,15 +132,15 @@ function getUserInfo() {
       },
       fail: function (res) {
         wx.hideLoading();
-        getApp().getauth({
-          content: '需要获取您的用户信息授权，请到小程序设置中打开授权',
-          cancel: true,
-          success: function (e) {
-            if (e) {
-              getApp().goLogin();
-            }
-          },
-        });
+        // getApp().getauth({
+        //   content: '需要获取您的用户信息授权，请到小程序设置中打开授权',
+        //   cancel: true,
+        //   success: function (e) {
+        //     if (e) {
+        //       getApp().goLogin();
+        //     }
+        //   },
+        // });
       }
     })
   });

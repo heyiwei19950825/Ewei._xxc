@@ -1,30 +1,16 @@
-<view class="container">
-    <view class="form-box">
-
-    	<view class="form-item">
-    		<input class="username" value="{{username}}" bindinput="bindUsernameInput" placeholder="账号" auto-focus/>
-    		<image wx:if="{{ username.length > 0 }}" id="clear-username" class="clear" src="/static/images/clear_input.png" catchtap="clearInput"></image>
-    	</view>
-
-    	<view class="form-item">
-    		<input class="password" value="{{password}}" password bindinput="bindPasswordInput" placeholder="密码"/>
-    		<image class="clear" id="clear-password" wx:if="{{ password.length > 0 }}" src="/static/images/clear_input.png" catchtap="clearInput"></image>
-    	</view>
-
-		<view class="form-item-code" wx-if="{{loginErrorCount >= 3}}">
-			<view class="form-item code-item">
-				<input class="code" value="{{code}}" bindinput="bindCodeInput" placeholder="验证码"/>
-				<image class="clear" id="clear-code" wx:if="{{ code.length > 0 }}" src="/static/images/clear_input.png" catchtap="clearInput"></image>
-			</view>
-			<image class="code-img" src="https://dl.reg.163.com/cp?pd=yanxuan_web&pkid=SkeBZeG&random=1489903563234"></image>
-		</view>
-
-    	<button type="default" class="login-btn" bindtap="startLogin">登录</button>
-
-    	<view class="form-item-text">
-    		<navigator url="/pages/auth/register/register" class="register">注册账号</navigator>
-			<navigator url="/pages/auth/reset/reset" class="reset">忘记密码</navigator>
-    	</view>
-
+<include src="/commons/extension/extension"></include>
+<include src="/commons/navbar/navbar"></include>
+<view class="after-navber">
+    <view style="padding: 0 60rpx">
+        <view style="padding:80rpx 0 48rpx;border-bottom: 1rpx solid #e3e3e3;margin-bottom: 72rpx;text-align: center">
+            <image src="../../../static/images/logo (2).png" style="width: 400rpx;height: 200rpx;"></image>
+            <view>
+              七品圈
+            </view>
+        </view>
+       
+        <view style="font-size: 13pt;margin-bottom: 40rpx">申请获取以下权限</view>
+        <view style="color: #888;margin-bottom: 88rpx">获得你的公开信息（昵称、头像等）</view>
+        <button bindgetuserinfo="getUserInfo" class="login-btn" openType="getUserInfo">授权登录</button>
     </view>
 </view>

@@ -12,7 +12,6 @@ Page({
     scrollHeight: 0
   },
   onLoad: function (options) {
-    this.getCatalog();
   },
   getCatalog: function () {
     //CatalogList
@@ -48,6 +47,7 @@ Page({
   },
   onShow: function () {
     // 页面显示
+    this.getCatalog();
   },
   onHide: function () {
     // 页面隐藏

@@ -1,11 +1,7 @@
-// var NewApiRootUrl = 'https://mscy.mskfkj.com/api/v1/';
-// var NewApiRootUrl1 = 'https://mscy.mskfkj.com/api/v1/';
-// var NewApiRootUrl = 'https://small.redkylin.com/api/v1/';
-// var NewApiRootUrl1 = 'https://small.redkylin.com/api/v1/';
-// var NewApiRootUrl = 'https://ld.mskfkj.com/api/v1/';
-// var NewApiRootUrl1 = 'https://ld.mskfkj.com/api/v1/';
-var NewApiRootUrl = 'http://admin.ewei.com/api/v1/';
-var NewApiRootUrl1 = 'http://127.0.0.1:8360/api/';
+
+var NewApiRootUrl = 'https://api.redkylin.com/api/v1/';
+var NewApiRootUrl1 = 'https://api.redkylin.com/api/v1/';
+
 
 
 

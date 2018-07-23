@@ -31,19 +31,25 @@ Page({
     }, 1500);
   },
   onLoad: function (options) {
+    // let that = this;
+    // this.setData({
+    //   commitment: wx.getStorageSync('commitment')
+    // })
+    // // 页面初始化 options为页面跳转所带来的参数
+    // this.goLogin();
+  },
+  onReady: function () {
+    // 页面渲染完成
+
+  },
+  onShow: function (options) {
+    // 页面显示
     let that = this;
     this.setData({
       commitment: wx.getStorageSync('commitment')
     })
     // 页面初始化 options为页面跳转所带来的参数
     this.goLogin();
-  },
-  onReady: function () {
-    // 页面渲染完成
-
-  },
-  onShow: function () {
-    // 页面显示
     this.getCartList();
   },
   onHide: function () {

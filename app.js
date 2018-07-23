@@ -10,7 +10,10 @@ App({
       this.globalData.userInfo = wx.getStorageSync('userInfo');
       this.globalData.token = wx.getStorageSync('token');
     }).catch(() => {
-
+      //跳转登陆页面
+      wx.redirectTo({
+        url: 'pages/auth/login/login',
+      })
     });
   },
 
@@ -28,12 +31,10 @@ App({
       mask: true,
     });
     user.loginByWeixin().then(res => {
-      // wx.removeStorageSync('token');
-      // wx.removeStorageSync('userInfo');
       app.globalData.userInfo = res.data.userInfo;
       app.globalData.token = res.data.token;
     }).catch((err) => {
-      // //console.log(err)
+      console.log(err)
     });
   },
 

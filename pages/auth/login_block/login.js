@@ -1,6 +1,4 @@
 var api = require('../../../config/api.js');
-var user = require('../../../services/user.js');
-
 var app = getApp();
 Page({
   data: {
@@ -12,6 +10,7 @@ Page({
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     // 页面渲染完成
+
   },
   onReady: function () {
 
@@ -50,14 +49,14 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        if (res.data.code == 200) {
+        if(res.data.code == 200){
           that.setData({
             'loginErrorCount': 0
           });
           wx.setStorage({
-            key: "token",
+            key:"token",
             data: res.data.data.token,
-            success: function () {
+            success: function(){
               wx.switchTab({
                 url: '/pages/ucenter/index/index'
               });
@@ -104,13 +103,5 @@ Page({
         break;
     }
   },
-  //获取用户信息
-  getUserInfo: function (t) {
-    if ("getUserInfo:ok" == t.detail.errMsg){
-      app.goLogin();
-      wx.switchTab({
-        url: '/pages/index/index',
-      })
-    }
-  }
+
 })
