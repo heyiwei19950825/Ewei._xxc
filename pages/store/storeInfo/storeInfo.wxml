@@ -56,7 +56,7 @@
 	</view>
 	<view class="fee" bindtap="cascadeToggle">
 		<view wx:if="{{amount}}" class="food-fee">{{amount}}</view>
-		<view wx:if="{{amount}}" class="express-fee">{{seller.express_fee}}</view>
+		<view wx:if="{{amount}}" class="express-fee">{{seller.express_fee}}0元</view>
 	</view>
 	<view class="checkout {{amount  >= 0 && amount > 0 ? '' : 'checkout-disabled'}}" bindtap="{{amount  >= 0 && amount > 0 ? 'checkout' : ''}}">{{amount  >= 0 ? '去结算' : '还差' + ( amount) + '元起送'}}</view>
 	
@@ -71,8 +71,8 @@
 	    </view>
 	    <scroll-view class="modal-body" scroll-y="true" style="height: {{scrollHeight}}px;">
 	    	<view class="item" wx:for="{{cartObjects}}" wx:key="">
-	    		<view class="modal-titles">{{item.food.name}}</view>
-	    		<view class="fee">{{item.food.sp_price * item.quantity}}</view>
+	    		<text class="modal-titles">{{item.food.name}}</text>
+	    		<view class="item-fee">{{item.food.sp_price * item.quantity}}</view>
 	    		<view class="steppers-model">
 					<!-- 减号 -->
 					<image src="/static/img/subtract.png" class="symbol" bindtap="subtract" wx:if="{{cartData[item.food.id]}}" data-food-id="{{item.food.id}}" />

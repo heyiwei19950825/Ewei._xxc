@@ -5,7 +5,7 @@ var app = getApp();
 Page({
   data: {
     bannerInfo: {
-      'img_url': 'http://wq.mskfkj.com/public/1520405232.jpg',
+      'img_url': 'http://api.redkylin.com/uploads/goods_group/1532276477.jpg',
       'name': '积分商城'
     },
     categoryFilter: false,

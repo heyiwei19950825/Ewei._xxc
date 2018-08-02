@@ -245,8 +245,8 @@
   margin-top: 12rpx;
   margin-right: 12rpx;
   float: left;
-  width: 240rpx;
-  height: 240rpx;
+  width: 200rpx;
+  height: 200rpx;
 }
 
 .a-popular .b .right {
@@ -265,7 +265,7 @@ text-align:center;
 
 .a-popular .b .text {
   /* display: flex; */
-  margin-top: 55rpx;
+  margin-top: 15rpx;
   flex-wrap: nowrap;
   flex-direction: column;
   justify-content: center;
@@ -277,7 +277,7 @@ text-align:center;
 
 .a-popular .b .name {
   width: 456rpx;
-  max-height: 50rpx;
+  /* max-height: 50rpx; */
   display: block;
   overflow: hidden;
   color: #333;

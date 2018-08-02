@@ -22,6 +22,7 @@ Page({
         id: parseInt(options.id)
       });
     }
+    console.log(that.data.id);
 
     wx.getSystemInfo({
       success: function (res) {

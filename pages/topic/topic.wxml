@@ -7,7 +7,7 @@
         </scroll-view>
     </view>
     <scroll-view  class="topic-list" scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}};margin-top:100rpx;">
-    <view class="cate-item">
+    <view class="cate-item" style='height:{{height}}'>
           <navigator class="item" wx:for="{{topicList}}" wx:key="{{item.id}}" url="../topicDetail/topicDetail?id={{item.id}}">
           <image class="img" src="{{item.thumb}}"></image>
           <view class="info">

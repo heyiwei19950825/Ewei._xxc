@@ -12,7 +12,7 @@
 </view>
 <!-- 轮播 -->
 <view class="container">
-  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000"  circular="true">
     <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
       <navigator url="{{item.actions}}{{item.actions_id}}">
         <view class='image_con'><image src="{{item.image}}" background-size="cover"></image></view>
@@ -167,10 +167,10 @@
       <view class="item" wx:for="{{newGoods}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
         <navigator url="/pages/goods/goods?id={{item.id}}">
           <image class="img box_shodow border-radius" src="{{item.thumb}}" background-size="cover"></image>
-          <text class="name">{{item.name}}</text>
-          <text class="price">￥{{item.sp_price}}</text>
-          <text class="o_price">￥{{item.sp_price}}</text>
-          <text class="market-o">已售:{{item.sp_market}}</text>
+           <view class="name">{{item.name}}</view>
+          <view class="price">￥{{item.sp_price}}</view>
+          <view class="o_price">￥{{item.sp_price}}</view>
+          <view class="market-o">已售:{{item.sp_market}}</view>
           <view wx:if="{{item.sp_vip_price > 0}}"><text class="vip_price">会员售价:￥{{item.sp_vip_price}}</text></view>
         </navigator>
       </view>
@@ -263,8 +263,8 @@
   </view> -->
   <view class='footer-copyright'>
     <view class="footer-div">
-      <image src="../../static/images/logo.png" class="icon_copyright" />
-      <text class="footer-zz">技术支持</text>
+      <!-- <image src="../../static/images/logo.png" class="icon_copyright" /> -->
+      <text class="footer-zz">版权归：贺宜伟所有</text>
     </view>
   </view>
 

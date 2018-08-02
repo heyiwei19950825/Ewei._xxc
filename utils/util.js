@@ -108,7 +108,7 @@ function login() {
       success: function (res) {
         if (res.code) {
           //登录远程服务器
-          // //console.log(res)
+          console.log(res)
           resolve(res);
         } else {
           reject(res);
@@ -127,11 +127,15 @@ function getUserInfo() {
       withCredentials: true,
       success: function (res) {
         wx.hideLoading();
-        // //console.log(res)
         resolve(res);
       },
       fail: function (res) {
         wx.hideLoading();
+        //跳转登陆页面
+        wx.redirectTo({
+          url: '/pages/auth/login/login',
+        })
+        
         // getApp().getauth({
         //   content: '需要获取您的用户信息授权，请到小程序设置中打开授权',
         //   cancel: true,

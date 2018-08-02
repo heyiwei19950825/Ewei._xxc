@@ -112,8 +112,10 @@
   <!-- <view class="logout" bindtap="exitLogin">退出登录</view> -->
   <view class='footer-copyright'>
     <view class="footer-div">
-      <image src="../../../static/images/logo.png" class="icon_copyright" />
-      <text class="footer-zz">技术支持</text>
+      <!-- <image src="../../../static/images/logo.png" class="icon_copyright" />
+      <text class="footer-zz">技术支持</text> -->
+      <text class="footer-zz">版权归：贺宜伟所有</text>
+      
     </view>
   </view>
 </view>

@@ -106,7 +106,6 @@ Page({
       this.getCategory(this.data.id);
     },
     getTopic: function( id ){
-       
         let that = this;
          that.setData({
             scrollTop: 0,
@@ -122,7 +121,6 @@ Page({
 
         util.request(api.TopicList, { cid:id,page: that.data.page, size: that.data.size }).then(function (res) {
           if (res.errno === 0) {
-
             that.setData({
               scrollTop: 0,
               topicList: res.data.data,
@@ -130,6 +128,15 @@ Page({
               count: res.data.count
             });
           }
+         
+          var query = wx.createSelectorQuery();
+          //选择id
+          query.select('.top-item').boundingClientRect(function (rect) {
+            var topHieght = rect.width * that.data.topicList.length
+            that.setData({
+              height: topHieght + 'px'
+            })
+          }).exec();
           wx.hideToast();
         });
         
